@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="black_dark">#FF000000</color>
+    <color name="blackApp">#121212</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="white_dark">#FFFFFFFF</color>
+    <color name="white_dark_dialog">#FFFFFFFF</color>
+    <color name="white_dark_dialog_choose_image">#FFFFFFFF</color>
+    <color name="white_dark_chat">#FFFFFFFF</color>
+    <color name="white_dark_reverese">#000000</color>
+    <color name="border_search">#FFFFFFFF</color>
+    <color name="border_profile_detail">#cccccc</color>
+    <color name="border_search_pedpo">#F1F1F1</color>
+    <color name="border_search_gray">#f8f8f8</color>
+    <color name="back_adapter_paging">#FFFFFFFF</color>
+    <color name="back_box_language">#FFD8D5</color>
+
+    <color name="text_title_medium">#4E4E4E</color>
+
+    <!--    <color name="tinticon">#F2F1F1</color>-->
+    <color name="tinticon">#aaaaaa</color>
+    <color name="gray_app">#F7F7F7</color>
+    <color name="gray_app2">#7E7E7E</color>
+    <color name="grey_pedpo_transparent">#5BC8C5C5</color>
+    <color name="line">#eee</color>
+    <color name="back_multi_btn">#eeeeee</color>
+
+    <color name="backCalendar">#EFEFEF</color>
+    <color name="cell">#EFEFEF</color>
+
+    <color name="colorPrimary">#FA7169</color>
+    <color name="colorPrimaryTransparet">#7EFA7169</color>
+    <color name="colorPrimaryFloat">#FFFFFF</color>
+    <color name="color_text_calendar">#505050</color>
+    <color name="label_calendar">#808080</color>
+    <color name="colorPrimaryFloatButton">#7C888F</color>
+
+    <color name="black_Title">#121212</color>
+    <color name="gray_f0">#f0f0f0</color>
+    <color name="gray_e">#eeeeee</color>
+    <color name="gray_c">#cccccc</color>
+    <color name="gray_border_detail">#D1D1D1</color>
+
+    <color name="black_standard">#676767</color>
+    <color name="gray_standard">#b5b5b5</color>
+    <color name="gray_standard_dark">#b5b5b5</color>
+    <color name="gray_standard_ali">#666666</color>
+    <color name="gray_2">#222222</color>
+    <color name="gray_a">#888888</color>
+    <color name="gray_7">#777777</color>
+    <color name="gray_standard_bold">#737373</color>
+    <color name="gray_cell_calendar_kmm">#C5C5C5</color>
+
+    <color name="actionbar">#F8F8F8</color>
+
+    <color name="link_blue">#19BFD3</color>
+
+    <color name="bg_light_blue">#EBF5FF</color>
+    <color name="blue_fab">#ce80b8f0</color>
+    <color name="blue_verify_code">#0274FD</color>
+
+    <color name="red_error">#FF2B2B</color>
+    <color name="green">#01AC0A</color>
+<!--    <color name="greenBold">#045C09</color>-->
+
+<!--    <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#C4C4C4</color>-->
+<!--    <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#B51E1E</color>-->
+
+    <color name="lineAdd">#DADADA</color>
+    <color name="title_gray">#616161</color>
+
+    <color name="dot_active">#f54409</color>
+    <color name="dot_inActive">#ffffff</color>
+    <color name="gray_box">#888888</color>
+    <color name="gray_box_empty">#D5D5D5</color>
+    <color name="gray_light">#E9E9E9</color>
+    <color name="gray_light_frag_menu">#BEBEBE</color>
+
+    <color name="gray_focus_edittext">#C4C4C4</color>
+    <color name="gray_un_focus_edittext">#6A6A6A</color>
+    <color name="gray_un_focus_edittext_ticket">#eeeeee</color>
+    <color name="gray_focus_edittext_ticket">#eeeeee</color>
+
+    <color name="gray_background">#AEF7F7F7</color>
+    <color name="add_image">#000000</color>
+    <color name="background_adapter_photo">#fff</color>
+    <color name="background_home">#f8f8f8</color>
+    <color name="background_bottom_sheet">#f8f8f8</color>
+    <color name="text_category_type">#444444</color>
+    <color name="testDark">#f0f</color>
+    <color name="thumb_color">#F7F7F7</color>
+    <color name="text_color_custom_box">#3C3C3C</color>
+
+    <color name="adapter_category">#F7F7F7</color>
+    <color name="start_color_shadow_description">#99FFFFFF</color>
+    <color name="center_color_shadow_description">#BFFFFFFF</color>
+
+
+    <color name="calendar_text">#474747</color>
+    <color name="date_color">#000</color>
+    <color name="default_date_color">#3b4144</color>
+    <color name="disable_date_color">#D1D1D1</color>
+    <color name="range_bg_color">@color/colorPrimaryTransparet</color>
+    <color name="range_date_color">@color/black</color>
+    <color name="selected_date_circle_color">@color/colorPrimary</color>
+    <color name="selected_date_color">#FFF</color>
+    <color name="title_color">#000</color>
+    <color name="week_color">#000</color>
+    <color name="title_calendar">#6E6B6B</color>
+    <color name="back_arrow_calendar">#BFD6D6D6</color>
+    <color name="border_box_detials">#D5D5D5</color>
+    <color name="background__box">#FCFCFC</color>
+    <color name="background_card_no_active">#80FCFCFC</color>
+
+</resources>

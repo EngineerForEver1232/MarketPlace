@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="PersianDatePicker">
+        <attr name="minYear" format="integer" />
+        <attr name="maxYear" format="integer" />
+        <attr name="selectedYear" format="integer" />
+        <attr name="selectedMonth" format="integer" />
+        <attr name="selectedDay" format="integer" />
+        <attr name="displayMonthNames" format="boolean" />
+        <attr name="yearRange" format="integer" />
+        <attr name="displayDescription" format="boolean" />
+        <attr name="timezone" format="string" />
+    </declare-styleable>
+
+
+    <attr name="appDrawableBackground" format="reference"/>
+    <attr name="appBackground" format="reference|color"/>
+    <attr name="appSecondBackground" format="reference|color"/>
+    <attr name="appLinesColor" format="reference|color"/>
+    <attr name="appHitColor" format="reference|color"/>
+    <attr name="appTextTitleColor" format="reference|color"/>
+    <attr name="appTextSubTitleColor" format="reference|color"/>
+    <attr name="appTabEnableColor" format="reference|color"/>
+    <attr name="appTabDisableColor" format="reference|color"/>
+    <attr name="appTextPrimaryColor" format="reference|color"/>
+    <attr name="appTextSecondaryColor" format="reference|color"/>
+    <attr name="appCardsColor" format="reference|color"/>
+    <attr name="appCheckBoxColor" format="reference|color"/>
+    <attr name="appInputsBackground" format="reference"/>
+
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_fill_color" format="color" />
+        <attr name="civ_circle_background_color" format="color" />
+    </declare-styleable>
+
+</resources>

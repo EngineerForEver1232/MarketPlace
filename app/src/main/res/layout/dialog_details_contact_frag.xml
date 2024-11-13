@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="listener"
+            type="com.pedpo.pedporent.view.dialog.ContactDetailsFragDialog" />
+        <variable
+            name="viewModel"
+            type="com.pedpo.pedporent.model.ResponseTORenter" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:minWidth="200dp"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:cardCornerRadius="4dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:id="@+id/layoutProfile"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:gravity="center"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@drawable/border_profile_dialog_"
+                    android:paddingStart="4dp"
+                    >
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/icProfile"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="8dp"
+                        android:src="@drawable/ic_baseline_profile_24" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"
+                            android:textColor="@color/black"
+                            android:id="@+id/tName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="2dp"
+                            android:textSize="14dp" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/view_profile"
+                            android:textSize="12dp" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="8dp"
+                        android:onClick="@{listener.onClickClose}"
+
+                        android:src="@drawable/ic_baseline_close_24" />
+
+
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutData"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layoutProfile"
+                    >
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guidLineBegin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_begin="8dp"
+                        />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guidLineEnd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_end="8dp"/>
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guidLineIneerBegin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_begin="16dp"
+                        />
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guidLineIneerEnd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_end="16dp"
+                        />
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/lauoutCall"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        app:layout_constraintBottom_toTopOf="@+id/line1"
+
+                        app:layout_constraintEnd_toEndOf="@id/guidLineIneerEnd"
+                        app:layout_constraintStart_toStartOf="@+id/guidLineIneerBegin"
+                        app:layout_constraintTop_toTopOf="parent"
+                        >
+
+
+
+                        <ImageView
+                            android:id="@+id/icCall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_baseline_call_24"
+                            app:tint="@color/gray_standard"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginStart="16dp"
+                            />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tCall"
+                            style="@style/textViewOpen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@+id/icCall"
+                            app:layout_constraintTop_toTopOf="@id/icCall"
+                            app:layout_constraintBottom_toBottomOf="@id/icCall"
+                            android:layout_marginStart="32dp"
+                            />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <View
+                        android:id="@+id/line1"
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        app:layout_constraintBottom_toTopOf="@+id/lauoutMessage"
+                        app:layout_constraintEnd_toEndOf="@id/guidLineIneerEnd"
+                        app:layout_constraintStart_toStartOf="@+id/guidLineIneerBegin"
+                        android:background="@drawable/line_add_stroke_horizontal_gray"
+                        app:layout_constraintTop_toBottomOf="@+id/lauoutCall"
+
+                        />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/lauoutMessage"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        app:layout_constraintBottom_toTopOf="@+id/line2"
+                        app:layout_constraintEnd_toEndOf="@id/guidLineIneerEnd"
+                        app:layout_constraintStart_toStartOf="@+id/guidLineIneerBegin"
+                        app:layout_constraintTop_toBottomOf="@+id/line1"
+                        >
+
+                        <ImageView
+                            android:id="@+id/icMessage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:src="@drawable/ic_baseline_message_24"
+                            app:tint="@color/gray_standard"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tMessage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/textViewOpen"
+                            app:layout_constraintStart_toEndOf="@+id/icMessage"
+                            app:layout_constraintTop_toTopOf="@id/icMessage"
+                            app:layout_constraintBottom_toBottomOf="@id/icMessage"
+                            android:layout_marginStart="32dp"
+                            />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <View
+                        android:id="@+id/line2"
+                        android:layout_width="0dp"
+                        android:layout_height="4dp"
+                        app:layout_constraintEnd_toEndOf="@id/guidLineIneerEnd"
+                        app:layout_constraintStart_toStartOf="@+id/guidLineIneerBegin"
+                        app:layout_constraintBottom_toTopOf="@+id/lauoutMail"
+                        android:background="@drawable/line_add_stroke_horizontal_gray"
+                        app:layout_constraintTop_toBottomOf="@+id/lauoutMessage"
+
+                        />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/lauoutMail"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"                       app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/guidLineIneerEnd"
+                        app:layout_constraintStart_toStartOf="@+id/guidLineIneerBegin"
+                        app:layout_constraintTop_toBottomOf="@+id/line2"
+                        app:layout_constraintVertical_bias="0.0">
+
+                        <ImageView
+                            android:id="@+id/icMail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:src="@drawable/ic_baseline_email_24"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/gray_standard" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tMail"
+                            style="@style/textViewOpen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="32dp"
+                            app:layout_constraintBottom_toBottomOf="@id/icMail"
+                            app:layout_constraintStart_toEndOf="@+id/icMail"
+                            app:layout_constraintTop_toTopOf="@id/icMail" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tResult"
+                    style="@style/textViewOpen"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="32dp"
+                    app:layout_constraintTop_toBottomOf="@+id/layoutProfile"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/layoutData"
+                    app:layout_constraintEnd_toEndOf="@+id/layoutData"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

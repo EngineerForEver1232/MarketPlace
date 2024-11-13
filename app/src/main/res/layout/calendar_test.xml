@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.pedpo.pedporent.widget.calendarEnglish.customviews.DateRangeCalendarView
+        android:id="@+id/calendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        custom:disable_date_color="#C1C1C1"
+        custom:header_bg="@drawable/calendar_header"
+        custom:range_color="@color/colorPrimary"
+        custom:selected_date_circle_color="@color/colorPrimary"
+        custom:title_color="@color/calendar_header_title">
+    </com.pedpo.pedporent.widget.calendarEnglish.customviews.DateRangeCalendarView>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        />
+
+
+</LinearLayout>
+

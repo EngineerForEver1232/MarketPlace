@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+    <data>
+        <variable
+            name="listener"
+            type="com.pedpo.pedporent.view.dialog.ChangeLanguageBottomDialog" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:paddingBottom="16dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidLine2Begin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintGuide_begin="20dp"
+            android:orientation="vertical"
+            />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidLine2End"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintGuide_end="16dp"
+            android:orientation="vertical"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/textTitleStandard_Black"
+            android:id="@+id/labelSelect"
+            android:textColor="@color/black_dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/select_your_language"
+            app:layout_constraintStart_toStartOf="@+id/guidLine2Begin"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintIR"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{listener.onClicklinearPersian}"
+            android:paddingTop="@dimen/padding_layout_flag"
+            android:paddingBottom="@dimen/padding_layout_flag"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/shape_white_flag"
+            app:layout_constraintStart_toStartOf="@id/guidLine2Begin"
+            app:layout_constraintEnd_toEndOf="@id/guidLine2End"
+            app:layout_constraintTop_toBottomOf="@+id/labelSelect"
+            >
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/textViewOpen"
+                android:id="@+id/labelPersian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black_dark"
+                android:text="@string/persian"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/flagIR"
+                />
+
+            <com.pedpo.pedporent.widget.CircleImageView
+                android:id="@+id/flagIR"
+                android:layout_width="@dimen/size_image_flag"
+                android:layout_height="@dimen/size_image_flag"
+                android:src="@drawable/flag_iran"
+                app:layout_constraintStart_toEndOf="@+id/labelPersian"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintEN"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{listener.onClicklinearEnglish}"
+            android:paddingTop="@dimen/padding_layout_flag"
+            android:paddingBottom="@dimen/padding_layout_flag"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/shape_white_flag"
+            app:layout_constraintStart_toStartOf="@id/guidLine2Begin"
+            app:layout_constraintEnd_toEndOf="@id/guidLine2End"
+            app:layout_constraintTop_toBottomOf="@+id/constraintIR"
+            >
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/textViewOpen"
+                android:id="@+id/labelEN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/english"
+                android:textColor="@color/black_dark"
+
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/flagEN"
+                />
+
+            <com.pedpo.pedporent.widget.CircleImageView
+                android:id="@+id/flagEN"
+                android:layout_width="@dimen/size_image_flag"
+                android:layout_height="@dimen/size_image_flag"
+                android:src="@drawable/flag_english"
+                app:layout_constraintStart_toEndOf="@+id/labelEN"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+

@@ -1,0 +1,2193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable
+            name="listener"
+            type="com.pedpo.pedporent.view.details.DetailsActivity"
+            />
+        <variable
+            name="viewModel"
+            type="com.pedpo.pedporent.model.details.DetailsTO"
+            />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/background_home"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/viewpagerAlbum"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintDimensionRatio="16:14"
+                    app:layout_constraintBottom_toTopOf="@+id/dotsIndicator"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#3D000000"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/viewpagerAlbum"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <LinearLayout
+                        android:id="@+id/linearA"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        >
+
+                        <ImageView
+                            android:id="@+id/icLike"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:src="@{ (viewModel.isLikeByIp==true) ? @drawable/ic_liked : @drawable/ic_like}"
+                            app:tint="@color/white" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tCountLike"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:maxLines="1"
+                            android:maxLength="5"
+                            style="@style/textViewOpen"
+                            android:text="@{viewModel.scoreLike.toString()}"
+                            android:textColor="@color/white" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+
+                        app:layout_constraintStart_toEndOf="@+id/linearA"
+                        >
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:src="@drawable/ic_baseline_remove_red_eye_24"
+                            app:tint="@color/white" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tCountView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:maxLines="1"
+                            style="@style/textViewOpen"
+                            android:text="@{viewModel.scoreView.toString() , default = `1200`}"
+                            android:textColor="@color/white" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginEnd="16dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        >
+
+                        <ImageView
+                            android:id="@+id/icShare"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="@{listener::onClickShare}"
+                            app:tint="@color/white"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:src="@drawable/ic_baseline_share_24"
+                            />
+
+                        <ImageView
+
+                            android:id="@+id/icBookmark"
+                            android:src="@{(viewModel.isBookMarkByUser==false)? @drawable/ic_bookmark : @drawable/ic_bookmarked}"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:tint="@color/white"
+                            />
+
+
+                    </LinearLayout>
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.pedpo.pedporent.widget.dotsIndicator.DotsIndicator
+                    android:id="@+id/dotsIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"
+                    app:dotsColor="#eeeeee"
+                    app:dotsCornerRadius="8dp"
+                    app:dotsSize="12dp"
+                    app:dotsSpacing="4dp"
+                    app:dotsWidthFactor="2.5"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/viewpagerAlbum"
+                    app:progressMode="true"
+                    app:selectedDotColor="@color/colorPrimary" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/layoutDeactive"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="48dp"
+                    android:layout_marginStart="48dp"
+
+                    android:layout_marginBottom="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.75"
+
+                    app:cardBackgroundColor="@color/background_card_no_active"
+                    app:cardCornerRadius="16dp"
+                    app:visibilitySH="@{viewModel.isActive}">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="16dp"
+                        app:strokeWidth="0dp"
+
+                        android:background="@color/background_card_no_active"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/cardView"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        >
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/layoutError"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+
+                            android:visibility="visible"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginBottom="8dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            >
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:background="@color/colorPrimaryTransparet"
+
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/line1"
+                                app:layout_constraintEnd_toStartOf="@id/line2"
+                                >
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/startMonth"
+                                    style="@style/textViewOpen"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Agu"
+                                    android:textColor="@color/white"
+                                    android:layout_marginStart="18dp"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    />
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/endMonth"
+                                    style="@style/textViewOpen"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Jol"
+                                    android:textColor="@color/white"
+                                    android:layout_marginEnd="18dp"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    />
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    android:src="@drawable/ic_deactive"
+                                    app:tint="@color/white"
+                                    />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <View
+                                android:id="@+id/line1"
+                                android:layout_width="@dimen/cell_text_no_active_2"
+                                android:layout_height="@dimen/cell_text_no_active"
+                                android:background="#00FFFFFF"
+
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+
+                                />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tStartDate"
+                                style="@style/textViewOpen"
+                                android:layout_width="@dimen/cell_text_no_active"
+                                android:layout_height="@dimen/cell_text_no_active"
+                                android:text="10"
+                                android:textSize="15dp"
+                                android:gravity="center"
+                                android:textColor="@color/white"
+                                app:layout_constraintStart_toStartOf="parent"
+                                android:background="@drawable/circle_type_calendar_primary"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+
+                            <View
+                                android:id="@+id/line2"
+
+                                android:layout_width="@dimen/cell_text_no_active_2"
+                                android:layout_height="@dimen/cell_text_no_active"
+                                android:background="#00FFFFFF"
+
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tEndDate"
+                                style="@style/textViewOpen"
+                                android:layout_width="@dimen/cell_text_no_active"
+                                android:layout_height="@dimen/cell_text_no_active"
+                                android:text="10"
+                                android:textSize="15dp"
+                                android:gravity="center"
+                                android:textColor="@color/white"
+                                android:background="@drawable/circle_type_calendar_primary"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                />
+
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layoutDirection="ltr"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:layout_collapseMode="pin"
+
+                >
+
+
+                    <ImageView
+                        android:id="@+id/icBack"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/circle_gray"
+                        android:src="@drawable/ic_baseline_keyboard_arrow_left_24"
+                        app:tint="@color/white"
+                        android:onClick="@{listener::onClickIcBack}"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/textViewOpen"
+                    android:id="@+id/tTitleToolbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@{viewModel.title}"
+
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="@color/black_dark"
+                    android:textSize="@dimen/title_size_standard"
+                    android:visibility="visible" />
+            </androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background_home"
+            android:visibility="visible"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="100dp"
+                android:clipToPadding="false"
+
+
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/textViewTitleDetails"
+                    android:id="@+id/tTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+
+                    android:layout_marginStart="@dimen/margin_start_end_page_details"
+                    android:layout_marginEnd="@dimen/margin_start_end_page_details"
+                    android:text="@{viewModel.title}"
+                    android:textSize="18sp" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/linearCity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/linearCategory"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginStart="@dimen/margin_start_end_page_details"
+                        android:layout_marginEnd="@dimen/margin_start_end_page_details">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/category"
+                            android:textColor="@color/gray_standard"
+                            android:textSize="15sp"
+                            />
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" : "
+                            android:textColor="@color/gray_standard"
+                            android:textSize="15sp"
+                            />
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"
+                            android:id="@+id/tCategory"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/gray_standard"
+                            android:textSize="15sp"
+                            android:text="@{viewModel.categoryName.toString()  + `/`  +  viewModel.subCategoryName.toString()}"
+                            />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearCategory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintTop_toBottomOf="@id/linearCity"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginStart="@dimen/margin_start_end_page_details"
+                        android:layout_marginEnd="@dimen/margin_start_end_page_details">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/city"
+                            android:textColor="@color/gray_standard"
+                            android:textSize="15sp"
+                            />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" : "
+                            android:textColor="@color/gray_standard"
+                            android:textSize="15sp"
+                            />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"                            android:id="@+id/tCity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/gray_standard"
+                            android:textSize="15sp"
+                            android:text="@{viewModel.cityName.toString()}"
+                            />
+
+
+                    </LinearLayout>
+
+                    <androidx.constraintlayout.widget.Barrier
+                        android:id="@+id/barrier"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:barrierDirection="end"
+                        app:constraint_referenced_ids="linearCity,linearCategory" />
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tPriceType"
+                        style="@style/textViewTitle"
+
+                        android:textColor="@color/gray_a"
+                        android:textSize="15sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_gravity="end"
+                        />
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tSlash"
+                        style="@style/textViewTitle"
+
+                        android:textColor="@color/gray_a"
+                        android:textSize="13sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="/"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/tPriceType"
+                        android:layout_marginStart="8dp"
+                        android:layout_gravity="end"
+                        />
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tdollar"
+                        style="@style/textViewTitle"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="$"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tSlash"
+                        android:layout_marginStart="8dp"
+                        android:layout_gravity="end"
+                        />
+
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tPriceT"
+                        style="@style/textViewTitle"
+                        android:textColor="@color/black_dark"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_gravity="end"
+
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/tdollar"
+
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="16dp"
+                        />
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tSlash2"
+                        style="@style/textViewTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="/"
+
+                        android:textColor="@color/gray_a"
+                        android:textSize="13sp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/tPriceT"
+                        android:layout_marginStart="8dp"
+                        android:layout_gravity="end"
+                        />
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/typePrice"
+                        style="@style/textViewTitle"
+                        android:textColor="@color/gray_a"
+                        android:textSize="13sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/tSlash2"
+                        android:layout_marginStart="8dp"
+                        android:layout_gravity="end"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintCar1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:visibilitySH="@{!viewModel.isCar}"
+
+                    android:layout_marginTop="32dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/box1"
+                        android:layout_width="@dimen/width_box"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_between_box"
+                        android:layout_marginEnd="@dimen/margin_between_box"
+                        android:background="@drawable/border_box_price"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/box2"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"
+                            android:textSize="@dimen/label_box"                            android:id="@+id/tLike0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginTop="@dimen/margin_top_bottom_box"
+                            android:layout_marginBottom="@dimen/margin_top_bottom_box"
+                            android:text="@string/km"
+                            app:layout_constraintBottom_toTopOf="@+id/line0"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:id="@+id/line0"
+                            android:layout_width="0dp"
+                            android:layout_height="0.5dp"
+                            android:background="@color/border_box_detials"
+                            app:layout_constraintBottom_toTopOf="@+id/linearABox"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tLike0" />
+
+                        <LinearLayout
+                            android:id="@+id/linearABox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+
+                            android:layout_marginTop="@dimen/margin_top_bottom_box_down"
+                            android:layout_marginBottom="@dimen/margin_top_bottom_box_down"
+                            android:orientation="horizontal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/line0">
+
+                            <ImageView
+                                android:id="@+id/icKm"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginEnd="4dp"
+                                android:src="@drawable/ic_km"
+                                app:tint="@color/tinticon"
+                                tools:ignore="ImageContrastCheck" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/textViewOpen"
+                                android:id="@+id/tKm"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginEnd="4dp"
+                                android:textColor="@color/gray_standard"
+                                android:text="@{viewModel.kilometerOfCar.toString()}"
+                                android:maxLines="1"
+                                android:ellipsize="end"
+                                />
+
+
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/box2"
+                        android:layout_width="@dimen/width_box"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_between_box"
+                        android:layout_marginEnd="@dimen/margin_between_box"
+                        android:background="@drawable/border_box_price"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/box3"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+
+                        app:layout_constraintStart_toEndOf="@+id/box1"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"
+                            android:textSize="@dimen/label_box"
+                            android:id="@+id/tLike2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_top_bottom_box"
+                            android:layout_marginBottom="@dimen/margin_top_bottom_box"
+                            android:text="@string/fuel_type"
+                            app:layout_constraintBottom_toTopOf="@+id/lineHouse"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:id="@+id/lineHouse"
+                            android:layout_width="0dp"
+                            android:layout_height="0.5dp"
+                            android:background="@color/border_box_detials"
+                            app:layout_constraintBottom_toTopOf="@+id/linearBBox"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tLike2" />
+
+                        <LinearLayout
+                            android:id="@+id/linearBBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+
+                            android:layout_marginTop="@dimen/margin_top_bottom_box_down"
+                            android:layout_marginBottom="@dimen/margin_top_bottom_box_down"
+                            android:orientation="horizontal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/lineHouse">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginEnd="4dp"
+                                android:src="@drawable/ic_fuel"
+                                app:tint="@color/tinticon"/>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/textViewOpen"
+                                android:id="@+id/tCountRate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginEnd="4dp"
+                                android:maxLines="1"
+                                android:text="@{viewModel.fuelType.toString()}"
+                                android:maxLength="5"
+
+                                android:textColor="@color/gray_standard"
+                                />
+
+
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/box3"
+                        android:layout_width="@dimen/width_box"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_between_box"
+                        android:layout_marginEnd="@dimen/margin_between_box"
+                        android:background="@drawable/border_box_price"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toEndOf="@+id/box2"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"
+                            android:textSize="@dimen/label_box"                            android:id="@+id/tLike3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_top_bottom_box"
+                            android:layout_marginBottom="@dimen/margin_top_bottom_box"
+                            android:text="@string/year"
+                            app:layout_constraintBottom_toTopOf="@+id/lineCar"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:id="@+id/lineCar"
+                            android:layout_width="0dp"
+                            android:layout_height="0.5dp"
+                            android:background="@color/border_box_detials"
+                            app:layout_constraintBottom_toTopOf="@+id/linearCBox"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tLike3" />
+
+                        <LinearLayout
+                            android:id="@+id/linearCBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="@dimen/margin_top_bottom_box_down"
+                            android:layout_marginBottom="@dimen/margin_top_bottom_box_down"
+                            android:orientation="horizontal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/lineCar">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginEnd="4dp"
+                                android:src="@drawable/ic_car_year_constraction"
+                                app:tint="@color/tinticon" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/textViewOpen"
+                                android:id="@+id/resultYearCar"
+                                android:text="@{viewModel.yearOfCar.toString()}"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginEnd="4dp"
+                                android:maxLines="1"
+                                android:textColor="@color/gray_standard"
+                                />
+
+
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintHome1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:visibilitySH="@{!viewModel.isHome}"
+
+                    android:layout_marginTop="32dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/box1Home"
+                        android:layout_width="@dimen/width_box"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_between_box"
+                        android:layout_marginEnd="@dimen/margin_between_box"
+                        android:background="@drawable/border_box_price"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/box2Home"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"
+                            android:textSize="@dimen/label_box"                            android:id="@+id/tmetrazh"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/sqft"
+
+                            android:layout_marginTop="@dimen/margin_top_bottom_box"
+                            android:layout_marginBottom="@dimen/margin_top_bottom_box"
+
+                            app:layout_constraintBottom_toTopOf="@+id/linebox1Home"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:id="@+id/linebox1Home"
+                            android:layout_width="0dp"
+                            android:layout_height="0.5dp"
+                            android:background="@color/border_box_detials"
+                            app:layout_constraintBottom_toTopOf="@+id/linearHomeBox"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tmetrazh" />
+
+                        <LinearLayout
+                            android:id="@+id/linearHomeBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+
+                            android:layout_marginTop="@dimen/margin_top_bottom_box_down"
+                            android:layout_marginBottom="@dimen/margin_top_bottom_box_down"
+                            android:orientation="horizontal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/linebox1Home">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginEnd="4dp"
+                                android:src="@drawable/ic_metrazh"
+                                app:tint="@color/tinticon"/>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/textViewOpen"
+                                android:id="@+id/tResultMetrazh"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginEnd="4dp"
+                                android:textColor="@color/gray_standard"
+                                android:text="@{viewModel.meterOfHouse.toString()}"
+                                android:maxLines="1"
+                                android:ellipsize="end"
+                                />
+
+
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/box2Home"
+                        android:layout_width="@dimen/width_box"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_between_box"
+                        android:layout_marginEnd="@dimen/margin_between_box"
+                        android:background="@drawable/border_box_price"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/box3Home"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+
+                        app:layout_constraintStart_toEndOf="@+id/box1Home"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"
+                            android:textSize="@dimen/label_box"
+                            android:id="@+id/labelBath"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_top_bottom_box"
+                            android:layout_marginBottom="@dimen/margin_top_bottom_box"
+                            android:text="@string/bath"
+
+                            app:layout_constraintBottom_toTopOf="@+id/lineBath"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:id="@+id/lineBath"
+                            android:layout_width="0dp"
+                            android:layout_height="0.5dp"
+                            android:background="@color/border_box_detials"
+                            app:layout_constraintBottom_toTopOf="@+id/linearBathBox"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/labelBath" />
+
+                        <LinearLayout
+                            android:id="@+id/linearBathBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+
+                            android:layout_marginTop="@dimen/margin_top_bottom_box_down"
+                            android:layout_marginBottom="@dimen/margin_top_bottom_box_down"
+                            android:orientation="horizontal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/lineBath">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginEnd="4dp"
+                                android:src="@drawable/ic_bath"
+                                app:tint="@color/tinticon"/>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/textViewOpen"                                android:id="@+id/tBathRate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginEnd="4dp"
+                                android:maxLines="1"
+                                android:text="@{viewModel.bathrooms.toString()}"
+                                android:maxLength="5"
+                                android:textColor="@color/gray_standard"/>
+
+
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/box3Home"
+                        android:layout_width="@dimen/width_box"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_between_box"
+                        android:layout_marginEnd="@dimen/margin_between_box"
+                        android:background="@drawable/border_box_price"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toEndOf="@+id/box2Home"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"                            android:id="@+id/labelBad"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_top_bottom_box"
+                            android:layout_marginBottom="@dimen/margin_top_bottom_box"
+                            android:text="@string/bad"
+                            android:textSize="12dp"
+                            app:layout_constraintBottom_toTopOf="@+id/lineBad"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:id="@+id/lineBad"
+                            android:layout_width="0dp"
+                            android:layout_height="0.5dp"
+                            android:background="@color/border_box_detials"
+                            app:layout_constraintBottom_toTopOf="@+id/linearBadBox"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/labelBad" />
+
+                        <LinearLayout
+                            android:id="@+id/linearBadBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="@dimen/margin_top_bottom_box_down"
+                            android:layout_marginBottom="@dimen/margin_top_bottom_box_down"
+                            android:orientation="horizontal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/lineBad">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginEnd="4dp"
+                                android:src="@drawable/ic_bed"
+                                app:tint="@color/tinticon"/>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/textViewOpen"                                android:id="@+id/resultBadroom"
+                                android:text="@{viewModel.bathrooms.toString()}"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginEnd="4dp"
+                                android:maxLines="1"
+                                android:textColor="@color/gray_standard"
+                                />
+
+
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintHome2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:visibilitySH="@{!viewModel.isHome}"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginStart="@dimen/margin_start_end_page_details"
+                        android:layout_marginEnd="@dimen/margin_start_end_page_details"
+                        >
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textViewTitleDetails"
+                        android:id="@+id/titleMinor"
+                        android:layout_width="match_parent"
+                        android:text="@string/minor_specifications"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        />
+
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/titleYearConstraction"
+                            style="@style/textViewOpen"
+                            android:textColor="@color/gray_standard_ali"
+                            android:layout_width="0dp"
+                            android:layout_marginTop="@dimen/margin_top_result_home"
+                            android:text="@string/year_construction"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@id/titleMinor"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/resultYearConstraction"
+                            app:layout_constraintHorizontal_weight="1"
+                            />
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/resultYearConstraction"
+                            style="@style/textViewOpen"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/gray_standard"
+                            android:text="@{viewModel.yearOfHouse.toString()}"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            app:layout_constraintTop_toTopOf="@id/titleYearConstraction"
+                            app:layout_constraintBottom_toBottomOf="@id/titleYearConstraction"
+                            app:layout_constraintStart_toEndOf="@+id/titleYearConstraction"
+                            app:layout_constraintEnd_toEndOf="parent"
+
+                            app:layout_constraintHorizontal_weight="1"
+                            />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/titleParking"
+                            style="@style/textViewOpen"
+                            android:textColor="@color/gray_standard_ali"
+                            android:layout_width="0dp"
+                            android:layout_marginTop="@dimen/margin_top_result_home"
+                            android:text="@string/parking"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@id/titleYearConstraction"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/resultParking"
+                            app:layout_constraintHorizontal_weight="1"
+                            />
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/resultParking"
+                            style="@style/textViewOpen"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/gray_standard"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:text="@{viewModel.parkingTypeName}"
+                            app:layout_constraintTop_toTopOf="@id/titleParking"
+                            app:layout_constraintBottom_toBottomOf="@id/titleParking"
+                            app:layout_constraintStart_toEndOf="@+id/titleParking"
+                            app:layout_constraintEnd_toEndOf="parent"
+
+                            app:layout_constraintHorizontal_weight="1"
+                            />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/titleHeating"
+                            style="@style/textViewOpen"
+                            android:textColor="@color/gray_standard_ali"
+                            android:layout_width="0dp"
+                            android:layout_marginTop="@dimen/margin_top_result_home"
+                            android:text="@string/heating"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@id/titleParking"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/resultHeating"
+                            app:layout_constraintHorizontal_weight="1"
+                            />
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"
+                            android:id="@+id/resultHeating"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/gray_standard"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:text="@{viewModel.heatingName}"
+                            app:layout_constraintTop_toTopOf="@id/titleHeating"
+                            app:layout_constraintBottom_toBottomOf="@id/titleHeating"
+                            app:layout_constraintStart_toEndOf="@+id/titleHeating"
+                            app:layout_constraintEnd_toEndOf="parent"
+
+                            app:layout_constraintHorizontal_weight="1"
+                            />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/titleCooling"
+                            style="@style/textViewOpen"
+                            android:textColor="@color/gray_standard_ali"
+                            android:layout_width="0dp"
+                            android:layout_marginTop="@dimen/margin_top_result_home"
+                            android:text="@string/cooling"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@id/titleHeating"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/resultCooling"
+                            app:layout_constraintHorizontal_weight="1"
+                            />
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"
+                            android:id="@+id/resultCooling"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/gray_standard"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:text="@{viewModel.coolingName.toString()}"
+                            app:layout_constraintTop_toTopOf="@id/titleCooling"
+                            app:layout_constraintBottom_toBottomOf="@id/titleCooling"
+                            app:layout_constraintStart_toEndOf="@+id/titleCooling"
+                            app:layout_constraintEnd_toEndOf="parent"
+
+                            app:layout_constraintHorizontal_weight="1"
+                            />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintDes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_start_end_page_details"
+                    android:layout_marginEnd="@dimen/margin_start_end_page_details"
+                    android:layout_marginTop="32dp"
+                    android:gravity="center">
+
+
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textViewTitleDetails"
+                        android:id="@+id/tLabelDes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+
+                        android:text="@string/description"
+                        />
+
+                    <FrameLayout
+                        app:layout_constraintTop_toBottomOf="@+id/tLabelDes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{listener.onClickReadMore}"
+                        android:layout_marginTop="16dp">
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"
+                            android:id="@+id/tDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/gray_standard"
+                            android:maxLines="6"
+                            android:text="@{viewModel.description}"
+                            />
+
+                        <FrameLayout
+                            android:id="@+id/linearDropDown"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|center"
+                            android:paddingTop="16dp"
+                            android:background="@drawable/shape_gradient"
+                            >
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                app:tint="@color/black_dark"
+                                android:src="@drawable/ms__menu_down"/>
+                        </FrameLayout>
+
+                    </FrameLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                <LinearLayout
+                    android:id="@+id/layoutProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:onClick="@{listener::onClickLayoutProfile}"
+                    android:layout_marginStart="@dimen/margin_start_end_page_details"
+                    android:layout_marginEnd="@dimen/margin_start_end_page_details"
+                    android:layout_marginTop="32dp"
+                    android:background="@drawable/border_profile_detail"
+                    android:paddingStart="4dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="8dp"
+                        app:imageUrlP="@{viewModel.renterProfilePhoto == null ? `` : viewModel.renterProfilePhoto}"
+                        app:placeholderP="@{@drawable/ic_baseline_profile_24}"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"
+                            android:textColor="@color/black_dark"
+                            android:id="@+id/tName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="2dp"
+                            app:visibilitySH="@{viewModel.firstName==null ||  viewModel.firstName.isEmpty()}"
+                            android:text="@{viewModel.firstName}"
+                            android:textSize="14dp" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"
+                            android:id="@+id/lableViewProfile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/view_profile"
+                            android:textColor="@color/gray_standard"
+                            android:textSize="12dp" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="4dp"
+                        android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
+
+
+                </LinearLayout>
+
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/carViewMap"
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    app:cardCornerRadius="16dp"
+
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="@dimen/margin_start_end_page_details"
+                    android:layout_marginEnd="@dimen/margin_start_end_page_details"
+                    android:orientation="horizontal">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <fragment
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/map"
+
+                            android:name="com.google.android.gms.maps.SupportMapFragment" />
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tMap"
+                            style="@style/textViewOpen"
+                            android:textColor="@color/white_dark"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/map"
+                            android:background="#83777777"
+                            android:gravity="center"
+                            android:paddingBottom="12dp"
+                            android:paddingTop="12dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/tStreetView"
+
+                            />
+                        <View
+                            android:id="@+id/lineStreetView"
+                            android:layout_width="2dp"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:background="@color/white_dark"
+                            app:layout_constraintTop_toTopOf="@+id/tMap"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+
+
+                            />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tStreetView"
+                            style="@style/textViewOpen"
+                            android:layout_width="0dp"
+                            android:textColor="@color/white_dark"
+                            android:layout_height="wrap_content"
+                            android:background="#83777777"
+                            android:gravity="center"
+                            android:paddingBottom="12dp"
+                            android:paddingTop="12dp"
+                            android:text="@string/street_view"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/tMap"
+                            />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+                </androidx.cardview.widget.CardView>
+
+
+                <LinearLayout
+                    android:id="@+id/linearPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_start_end_page_details"
+                    android:layout_marginEnd="@dimen/margin_start_end_page_details"
+                    android:layout_marginTop="24dp"
+                    android:paddingBottom="16dp"
+
+
+                    android:background="@drawable/border_box_price"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/ic"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginStart="8dp"
+                            app:tint="@color/gray_standard"
+                            android:src="@drawable/ic_dollar"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/tPriceDetials"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintHorizontal_chainStyle="packed"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewTitleDetails"                            android:id="@+id/tPriceDetials"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+
+                            android:layout_marginEnd="12dp"
+                            android:text="@string/pricing"
+                            android:textColor="@color/black_dark"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_chainStyle="packed"
+                            app:layout_constraintStart_toEndOf="@+id/ic"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/gray_box" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        bind:price="@{viewModel.yearlyRentPrice}"
+                        android:orientation="horizontal">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/imgDot1"
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="8dp"
+                                android:src="@drawable/ic_dot"
+                                android:textColor="#C4C4C4"
+                                android:textSize="40sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@id/tReal"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintHorizontal_chainStyle="packed"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/textViewOpen"
+                                android:id="@+id/tReal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/margin_text_icon"
+                                app:layout_constraintStart_toEndOf="@id/imgDot1"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:text="@string/real_value"
+                                android:textColor="@color/black_dark"
+                                />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/textViewOpen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:text="$"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginEnd="4dp"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="15sp" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/textViewOpen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:ellipsize="end"
+
+                                android:text="@{viewModel.yearlyRentPrice.toString() , default = `17.500.000`}"
+                                android:textColor="@color/gray_standard"
+                                android:textSize="15sp" />
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        bind:price="@{viewModel.hourlyRentalPrice}"
+                        android:orientation="horizontal">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+
+                            <ImageView
+                                android:id="@+id/imgDot5"
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                app:layout_constraintHorizontal_chainStyle="packed"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="8dp"
+                                android:src="@drawable/ic_dot"
+                                android:textColor="#C4C4C4"
+                                android:textSize="40sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/tttt"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/textViewOpen"
+                                android:id="@+id/tttt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/margin_text_icon"
+                                android:text="@string/hoursly_free_rent"
+                                android:textColor="@color/black_dark"
+                                app:layout_constraintStart_toEndOf="@+id/imgDot5"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/textViewOpen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:text="$"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginEnd="4dp"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="15sp" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tHourslyFreeRent"
+                                style="@style/textViewOpen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:ellipsize="end"
+
+                                android:text="@{viewModel.hourlyRentalPrice.toString() , default = `17.500.000`}"
+                                android:textColor="@color/gray_standard"
+                                android:textSize="15sp" />
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        bind:price="@{viewModel.rentPrice}"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+
+                            <ImageView
+                                android:id="@+id/imgDot2"
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                app:layout_constraintHorizontal_chainStyle="packed"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="8dp"
+                                android:src="@drawable/ic_dot"
+                                android:textColor="#C4C4C4"
+                                android:textSize="40sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/t"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/textViewOpen"
+                                android:id="@+id/t"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/margin_text_icon"
+                                android:text="@string/daily_fee_rent"
+                                android:textColor="@color/black_dark"
+                                app:layout_constraintStart_toEndOf="@+id/imgDot2"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/textViewOpen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:text="$"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginEnd="4dp"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="15sp" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tDailyFreeRent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:ellipsize="end"
+
+                                android:text="@{viewModel.rentPrice.toString() , default = `17.500.000`}"
+                                android:textColor="@color/gray_standard"
+                                android:textSize="15sp" />
+
+
+                        </LinearLayout>
+
+
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        bind:price="@{viewModel.monthlyRentalPrice}"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+
+                            <ImageView
+                                android:id="@+id/imgDot3"
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                app:layout_constraintHorizontal_chainStyle="packed"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="8dp"
+                                android:src="@drawable/ic_dot"
+                                android:textColor="#C4C4C4"
+                                android:textSize="40sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/tt"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/textViewOpen"
+                                android:id="@+id/tt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/margin_text_icon"
+                                android:text="@string/monthly_free_rent"
+                                android:textColor="@color/black_dark"
+                                app:layout_constraintStart_toEndOf="@+id/imgDot3"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/textViewOpen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:text="$"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginEnd="4dp"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="15sp" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tMonthlyFreeRent"
+                                style="@style/textViewOpen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:ellipsize="end"
+
+                                android:text="@{viewModel.monthlyRentalPrice.toString() , default = `17.500.000`}"
+                                android:textColor="@color/gray_standard"
+                                android:textSize="15sp" />
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        bind:price="@{viewModel.commodityPrice}"
+
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+
+                            <ImageView
+                                android:id="@+id/imgDot4"
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                app:layout_constraintHorizontal_chainStyle="packed"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="8dp"
+                                android:src="@drawable/ic_dot"
+                                android:textColor="#C4C4C4"
+                                android:textSize="40sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/ttt"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/textViewOpen"
+                                android:id="@+id/ttt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/margin_text_icon"
+                                android:text="@string/yearly_free_rent"
+                                android:textColor="@color/black_dark"
+                                app:layout_constraintStart_toEndOf="@+id/imgDot4"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/textViewOpen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:text="$"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginEnd="4dp"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="15sp" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tYearlyFreeRent"
+                                style="@style/textViewOpen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:ellipsize="end"
+
+                                android:text="@{viewModel.commodityPrice.toString() , default = `17.500.000`}"
+                                android:textColor="@color/gray_standard"
+                                android:textSize="15sp" />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintDeposit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_box_price"
+
+
+                    android:layout_marginStart="@dimen/margin_start_end_page_details"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="@dimen/margin_start_end_page_details"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/box2"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/icDeposit"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        app:tint="@color/gray_standard"
+                        android:src="@drawable/ic_security_details"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginStart="8dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/lineDepo"
+                        />
+
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textViewTitleDetails"                        android:id="@+id/tDepo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="@dimen/margin_top_bottom_box"
+                        android:layout_marginBottom="@dimen/margin_top_bottom_box"
+                        android:text="@string/security_deposit_type"
+                        android:layout_marginStart="20dp"
+                        app:layout_constraintBottom_toTopOf="@+id/lineDepo"
+                        app:layout_constraintStart_toEndOf="@+id/icDeposit"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/lineDepo"
+                        android:layout_width="0dp"
+                        android:layout_height="0.5dp"
+                        android:background="#888888"
+                        app:layout_constraintBottom_toTopOf="@+id/recyclerDepositt"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tDepo" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerDepositt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/lineDepo"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/textViewTitleDetails"
+                    android:id="@+id/titleAgreement"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginStart="@dimen/margin_start_end_page_details"
+                    android:layout_marginEnd="@dimen/margin_start_end_page_details"
+                    app:visibilitySH="@{viewModel.agreement==null ||  viewModel.agreement.isEmpty()}"
+
+                    android:text="@string/the_text_of_the_agreement"
+                    android:textColor="@color/black_dark" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/textViewOpen"
+                    android:id="@+id/tAgreement"
+                    android:textColor="@color/black_dark"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_start_end_page_details"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="@dimen/margin_start_end_page_details"
+                    app:visibilitySH="@{viewModel.agreement==null ||  viewModel.agreement.isEmpty()}"
+
+                    android:text="@{viewModel.agreement}" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:background="@drawable/line_add_stroke_horizontal_gray"
+                    android:layout_marginTop="16dp"
+                    />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="@dimen/margin_start_end_page_details"
+                    android:layout_marginEnd="@dimen/margin_start_end_page_details">
+
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textViewTitleDetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="@string/comments"
+                        android:textColor="@color/black_dark"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textViewGraySeeMore"
+                        android:textSize="14sp"
+                        android:visibility="invisible"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="@string/view_comment"
+                        app:layout_constraintEnd_toStartOf="@id/icArrowLasted"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+                    <ImageView
+                        android:id="@+id/icArrowLasted"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_next"
+                        android:visibility="invisible"
+                        app:tint="@color/link_blue"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerComment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_start_end_page_details"
+                    android:layout_marginEnd="@dimen/margin_start_end_page_details"
+                    android:layout_marginTop="8dp"
+
+                    />
+
+
+                <LinearLayout
+                    android:id="@+id/linearAddComment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginStart="@dimen/margin_start_end_page_details"
+                    android:layout_marginEnd="@dimen/margin_start_end_page_details"
+                    >
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/inputComment"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeWidth="0dp"
+                        app:boxBackgroundColor="@color/white_dark"
+
+                        app:boxCornerRadiusTopStart="16dp"
+                        app:boxCornerRadiusTopEnd="16dp"
+                        app:boxCornerRadiusBottomEnd="16dp"
+                        app:boxCornerRadiusBottomStart="16dp"
+                        style="@style/TextInputComment"
+                        app:hintEnabled="false"
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/eComment"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="top|start"
+                            android:maxLength="500"
+                            android:overScrollMode="always"
+                            android:scrollbarStyle="insideInset"
+                            android:scrollbars="vertical"
+                            android:hint="@string/add_your_comment"
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tSend"
+                        style="@style/textViewOpen"
+                        android:textSize="14sp"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="@string/post"
+                        android:textColor="@color/link_blue"
+                        app:layout_constraintStart_toEndOf="@+id/inputComment"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Buttonlarge"
+            android:id="@+id/btnRent"
+            android:layout_width="match_parent"
+
+            android:layout_marginStart="@dimen/margin_start_end_page_details"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="@dimen/margin_start_end_page_details"
+            android:layout_gravity="bottom"
+
+
+            android:backgroundTint="@color/colorPrimary"
+            android:text="@string/contact"
+            android:onClick="@{listener.onClickContact}"
+            android:stateListAnimator="@null"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:cornerRadius="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</layout>

@@ -1,0 +1,9 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.pedpo.pedporent",
+    "sha256_cert_fingerprints":
+    ["0D:C0:56:0E:F4:3B:CE:82:43:BC:97:4B:85:EB:40:D6:D2:7A:9D:1F:E9:BA:B7:2E:5A:62:DD:E2:87:37:07:1C"]
+  }
+}]

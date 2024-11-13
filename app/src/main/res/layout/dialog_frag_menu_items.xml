@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    >
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:cardCornerRadius="16dp"
+        app:cardBackgroundColor="@color/adapter_category"
+        app:cardElevation="2dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp"
+
+            >
+
+            <LinearLayout
+                android:id="@+id/linearDeactive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp"
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_deactive"
+                    app:tint="@color/tinticon"
+                    />
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/TextInputLayoutGray"
+                    android:id="@+id/textDeactive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/dialog_menu_items"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/deactive"
+                    android:textColor="@color/gray_light_frag_menu"
+                    />
+
+                <View
+                    android:layout_width="70dp"
+                    android:layout_height="1dp"/>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/tinticon"
+                android:layout_marginBottom="10dp"
+                />
+
+            <LinearLayout
+                android:id="@+id/linearActive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp"
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_baseline_remove_red_eye_24"
+                    app:tint="@color/tinticon"
+                    />
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/TextInputLayoutGray"
+                    android:id="@+id/textActive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/dialog_menu_items"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/active"
+                    android:textColor="@color/gray_light_frag_menu"
+                    />
+
+                <View
+                    android:layout_width="70dp"
+                    android:layout_height="1dp"/>
+
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineActive"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/tinticon"
+                android:layout_marginBottom="10dp"
+                />
+
+            <LinearLayout
+                android:id="@+id/linearComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp"
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_comment"
+                    app:tint="@color/tinticon"
+                    />
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/TextInputLayoutGray"
+                    android:id="@+id/textComment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/dialog_menu_items"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/close_comment"
+                    android:textColor="@color/gray_light_frag_menu"
+                    />
+
+                <View
+                    android:layout_width="70dp"
+                    android:layout_height="1dp"/>
+
+
+            </LinearLayout>
+
+
+            <View
+                android:id="@+id/lineComment"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/tinticon"
+                android:layout_marginBottom="10dp"
+                />
+
+
+            <LinearLayout
+                android:id="@+id/linearDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp"
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_delete"
+                    app:tint="@color/tinticon"
+                    />
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/TextInputLayoutGray"
+                    android:id="@+id/textDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/delete"
+                    android:textSize="@dimen/dialog_menu_items"
+
+                    android:textColor="@color/gray_light_frag_menu"
+                    />
+
+                <View
+                    android:layout_width="70dp"
+                    android:layout_height="1dp"/>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/tinticon"
+                />
+
+            <LinearLayout
+                android:id="@+id/linearEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <ImageView
+                    android:id="@+id/dot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_edit"
+                    app:tint="@color/tinticon"
+                    />
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/TextInputLayoutGray"
+                    android:id="@+id/textEdit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/dialog_menu_items"
+                    android:text="@string/edit"
+                    android:textColor="@color/gray_light_frag_menu"
+                    />
+
+                <View
+                    android:layout_width="70dp"
+                    android:layout_height="1dp"/>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</FrameLayout>

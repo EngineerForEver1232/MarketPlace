@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+        <LinearLayout
+            android:id="@+id/layout_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tint="@color/gray_box_empty"
+                android:src="@drawable/goosh"/>
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/textViewDescriptionInput"
+                android:id="@+id/label_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/goosh"
+                android:gravity="center"
+                app:tint="@color/gray_a"
+                android:textSize="14sp" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddLiseening1"
+                style="@style/ButtonOpen"
+                android:onClick="@{listener.onClickAddLiseening1}"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_height="wrap_content"
+                android:text="@string/post_a_lisiting"
+                app:layout_constraintTop_toBottomOf="@id/layoutBtns"
+                app:strokeColor="@color/colorPrimary"
+
+                android:layout_marginTop="18dp"
+                app:strokeWidth="1dp"
+                android:stateListAnimator="@null"
+                app:backgroundTint="@color/background_home"
+                android:textColor="@color/colorPrimary"
+                android:textAllCaps="false"
+                />
+
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+

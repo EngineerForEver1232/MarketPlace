@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="listener"
+            type="com.pedpo.pedporent.view.map.MapActivity" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+        <androidx.fragment.app.FragmentContainerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment" />
+
+        <FrameLayout
+            android:id="@+id/frameBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:onClick="@{listener::onClickBack}"
+            android:background="@drawable/circle_white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/linearSearch"
+            app:layout_constraintTop_toTopOf="@+id/linearSearch"
+            app:layout_constraintBottom_toBottomOf="@+id/linearSearch">
+
+
+            <ImageView
+                android:id="@+id/ic_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_back"
+                />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/linearSearch"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/frameBack"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:onClick="@{listener.onClickSearch}"
+            android:background="@drawable/border_search_white"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                app:tint="@color/tinticon"
+                android:src="@drawable/ic_baseline_search_24"
+                />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/textViewOpen"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="12sp"
+                android:textColor="@color/gray_standard"
+                android:hint="Search city"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="0.4" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="0.99"
+                    android:background="@drawable/border_line" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="0.4" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_location_on_24"
+                app:tint="@color/tinticon" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tPlace"
+                style="@style/TextInputLayoutGray"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:maxLength="10"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="8dp"
+
+                android:textColor="@color/tinticon" />
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="16dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearSearch"
+            >
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardRent"
+                app:cardCornerRadius="8dp"
+                app:cardBackgroundColor="@color/colorPrimary"
+                android:onClick="@{listener::onClickRent}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imgRent"
+                    android:layout_margin="@dimen/margin_icon_filter_map"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_rent"
+                    app:tint="@color/white"
+                    />
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardSale"
+                app:cardCornerRadius="8dp"
+                app:cardBackgroundColor="@color/white_dark"
+                android:layout_marginTop="8dp"
+                android:onClick="@{listener::onClickSale}"
+                app:layout_constraintTop_toBottomOf="@+id/cardRent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imgSale"
+                    android:layout_margin="@dimen/margin_icon_filter_map"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_sale"
+                    />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardService"
+                app:cardCornerRadius="8dp"
+                app:cardBackgroundColor="@color/white_dark"
+                android:layout_marginTop="8dp"
+                android:onClick="@{listener::onClickService}"
+                app:layout_constraintTop_toBottomOf="@id/cardSale"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imgService"
+                    android:layout_margin="@dimen/margin_icon_filter_map"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_service"
+                    />
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearSearch"
+            >
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardTypeMap"
+                app:cardCornerRadius="8dp"
+                app:cardBackgroundColor="@color/white_dark"
+                android:onClick="@{listener::onClickTypeMap}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imgTypeMap"
+                    android:layout_margin="@dimen/margin_icon_filter_map"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:tint="@color/tinticon"
+                    android:src="@drawable/ic_map_type_normal"
+                    />
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPagerPoster"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="16dp"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer name="color_appbar_detial">30</integer>
+    <integer name="color_appbar_background_back">200</integer>
+    <integer name="color_appbar_ic_back">255</integer>
+    <integer name="positive">0</integer>
+    <integer name="black_dark_integer">255</integer>
+
+
+</resources>

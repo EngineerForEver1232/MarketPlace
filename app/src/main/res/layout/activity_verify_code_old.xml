@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="listener"
+            type="com.pedpo.pedporent.view.authentication.VerifyCodeActivity" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        />
+
+
+
+    <com.pedpo.pedporent.widget.TextViewBold
+        android:id="@+id/tTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="36dp"
+        android:text="@string/enter_code_auth"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.pedpo.pedporent.widget.TextViewAppPedpo
+        android:id="@+id/tDes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/enter_code_auth_test"
+        android:textColor="@color/gray_standard"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tTitle" />
+
+
+    <FrameLayout
+        android:id="@+id/framLayoutEdittext"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="32dp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/border_search"
+        app:layout_constraintTop_toBottomOf="@+id/tDes">
+
+        <com.alimuzaffar.lib.pin.PinEntryEditText
+            android:id="@+id/ePin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+
+            android:gravity="center"
+            android:layout_gravity="center"
+
+            android:digits="1234567890"
+            android:inputType="number"
+            android:layoutDirection="ltr"
+            android:maxLength="6"
+            android:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@+id/tConfirmPhoneDetails"
+            app:pinBackgroundIsSquare="false"
+            android:cursorVisible="false"
+            android:textIsSelectable="false"
+            android:textSize="20sp"
+            app:pinLineStroke="1dp"
+            app:pinLineStrokeSelected="2dp"
+
+            app:pinAnimationType="popIn" />
+
+    </FrameLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layoutDirection="ltr"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="@dimen/margin_32_64"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+
+        <com.pedpo.pedporent.widget.MyButton
+            android:id="@+id/btnTimer"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:onClick="@{listener.btnTimer}"
+            app:backgroundTint="@color/white"
+            android:stateListAnimator="@null"
+            app:cornerRadius="12dp"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginStart="@dimen/margin_32_64"
+            android:layout_marginEnd="@dimen/margin_32_64"
+            android:text="@string/request_code"
+            android:textAllCaps="false"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textSize="12sp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/gray_standard"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guid"
+            />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guid"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnTimer"
+            app:layout_constraintEnd_toStartOf="@+id/btnVerify"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnVerify"
+            style="@style/Buttonlarge"
+            android:onClick="@{listener::btnVerify}"
+            android:text="@string/verify"
+            android:layout_marginStart="@dimen/margin_32_64"
+            android:layout_marginEnd="@dimen/margin_32_64"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/guid"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

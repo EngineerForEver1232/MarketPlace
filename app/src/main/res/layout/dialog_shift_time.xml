@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="listener"
+            type="com.pedpo.pedporent.view.dialog.DialogAddTimeShiftFragment" />
+
+    </data>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/border_search_white"
+            app:cardCornerRadius="16dp"
+            android:layout_margin="16dp"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                >
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/textTitleMedium"
+                    android:id="@+id/tSat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="Set time"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+
+
+                <!--                Radif time 1      -->
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tStartTime1"
+                    style="@style/textViewOpen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/start_time"
+                    android:textColor="@color/black_standard"
+                    app:layout_constraintEnd_toStartOf="@+id/toTime1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tSat"
+
+                    />
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/textViewOpen"
+                    android:id="@+id/toTime1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="16dp"
+                    android:textColor="@color/black_standard"
+                    app:layout_constraintTop_toBottomOf="@+id/tSat"
+                    app:layout_constraintEnd_toStartOf="@+id/tEndTime1"
+                    app:layout_constraintStart_toEndOf="@+id/tStartTime1"
+                    android:text="@string/to"
+
+                    />
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/textViewOpen"
+                    android:id="@+id/tEndTime1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="16dp"
+                    android:textColor="@color/black_standard"
+                    app:layout_constraintTop_toBottomOf="@+id/tSat"
+                    app:layout_constraintStart_toEndOf="@+id/toTime1"
+                    android:text="@string/end_time"
+
+                    />
+
+
+                <!--              Add time      -->
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/textViewOpen"
+                    android:id="@+id/tSave"
+                    android:textStyle="bold"
+                    android:paddingStart="32dp"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/save"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_marginStart="8dp"
+
+                    android:layout_marginBottom="4dp"
+                    app:layout_constraintTop_toBottomOf="@+id/tStartTime1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+
+                    />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </FrameLayout>
+
+</layout>

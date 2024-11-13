@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="listener"
+            type="com.pedpo.pedporent.view.details.DetailsNeighborActivity" />
+        <variable
+            name="viewModel"
+            type="com.pedpo.pedporent.model.details.DetailsTO" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <ImageView
+                    android:id="@+id/img"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintDimensionRatio="16:11"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layoutDirection="ltr"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                    app:layout_collapseMode="pin">
+
+
+                    <ImageView
+                        android:id="@+id/icBack"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/circle_gray"
+                        android:onClick="@{listener::onClickIcBack}"
+                        android:src="@drawable/ic_baseline_keyboard_arrow_left_24"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/white" />
+
+
+                    <TextView
+                        android:id="@+id/tTitleToolbar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@{viewModel.title}"
+
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/title_size_standard"
+                        android:visibility="visible" />
+                </androidx.appcompat.widget.Toolbar>
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/textViewTitle"
+                    android:id="@+id/tTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+
+                    android:layout_marginStart="@dimen/margin_start_end_page_details"
+                    android:layout_marginEnd="@dimen/margin_start_end_page_details"
+                    android:text="@{viewModel.title.toString()}"
+                    android:textSize="18sp" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:layout_height="wrap_content">
+                    
+                    <LinearLayout
+                        android:id="@+id/linearCity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/linearCategory"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginStart="@dimen/margin_start_end_page_details"
+                        android:layout_marginEnd="@dimen/margin_start_end_page_details">
+
+                        <com.pedpo.pedporent.widget.TextViewAppPedpoOpen
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/category"
+                            android:textColor="@color/gray_standard"
+                            android:textSize="15sp"
+                            />
+                        <com.pedpo.pedporent.widget.TextViewAppPedpoOpen
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" : "
+                            android:textColor="@color/gray_standard"
+                            android:textSize="15sp"
+                            />
+                        <com.pedpo.pedporent.widget.TextViewAppPedpoOpen
+                            android:id="@+id/tCategory"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/gray_standard"
+                            android:textSize="15sp"
+                            android:text="@{viewModel.categoryName.toString()}"
+                            />
+
+
+                    </LinearLayout>
+                    
+                    <LinearLayout
+                        android:id="@+id/linearCategory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintTop_toBottomOf="@id/linearCity"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginStart="@dimen/margin_start_end_page_details"
+                        android:layout_marginEnd="@dimen/margin_start_end_page_details">
+
+                        <com.pedpo.pedporent.widget.TextViewAppPedpoOpen
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="City"
+                            android:textColor="@color/gray_standard"
+                            android:textSize="15sp"
+                            />
+                        <com.pedpo.pedporent.widget.TextViewAppPedpoOpen
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" : "
+                            android:textColor="@color/gray_standard"
+                            android:textSize="15sp"
+                            />
+                        <com.pedpo.pedporent.widget.TextViewAppPedpoOpen
+                            android:id="@+id/tCity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/gray_standard"
+                            android:textSize="15sp"
+                            android:text="@{viewModel.cityName.toString()}"
+                            />
+
+
+                    </LinearLayout>
+
+                    <androidx.constraintlayout.widget.Barrier
+                        android:id="@+id/barrier"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:barrierDirection="end"
+                        app:constraint_referenced_ids="linearCity,linearCategory" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tDoller"
+                        style="@style/textViewTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:visibility="gone"
+                        android:text="@string/s"
+
+
+
+                        android:textColor="@color/colorPrimary"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/tPriceT"
+                        app:layout_constraintHorizontal_bias="0.75"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toEndOf="@id/barrier"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tPriceT"
+                        style="@style/textViewTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginStart="4dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/tDoller"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutCar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:visibilitySH="@{!viewModel.isCar}"
+                    >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+
+                        android:layout_marginStart="@dimen/margin_start_end_page_details"
+                        android:layout_marginEnd="@dimen/margin_start_end_page_details">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textTitleStandard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:text="@string/fuel_type"
+                            />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tFuelType"
+                            style="@style/textViewOpen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:text="@{viewModel.fuelType.toString()}"
+                            />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+
+                        android:layout_marginStart="@dimen/margin_start_end_page_details"
+                        android:layout_marginEnd="@dimen/margin_start_end_page_details">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textTitleStandard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:text="@string/year_constra_car"
+                            />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tYearCons"
+                            style="@style/textViewOpen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:text="@{viewModel.yearOfCar.toString()}"
+                            />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/layoutHome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:visibilitySH="@{!viewModel.isHome}"
+                    >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+
+                        android:layout_marginStart="@dimen/margin_start_end_page_details"
+                        android:layout_marginEnd="@dimen/margin_start_end_page_details">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textTitleStandard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:text="@string/meter_of_house"
+                            />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tMetrazh"
+                            style="@style/textViewOpen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:text="@{viewModel.meterOfHouse.toString()}"
+                            />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+
+                        android:layout_marginStart="@dimen/margin_start_end_page_details"
+                        android:layout_marginEnd="@dimen/margin_start_end_page_details">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textTitleStandard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:text="@string/badroom"
+                            />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tBadRoom"
+                            style="@style/textViewOpen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:text="@{viewModel.rooms.toString()}"
+                            />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintDes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_start_end_page_details"
+                    android:layout_marginEnd="@dimen/margin_start_end_page_details"
+                    android:layout_marginTop="32dp"
+                    android:gravity="center">
+
+
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textViewTitleDetails"
+                        android:id="@+id/tLabelDes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+
+                        android:text="@string/description"
+                        android:textColor="@color/black" />
+
+                    <FrameLayout
+                        app:layout_constraintTop_toBottomOf="@+id/tLabelDes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{listener.onClickReadMore}"
+                        android:layout_marginTop="16dp">
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"
+                            android:id="@+id/tDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:maxLines="6"
+                            android:text="@{viewModel.description}"
+                            />
+
+                        <FrameLayout
+                            android:id="@+id/linearDropDown"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|center"
+                            android:paddingTop="16dp"
+                            android:background="@drawable/shape_gradient"
+                            >
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                app:tint="@color/black_dark"
+                                android:src="@drawable/ms__menu_down"/>
+                        </FrameLayout>
+
+                    </FrameLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_start_end_page_details"
+                    android:layout_marginEnd="@dimen/margin_start_end_page_details"
+                    android:layout_marginTop="32dp"
+
+                    android:layout_marginBottom="32dp">
+
+
+
+                    <com.google.android.material.button.MaterialButton
+                        style="@style/Buttonlarge"
+                        android:id="@+id/btnRent"
+                        android:layout_width="0dp"
+                        android:text="@string/more_details"
+                        android:onClick="@{listener.onClickContact}"
+                        android:stateListAnimator="@null"
+                        android:textColor="@color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</layout>

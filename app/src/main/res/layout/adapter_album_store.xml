@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.pedpo.pedporent.model.details.PhotoDetailTO" />
+    </data>
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="0dp"
+    app:cardElevation="0dp"
+
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:id="@+id/imgAlbum"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:imageUrl="@{viewModel.image}"
+        app:placeholder="@{@drawable/placeholder}"
+        android:scaleType="centerCrop"
+        />
+
+</androidx.cardview.widget.CardView>
+</layout>

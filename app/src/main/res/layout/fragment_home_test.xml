@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="listener"
+            type="com.pedpo.pedporent.view.nav.home.HomeFragment" />
+    </data>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/container"
+            android:visibility="invisible"
+            tools:context=".view.nav.NavActivity">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:clipToPadding="false"
+                android:paddingBottom="100dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:context=".view.nav.NavActivity">
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="vertical">-->
+
+<!--                    &lt;!&ndash;            <View&ndash;&gt;-->
+<!--                    &lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                android:layout_height="50dp"/>&ndash;&gt;-->
+
+<!--                    <androidx.viewpager2.widget.ViewPager2-->
+<!--                        android:id="@+id/viewPagerPoster"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="8dp" />-->
+
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_margin="16dp"-->
+<!--                        android:background="@drawable/border_search"-->
+<!--                        android:gravity="center">-->
+
+<!--                        <com.google.android.material.textfield.TextInputLayout-->
+<!--                            android:id="@+id/tInputSearch"-->
+<!--                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_weight="1"-->
+<!--                            android:enabled="false"-->
+<!--                            app:boxBackgroundColor="#00FFFFFF"-->
+<!--                            app:boxStrokeColor="@color/white"-->
+<!--                            app:boxStrokeWidth="0dp"-->
+<!--                            app:hintEnabled="false"-->
+<!--                            app:layout_constraintTop_toTopOf="parent"-->
+<!--                            app:startIconDrawable="@drawable/ic_baseline_search_24"-->
+<!--                            app:startIconTint="@color/tinticon">-->
+
+
+<!--                            <com.google.android.material.textfield.TextInputEditText-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:background="#00FFFFFF"-->
+<!--                                android:hint="@string/search_address_or_near_you"-->
+<!--                                android:imeOptions="actionSearch"-->
+<!--                                android:maxLines="1"-->
+<!--                                android:singleLine="true"-->
+<!--                                android:textSize="12sp"-->
+
+<!--                                />-->
+<!--                        </com.google.android.material.textfield.TextInputLayout>-->
+
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:orientation="vertical">-->
+
+<!--                            <View-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="0dp"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:layout_marginStart="8dp"-->
+<!--                                android:layout_marginEnd="8dp"-->
+<!--                                android:layout_weight="0.4" />-->
+
+<!--                            <View-->
+<!--                                android:layout_width="1dp"-->
+<!--                                android:layout_height="0dp"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:layout_marginStart="8dp"-->
+<!--                                android:layout_marginEnd="8dp"-->
+<!--                                android:layout_weight="0.99"-->
+<!--                                android:background="@drawable/border_line" />-->
+
+<!--                            <View-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="0dp"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:layout_marginStart="8dp"-->
+<!--                                android:layout_marginEnd="8dp"-->
+<!--                                android:layout_weight="0.4" />-->
+
+<!--                        </LinearLayout>-->
+
+<!--                        <ImageView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:src="@drawable/ic_baseline_location_on_24"-->
+<!--                            app:tint="@color/tinticon" />-->
+
+<!--                        <com.pedpo.pedporent.widget.TextViewAppPedpo-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="4dp"-->
+<!--                            android:layout_marginEnd="8dp"-->
+<!--                            android:text="Indonesia"-->
+<!--                            android:textColor="@color/tinticon" />-->
+
+<!--                    </LinearLayout>-->
+
+<!--                    <androidx.recyclerview.widget.RecyclerView-->
+<!--                        android:id="@+id/recyclerCategory"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content" />-->
+
+<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="16dp"-->
+<!--                        android:layout_marginTop="16dp"-->
+<!--                        android:layout_marginEnd="16dp">-->
+
+<!--                        <com.pedpo.pedporent.widget.TextViewAppPedpo-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="@string/most_visited"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="@dimen/title_standard"-->
+<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                        <com.pedpo.pedporent.widget.TextViewAppPedpo-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="@string/see_more"-->
+<!--                            android:textColor="#858585"-->
+<!--                            android:textSize="@dimen/text_size_standard"-->
+<!--                            android:onClick="@{listener::seeMoreVisited}"-->
+<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--                    <androidx.recyclerview.widget.RecyclerView-->
+<!--                        android:id="@+id/recycler_view_visited"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="6dp"-->
+
+<!--                        />-->
+
+<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="16dp"-->
+<!--                        android:layout_marginTop="16dp"-->
+<!--                        android:layout_marginEnd="16dp">-->
+
+<!--                        <com.pedpo.pedporent.widget.TextViewAppPedpo-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="@string/recommend"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="@dimen/title_standard"-->
+<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                        <com.pedpo.pedporent.widget.TextViewAppPedpo-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="@string/see_more"-->
+<!--                            android:onClick="@{listener::seeMoreReComended}"-->
+<!--                            android:textColor="#858585"-->
+<!--                            android:textSize="@dimen/text_size_standard"-->
+<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--                    <androidx.recyclerview.widget.RecyclerView-->
+<!--                        android:id="@+id/recyclerRecomended"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="6dp" />-->
+
+
+<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="16dp"-->
+<!--                        android:layout_marginTop="16dp"-->
+<!--                        android:layout_marginEnd="16dp">-->
+
+<!--                        <com.pedpo.pedporent.widget.TextViewAppPedpo-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="@string/the_lasted_ads"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="@dimen/title_standard"-->
+<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                        <com.pedpo.pedporent.widget.TextViewAppPedpo-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="@string/see_more"-->
+<!--                            android:textColor="#858585"-->
+<!--                            android:textSize="@dimen/text_size_standard"-->
+<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
+<!--                    <androidx.recyclerview.widget.RecyclerView-->
+<!--                        android:id="@+id/recyclerLasted"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="6dp" />-->
+
+
+<!--                </LinearLayout>-->
+
+
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>

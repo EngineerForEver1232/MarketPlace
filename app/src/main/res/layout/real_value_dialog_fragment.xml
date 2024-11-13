@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+    <data>
+        <variable
+            name="listener"
+            type="com.pedpo.pedporent.view.dialog.RealValueFragDialog" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineBegin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp"
+
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="16dp"
+
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tTitle"
+        style="@style/textViewOpen"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black_dark"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_the_real_value_of_the_goods"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toEndOf="@+id/guidelineBegin"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputPrice"
+        style="@style/TextInputLayoutGray"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/guidelineBegin"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+
+        android:layout_marginTop="16dp"
+        app:boxBackgroundMode="filled"
+        app:hintEnabled="false"
+        app:layout_constraintTop_toBottomOf="@+id/tTitle"
+
+        app:boxBackgroundColor="@color/white_dark"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            style="@style/editTextOpen"
+            android:id="@+id/ePrice"
+            android:hint="@string/enter_the_input"
+            android:textColorHint="@color/gray_standard"
+            android:inputType="number"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textview.MaterialTextView
+        style="@style/textViewOpen"
+        android:id="@+id/btnConfirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintTop_toBottomOf="@+id/inputPrice"
+        app:layout_constraintEnd_toEndOf="@+id/guidelineEnd"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:onClick="@{listener::onClickConfirm}"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/confirm"
+        />
+    <com.google.android.material.textview.MaterialTextView
+        style="@style/textViewOpen"
+        android:id="@+id/btnCancel"
+        android:textColor="@color/colorPrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/inputPrice"
+        app:layout_constraintEnd_toStartOf="@+id/btnConfirm"
+        android:onClick="@{listener::onClickCancel}"
+        android:layout_marginEnd="42dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/cancel"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

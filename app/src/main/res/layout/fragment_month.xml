@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/text_dis"
+        android:background="@color/backCalendar">
+
+
+        <GridView
+            android:id="@+id/gridview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:verticalSpacing="1dp"
+            android:horizontalSpacing="0dp"
+            android:numColumns="7"
+            android:layoutDirection="rtl"
+            android:textDirection="rtl"
+            />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="#B7B7B7" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_item_left"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="@dimen/margin_item_right"
+            android:layout_marginBottom="8dp"
+            android:gravity="bottom"
+            android:layoutDirection="rtl"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:background="@drawable/circle_gray"
+                android:backgroundTint="@color/black"
+                />
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/textViewOpen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="4dp"
+                android:text="@string/available"
+                />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginStart="32dp"
+                android:background="@drawable/circle_gray"
+                android:backgroundTint="@color/gray_standard"
+                />
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/textViewOpen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/inactive"
+                android:layout_marginStart="4dp"
+                android:layout_gravity="center"
+                />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

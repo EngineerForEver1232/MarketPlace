@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/linearCell"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View
+        android:id="@+id/line1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/lineHouse"/>
+    <View
+        android:id="@+id/lineHouse"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/line1"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        style="@style/textViewOpen"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/textview_item"
+        android:layout_width="@dimen/width_height_cell_calendar"
+        android:layout_height="@dimen/width_height_cell_calendar"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="@dimen/text_size_cell_calendar"
+        android:textColor="@color/black_dark"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+        <!--    <TextView-->
+        <!--        xmlns:android="http://schemas.android.com/apk/res/android"-->
+        <!--        android:id="@+id/textview_item"-->
+        <!--        android:layout_width="@dimen/width_height_cell_calendar"-->
+        <!--        android:layout_height="@dimen/width_height_cell_calendar"-->
+        <!--        android:gravity="center"-->
+        <!--        android:textSize="@dimen/text_size_cell_calendar"-->
+        <!--        android:textColor="#000"-->
+        <!--        >-->
+
+    </com.google.android.material.textview.MaterialTextView>
+</androidx.constraintlayout.widget.ConstraintLayout>

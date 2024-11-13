@@ -1,0 +1,1603 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="listener"
+            type="com.pedpo.pedporent.view.addMarket.GeneralSpecificationActivity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/constraintBase"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            layout="@layout/back_actionbar"
+            android:id="@+id/action_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScroll"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnConfirm"
+            app:layout_constraintTop_toBottomOf="@+id/action_bar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/textTitleMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_bottom"
+                    android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                    android:layout_marginEnd="@dimen/marginstart_end_addmarket"
+                    android:layout_marginBottom="@dimen/margin_top_bottom"
+                    android:text="@string/general_specification" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_root_custom_box"
+                    android:background="@color/white_dark"
+                    android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                    android:layout_marginEnd="@dimen/marginstart_end_addmarket">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/hight_inner_custom_box"
+                        app:layout_constraintVertical_bias="1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@drawable/border_stroke"
+                        >
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/labelCategory"
+                            style="@style/textViewOpen"
+                            android:layout_width="0dp"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:layout_height="wrap_content"
+                            android:text="@string/category"
+                            android:textColor="@color/text_color_custom_box"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            android:layout_marginStart="16dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <View
+                            android:layout_width="2dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/nameCategory"
+                            android:layerType="software"
+                            android:visibility="gone"
+                            android:background="@drawable/line_stroke_vertical2"
+                            />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/nameCategory"
+                            style="@style/textSelect"
+                            android:visibility="gone"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/hintCategory"
+                        style="@style/hintCustomBox"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:text="@string/category"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_root_custom_box"
+                    android:background="@color/white_dark"
+                    android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                    android:layout_marginTop="@dimen/margin_top_bottom"
+                    android:layout_marginEnd="@dimen/marginstart_end_addmarket">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintArea"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/hight_inner_custom_box"
+                        app:layout_constraintVertical_bias="1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@drawable/border_stroke"
+                        >
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/labelCity"
+                            style="@style/textViewOpen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:text="@string/choose_location"
+                            android:textColor="@color/text_color_custom_box"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <View
+                            android:layout_width="2dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:background="@drawable/line_stroke_vertical2"
+                            android:layerType="software"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/nameArea"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/nameArea"
+                            style="@style/textSelect"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/hintArea"
+                        android:visibility="gone"
+                        style="@style/hintCustomBox"
+
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:text="@string/choose_location"
+                        />
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/textTitleBold"                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="@dimen/marginstart_end_addmarket"
+
+
+                    android:text="@string/minor_specifications" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    style="@style/constraintBoxRoot"
+                    android:onClick="@{listener.onClickAssignment}"
+                    android:layout_marginTop="@dimen/margin_top_bottom"
+                    android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                    android:layout_marginEnd="@dimen/marginstart_end_addmarket">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    style="@style/constraintBoxInner"
+                    app:layout_constraintVertical_bias="1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    >
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tAssignment"
+                        style="@style/textViewOpen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/price2"
+                        android:textColor="@color/text_color_custom_box"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:layout_width="2dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/line_stroke_vertical2"
+                        android:layerType="software"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/tAssignmentType"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textViewOpen"
+                        android:id="@+id/tAssignmentType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/select"
+                        android:layout_marginEnd="16dp"
+                        android:textColor="#858585"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/hintAssignment"
+                        style="@style/hintCustomBox"
+                        android:visibility="visible"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:text="@string/assignment_type"
+
+                        />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    style="@style/constraintBoxRoot"
+                    android:id="@+id/layoutDeposit"
+                    android:onClick="@{listener::onClickDeposit}"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                    android:layout_marginTop="@dimen/margin_top_bottom"
+                    android:layout_marginEnd="@dimen/marginstart_end_addmarket">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:visibility="visible"
+                        style="@style/constraintBoxInner"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintVertical_bias="1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        >
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/cession_type"
+                            android:layout_marginStart="16dp"
+                            android:textColor="@color/text_color_custom_box"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+                        <View
+                            android:id="@+id/lineStrokeDeposit"
+                            android:layout_width="2dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:background="@drawable/line_stroke_vertical2"
+                            android:layerType="software"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/selectCession_type"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/selectCession_type"
+                            style="@style/textSelect"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                        <Spinner
+                            android:id="@+id/spinnerRenteral"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:gravity="center"
+                            android:visibility="invisible"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/hintCessionType"
+                        style="@style/hintCustomBox"
+                        android:visibility="gone"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:text="@string/cession_type"
+                        />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                <LinearLayout
+                    android:id="@+id/linearPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_bottom"
+                    android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                    android:layout_marginEnd="@dimen/marginstart_end_addmarket"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textTitleBold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/price2"
+
+
+                        />
+
+                    <LinearLayout
+                        android:id="@+id/constraintSpinner"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_top_bottom"
+                        >
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textTitleMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/ad_type_price"
+                            android:textColor="@color/title_gray" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/gray_a"
+
+                            android:text="@string/please_choose_a_type_price_for_this_matter" />
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/constraintSpinnerPric"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/border_stroke"
+                            >
+
+                            <Spinner
+                                android:id="@+id/spinnerTypePrice"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:spinnerMode="dropdown"
+                                android:backgroundTint="@color/black_dark"
+
+
+                                />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </LinearLayout>
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        style="@style/constraintBoxRoot"
+                        android:onClick="@{listener::onClickRealValue}"
+                        android:layout_marginTop="@dimen/margin_top_bottom"
+
+                        >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:visibility="visible"
+                        android:id="@+id/constraintRealValue"
+
+                        style="@style/constraintBoxInner"
+                        app:layout_constraintVertical_bias="1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        >
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tReal"
+                            style="@style/textViewOpen"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true"
+                            android:maxLines="1"
+
+                            app:layout_constraintHorizontal_chainStyle="spread_inside"
+                            android:hint="@string/the_real_value_of_the_goods"
+                            android:textColor="@color/text_color_custom_box"
+                            android:layout_marginStart="16dp"
+                            app:layout_constraintEnd_toStartOf="@+id/constraintValue"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/constraintValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@+id/tReal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <View
+                                android:id="@+id/stroceRealPrice"
+                                android:layout_width="2dp"
+                                android:layout_height="50dp"
+                                android:layout_marginStart="12dp"
+                                android:layout_marginEnd="12dp"
+                                android:background="@drawable/line_stroke_vertical2"
+                                android:layerType="software"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@id/realValue"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/realValue"
+                                style="@style/textSelect"
+                                app:layout_constraintStart_toEndOf="@+id/stroceRealPrice"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/hintRealValue"
+                            style="@style/hintCustomBox"
+                            android:visibility="gone"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:text="@string/the_real_value_of_the_goods"
+                            />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearPriceRent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/constraintYear"
+                            style="@style/constraintBoxRoot"
+                            android:onClick="@{listener::onClickYear}"
+                            android:layout_marginTop="@dimen/margin_top_bottom"
+                            >
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:visibility="visible"
+                            android:id="@+id/constraintYearInner"
+                            android:layout_width="match_parent"
+                            style="@style/constraintBoxInner"
+                            app:layout_constraintVertical_bias="1"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/textViewOpen"
+                                android:id="@+id/tPriceYear"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/year_price"
+                                android:textColor="@color/text_color_custom_box"
+                                android:layout_marginStart="16dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <View
+                                android:id="@+id/strokeYear"
+                                android:layout_width="2dp"
+                                android:layout_height="50dp"
+                                android:layout_marginStart="12dp"
+                                android:layout_marginEnd="12dp"
+                                android:background="@drawable/line_stroke_vertical2"
+                                android:layerType="software"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@id/priceYear"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/priceYear"
+                                style="@style/textSelect"
+
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/hintYearPrice"
+                                style="@style/hintCustomBox"
+                                android:visibility="gone"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:text="@string/year_price"
+                                />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            style="@style/constraintBoxRoot"
+                            android:id="@+id/constraintMonth"
+                            android:onClick="@{listener::onClickMonth}"
+                            android:layout_marginTop="@dimen/margin_top_bottom"
+                            >
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:visibility="visible"
+                                style="@style/constraintBoxInner"
+                                android:id="@+id/constraintMonthInner"
+                                app:layout_constraintVertical_bias="1"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent">
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    style="@style/textViewOpen"
+                                    android:id="@+id/tPriceMonth"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/monthly_price"
+                                    android:textColor="@color/text_color_custom_box"
+                                    android:layout_marginStart="16dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <View
+                                    android:id="@+id/strokeMonth"
+                                    android:layout_width="2dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginStart="12dp"
+                                    android:layout_marginEnd="12dp"
+                                    android:background="@drawable/line_stroke_vertical2"
+                                    android:layerType="software"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toStartOf="@id/priceMonth"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/priceMonth"
+                                    style="@style/textSelect"
+
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/hintMonthlyPRice"
+                                style="@style/hintCustomBox"
+                                android:visibility="gone"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:text="@string/monthly_price"
+                                />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            style="@style/constraintBoxRoot"
+                            android:onClick="@{listener::onClickDaily}"
+                            android:layout_marginTop="@dimen/margin_top_bottom"
+                            >
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:visibility="visible"
+                                android:id="@+id/constraintDaily"
+                                style="@style/constraintBoxInner"
+                                app:layout_constraintVertical_bias="1"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent">
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    style="@style/textViewOpen"
+                                    android:id="@+id/tDaily"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/daily_rental_price"
+                                    android:textColor="@color/text_color_custom_box"
+                                    android:layout_marginStart="16dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <View
+                                    android:id="@+id/strokeDaily"
+                                    android:layout_width="2dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginStart="12dp"
+                                    android:layout_marginEnd="12dp"
+                                    android:background="@drawable/line_stroke_vertical2"
+                                    android:layerType="software"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toStartOf="@id/deilyPrice"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/deilyPrice"
+                                    style="@style/textSelect"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/hintDaily"
+                                style="@style/hintCustomBox"
+                                android:visibility="gone"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:text="@string/daily_rental_price"
+                                />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/constraintHour"
+                            style="@style/constraintBoxRoot"
+                            android:onClick="@{listener::onClickHour}"
+                            android:layout_marginTop="@dimen/margin_top_bottom"
+
+                            >
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:visibility="visible"
+                            android:id="@+id/constraintHourInner"
+                            style="@style/constraintBoxInner"
+                            app:layout_constraintVertical_bias="1"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tHours"
+                                style="@style/textViewOpen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/hour_price"
+                                android:textColor="@color/text_color_custom_box"
+                                android:layout_marginStart="16dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <View
+                                android:id="@+id/strokeHour"
+                                android:layout_width="2dp"
+                                android:layout_height="50dp"
+                                android:layout_marginStart="12dp"
+                                android:layout_marginEnd="12dp"
+                                android:background="@drawable/line_stroke_vertical2"
+                                android:layerType="software"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@id/priceHour"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/priceHour"
+                                style="@style/textSelect"
+
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/hintHourPrice"
+                                style="@style/hintCustomBox"
+                                android:visibility="gone"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:text="@string/hour_price"
+                                />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </LinearLayout>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textViewOpen"
+                        android:id="@+id/tPriceError"
+                        android:visibility="gone"
+                        android:padding="16dp"
+                        android:background="@drawable/border_error"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/red_error"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/fill_in_one_of_the_rental_price_fields"
+                        />
+
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/linearHouse"
+                    android:layout_marginTop="@dimen/margin_top_line_stroke_ad_market"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <androidx.constraintlayout.widget.Group
+                        android:id="@+id/groupLand"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:constraint_referenced_ids="constraintRoomParent,constraintBathRoomParent,
+                        constraintHeatingParent,constraintCoolingParent,constraintParkingParent,
+                        constraintYearParent"/>
+
+
+                    <View
+                        android:id="@+id/lineHouse"
+                        android:layout_width="match_parent"
+                        android:layout_height="4dp"
+
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/tTitleHome"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:background="@drawable/line_add_stroke_horizontal_gray"
+                        />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textTitleBold"
+                        android:id="@+id/tTitleHome"
+                        app:layout_constraintTop_toBottomOf="@+id/lineHouse"
+                        app:layout_constraintBottom_toTopOf="@+id/constraintMetrazhParent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                        android:layout_marginTop="@dimen/margin_top_bottom"
+                        android:layout_marginEnd="@dimen/marginstart_end_addmarket"
+
+                        android:text="@string/home" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        style="@style/constraintBoxRoot"
+                        android:id="@+id/constraintMetrazhParent"
+                        app:layout_constraintTop_toBottomOf="@id/tTitleHome"
+                        app:layout_constraintBottom_toTopOf="@id/constraintRoomParent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:onClick="@{listener::onClickMetrazhHome}"
+                        android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                        android:layout_marginTop="@dimen/margin_top_bottom"
+                        android:layout_marginEnd="@dimen/marginstart_end_addmarket">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:visibility="visible"
+                        android:id="@+id/constraintMetrazh"
+
+                        style="@style/constraintBoxInner"
+                        app:layout_constraintVertical_bias="1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tMetrazh"
+                            style="@style/textViewOpen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true"
+                            android:maxLines="1"
+
+                            app:layout_constraintHorizontal_chainStyle="spread_inside"
+                            android:text="@string/meter_of_house"
+                            android:textColor="@color/text_color_custom_box"
+                            android:layout_marginStart="16dp"
+                            app:layout_constraintEnd_toStartOf="@+id/constMetrazh"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/constMetrazh"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@+id/tMetrazh"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <View
+                                android:id="@+id/strokeMetrazh"
+                                android:layout_width="2dp"
+                                android:layout_height="50dp"
+                                android:layout_marginStart="12dp"
+                                android:layout_marginEnd="12dp"
+                                android:background="@drawable/line_stroke_vertical2"
+                                android:layerType="software"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@id/selectMetrazh"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/selectMetrazh"
+                                app:layout_constraintStart_toEndOf="@+id/strokeMetrazh"
+                                style="@style/textSelect"
+
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/hintMetrazh"
+                            style="@style/hintCustomBox"
+                            android:visibility="gone"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:text="@string/meter_of_house"
+                            />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        style="@style/constraintBoxRoot"
+                        android:id="@+id/constraintRoomParent"
+                        app:layout_constraintTop_toBottomOf="@id/constraintRoomParent"
+                        app:layout_constraintBottom_toTopOf="@id/constraintBathRoomParent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:onClick="@{listener::onClickRoom}"
+                        android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                        android:layout_marginTop="@dimen/margin_top_bottom"
+                        android:layout_marginEnd="@dimen/marginstart_end_addmarket">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:visibility="visible"
+                        android:id="@+id/constraintRoom"
+
+                        style="@style/constraintBoxInner"
+                        app:layout_constraintVertical_bias="1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tBadRoom"
+                            style="@style/textViewOpen"
+                            android:tag="badroom"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/badroom"
+                            android:textColor="@color/text_color_custom_box"
+                            android:layout_marginStart="16dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:id="@+id/strokeRoom"
+                            android:layout_width="2dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:background="@drawable/line_stroke_vertical2"
+                            android:layerType="software"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/tRoom"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tRoom"
+                            style="@style/textSelect"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/hintBadroom"
+                            android:visibility="gone"
+                            style="@style/hintCustomBox"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:text="@string/badroom"
+                            />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        style="@style/constraintBoxRoot"
+                        android:id="@+id/constraintBathRoomParent"
+
+                        app:layout_constraintTop_toBottomOf="@id/constraintRoomParent"
+                        app:layout_constraintBottom_toTopOf="@id/constraintYearParent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:onClick="@{listener::onClickBadRoom}"
+                        android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                        android:layout_marginTop="@dimen/margin_top_bottom"
+                        android:layout_marginEnd="@dimen/marginstart_end_addmarket">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:visibility="visible"
+
+                        android:id="@+id/constraintbadRoom"
+                        style="@style/constraintBoxInner"
+                        app:layout_constraintVertical_bias="1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"
+                            android:id="@+id/tBathRoom"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/bathroom"
+                            android:textColor="@color/text_color_custom_box"
+                            android:layout_marginStart="16dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:id="@+id/strokeBathRoom"
+                            android:layout_width="2dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:background="@drawable/line_stroke_vertical2"
+                            android:layerType="software"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/tSelectbadRoom"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tSelectbadRoom"
+                            style="@style/textSelect"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/hintBathroom"
+                            style="@style/hintCustomBox"
+                            android:visibility="gone"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:text="@string/bathroom"
+                            />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        style="@style/constraintBoxRoot"
+                        android:id="@+id/constraintYearParent"
+
+                        app:layout_constraintTop_toBottomOf="@id/constraintBathRoomParent"
+                        app:layout_constraintBottom_toTopOf="@id/constraintParkingParent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:onClick="@{listener::onClickyearConstruction}"
+                        android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                        android:layout_marginTop="@dimen/margin_top_bottom"
+                        android:layout_marginEnd="@dimen/marginstart_end_addmarket">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:visibility="visible"
+                        android:id="@+id/constraintYearConstruction"
+
+                        style="@style/constraintBoxInner"
+                        app:layout_constraintVertical_bias="1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tYearHome"
+                            style="@style/textViewOpen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/year_construction"
+                            android:textColor="@color/text_color_custom_box"
+                            android:layout_marginStart="16dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:id="@+id/strokeYearConstHouse"
+                            android:layout_width="2dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:background="@drawable/line_stroke_vertical2"
+                            android:layerType="software"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/tBuildYear"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tBuildYear"
+                            style="@style/textSelect"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/hintYearHome"
+                            style="@style/hintCustomBox"
+                            android:visibility="gone"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:text="@string/year_construction"
+                            />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        style="@style/constraintBoxRoot"
+                        android:id="@+id/constraintParkingParent"
+                        app:layout_constraintTop_toBottomOf="@id/constraintYearParent"
+                        app:layout_constraintBottom_toTopOf="@id/constraintHeatingParent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:onClick="@{listener::onClickParking}"
+                        android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                        android:layout_marginTop="@dimen/margin_top_bottom"
+                        android:layout_marginEnd="@dimen/marginstart_end_addmarket">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:visibility="visible"
+                        android:id="@+id/constraintParking"
+
+                        style="@style/constraintBoxInner"
+                        app:layout_constraintVertical_bias="1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"
+                            android:id="@+id/tParkingHome"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:gravity="start"
+                            app:layout_constraintEnd_toStartOf="@id/strokeParking"
+                            android:text="@string/parking"
+                            android:textColor="@color/text_color_custom_box"
+                            android:layout_marginStart="16dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:id="@+id/strokeParking"
+                            android:layout_width="2dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:background="@drawable/line_stroke_vertical2"
+                            android:layerType="software"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/tParking"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tParking"
+                            style="@style/textSelect"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/hintParking"
+                            style="@style/hintCustomBox"
+                            android:visibility="gone"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:text="@string/parking"
+                            />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        style="@style/constraintBoxRoot"
+                        android:id="@+id/constraintHeatingParent"
+
+                        app:layout_constraintTop_toBottomOf="@id/constraintParkingParent"
+                        app:layout_constraintBottom_toTopOf="@id/constraintCoolingParent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:onClick="@{listener::onClickHeating}"
+                        android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                        android:layout_marginTop="@dimen/margin_top_bottom"
+                        android:layout_marginEnd="@dimen/marginstart_end_addmarket">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:visibility="visible"
+                        android:id="@+id/constraintHeating"
+
+                        style="@style/constraintBoxInner"
+                        app:layout_constraintVertical_bias="1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"
+                            android:id="@+id/tHeatingH"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:gravity="start"
+                            app:layout_constraintEnd_toStartOf="@id/strokeHeating"
+                            android:text="@string/heating"
+                            android:textColor="@color/text_color_custom_box"
+                            android:layout_marginStart="16dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:id="@+id/strokeHeating"
+                            android:layout_width="2dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:background="@drawable/line_stroke_vertical2"
+                            android:layerType="software"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/tHeating"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tHeating"
+                            style="@style/textSelect"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/hintHeating"
+                            style="@style/hintCustomBox"
+                            android:visibility="gone"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:text="@string/heating"
+                            />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        style="@style/constraintBoxRoot"
+                        android:id="@+id/constraintCoolingParent"
+                        app:layout_constraintTop_toBottomOf="@id/constraintHeatingParent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:onClick="@{listener::onClickCooling}"
+                        android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                        android:layout_marginTop="@dimen/margin_top_bottom"
+                        android:layout_marginEnd="@dimen/marginstart_end_addmarket">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:visibility="visible"
+                        android:id="@+id/constraintCooling"
+
+                        style="@style/constraintBoxInner"
+                        app:layout_constraintVertical_bias="1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"
+                            android:id="@+id/tCoolingH"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/cooling"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:gravity="start"
+                            app:layout_constraintEnd_toStartOf="@id/strokeCooling"
+                            android:textColor="@color/text_color_custom_box"
+                            android:layout_marginStart="16dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:id="@+id/strokeCooling"
+                            android:layout_width="2dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:background="@drawable/line_stroke_vertical2"
+                            android:layerType="software"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/tCooling"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tCooling"
+                            style="@style/textSelect"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/hintCooling"
+                            style="@style/hintCustomBox"
+                            android:visibility="gone"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:text="@string/cooling"
+                            />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                    android:id="@+id/lineCar"
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:layout_marginTop="@dimen/margin_top_line_stroke_ad_market"
+
+                    android:background="@drawable/line_add_stroke_horizontal_gray"
+                    />
+
+                <LinearLayout
+                    android:id="@+id/linearCar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textTitleBold"                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                        android:layout_marginTop="@dimen/margin_top_bottom"
+                        android:layout_marginEnd="@dimen/marginstart_end_addmarket"
+                        android:text="@string/car" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        style="@style/constraintBoxRoot"
+                        android:onClick="@{listener::onClickKm}"
+                        android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                        android:layout_marginTop="@dimen/margin_top_bottom"
+                        android:layout_marginEnd="@dimen/marginstart_end_addmarket">
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:visibility="visible"
+                        android:id="@+id/constraintKm"
+
+                        style="@style/constraintBoxInner"
+                        app:layout_constraintVertical_bias="1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"
+                            android:id="@+id/tKm"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true"
+                            android:maxLines="1"
+
+                            app:layout_constraintHorizontal_chainStyle="spread_inside"
+                            android:text="@string/kilometer_car"
+                            android:textColor="@color/text_color_custom_box"
+                            android:layout_marginStart="16dp"
+                            app:layout_constraintEnd_toStartOf="@+id/constResultKm"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/constResultKm"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@+id/tKm"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <View
+                                android:id="@+id/strokeKm"
+                                android:layout_width="2dp"
+                                android:layout_height="50dp"
+                                android:layout_marginStart="12dp"
+                                android:layout_marginEnd="12dp"
+                                android:background="@drawable/line_stroke_vertical2"
+                                android:layerType="software"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@id/realKm"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/realKm"
+                                style="@style/textSelect"
+                                app:layout_constraintStart_toEndOf="@+id/strokeKm"
+
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/hintKM"
+                            android:visibility="gone"
+                            style="@style/hintCustomBox"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:text="@string/kilometer_car"
+                            />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        style="@style/constraintBoxRoot"
+                        android:onClick="@{listener::onClickTypeFuel}"
+                        android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                        android:layout_marginTop="@dimen/margin_top_bottom"
+                        android:layout_marginEnd="@dimen/marginstart_end_addmarket">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:visibility="visible"
+                        android:id="@+id/constraintTypeFuel"
+
+                        style="@style/constraintBoxInner"
+                        app:layout_constraintVertical_bias="1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tFule"
+                            style="@style/textViewOpen"
+
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:gravity="start"
+                            app:layout_constraintEnd_toStartOf="@id/strokeTypeFuel"
+                            android:text="@string/fuel_type"
+                            android:textColor="@color/text_color_custom_box"
+                            android:layout_marginStart="16dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:id="@+id/strokeTypeFuel"
+                            android:layout_width="2dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:background="@drawable/line_stroke_vertical2"
+                            android:layerType="software"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/tTypeFuel"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tTypeFuel"
+                            style="@style/textSelect"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/hintFuelType"
+                            android:visibility="gone"
+                            style="@style/hintCustomBox"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:text="@string/fuel_type"
+                            />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        style="@style/constraintBoxRoot"
+                        android:onClick="@{listener::onClickYearConstructionCar}"
+                        android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                        android:layout_marginTop="@dimen/margin_top_bottom"
+                        android:layout_marginEnd="@dimen/marginstart_end_addmarket">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:visibility="visible"
+                        android:id="@+id/constraintYearConstructionCar"
+
+                        style="@style/constraintBoxInner"
+                        app:layout_constraintVertical_bias="1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"
+                            android:id="@+id/tYearCar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/year_constra_car"
+                            android:textColor="@color/text_color_custom_box"
+                            android:layout_marginStart="16dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:id="@+id/strokeYearConstCar"
+                            android:layout_width="2dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:background="@drawable/line_stroke_vertical2"
+                            android:layerType="software"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/tYearBuildCar"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textSelect"
+                            android:id="@+id/tYearBuildCar"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/hintYearConstrCar"
+                            style="@style/hintCustomBox"
+                            android:visibility="gone"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:text="@string/year_constra_car"
+                            />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Buttonlarge"
+            android:id="@+id/btnConfirm"
+            android:layout_width="0dp"
+
+            android:layout_marginStart="@dimen/marginstart_end_addmarket"
+            android:layout_marginEnd="@dimen/marginstart_end_addmarket"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:onClick="@{listener::onClickBtnConfirm}"
+            android:text="@string/confirm"
+
+            app:cornerRadius="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nestedScroll" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

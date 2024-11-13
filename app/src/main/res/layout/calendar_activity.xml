@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_dark"
+    android:orientation="vertical">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearEditTest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white_dark"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="16dp"
+        android:visibility="visible">
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/groupLabelDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:constraint_referenced_ids="
+labelDot,labelDotEnd,tStartDate,tEndDate"/>
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:barrierDirection="end"
+            app:constraint_referenced_ids="labelStartDate , labelEndDate"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/textViewOpen"
+            android:id="@+id/labelStartDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/start_date"
+            android:textSize="@dimen/label_calendar"
+            android:textColor="@color/label_calendar"
+            app:layout_constraintBottom_toTopOf="@+id/labelEndDate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/textViewOpen"
+            android:id="@+id/labelDot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=":"
+            android:textSize="@dimen/label_calendar"
+            android:textColor="@color/label_calendar"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/labelStartDate"
+            app:layout_constraintStart_toStartOf="@+id/barrier1"
+            app:layout_constraintTop_toTopOf="@+id/labelStartDate"/>
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/textViewOpen"
+            android:id="@+id/tStartDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/label_calendar"
+
+            android:textColor="@color/selector_label_date"
+            android:layout_marginStart="8dp"
+            android:inputType="date"
+            app:layout_constraintBottom_toBottomOf="@+id/labelStartDate"
+            app:layout_constraintStart_toEndOf="@+id/labelDot"
+            app:layout_constraintTop_toTopOf="@+id/labelStartDate" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/textViewOpen"
+
+            android:textSize="@dimen/label_calendar"
+            android:textColor="@color/label_calendar"
+            android:id="@+id/labelEndDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/end_date"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/labelStartDate" />
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/textViewOpen"
+            android:id="@+id/labelDotEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=":"
+            android:textSize="@dimen/label_calendar"
+            android:textColor="@color/label_calendar"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/labelEndDate"
+            app:layout_constraintStart_toStartOf="@+id/barrier1"
+            app:layout_constraintTop_toTopOf="@+id/labelEndDate"/>
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/textViewOpen"
+            android:textSize="@dimen/label_calendar"
+            android:textColor="@color/selector_label_date"
+            android:id="@+id/tEndDate"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:inputType="date"
+            app:layout_constraintBottom_toBottomOf="@+id/labelEndDate"
+            app:layout_constraintStart_toEndOf="@+id/labelDotEnd"
+            app:layout_constraintTop_toTopOf="@+id/labelEndDate" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/textViewOpen"
+            android:textSize="@dimen/label_calendar"
+            android:textColor="@color/link_blue"
+            android:id="@+id/typeCalendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shamsi"
+
+            app:layout_constraintTop_toBottomOf="@+id/icCalendar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+        <ImageView
+            android:id="@+id/icCalendar"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            app:tint="@color/selector_icon"
+            android:src="@drawable/ic_baseline_calendar_today_24"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/typeCalendar"
+            app:layout_constraintEnd_toEndOf="@+id/typeCalendar"
+            app:layout_constraintStart_toStartOf="@+id/typeCalendar"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp"
+        android:background="@color/white_dark">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/border_calendar"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="@dimen/margin_top_bottom_linear_title_calendar"
+                android:layoutDirection="ltr"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/textViewOpen"
+                    android:id="@+id/tDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="Oct,2021"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+
+                        android:background="@drawable/border_arrow"
+                        android:orientation="horizontal"
+                        android:paddingTop="2dp"
+                        android:paddingBottom="2dp"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <ImageView
+                            android:id="@+id/btnBack"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_baseline_keyboard_arrow_left_24"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="#857D7D" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:orientation="vertical">
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_weight="0.4" />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="0dp"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_weight="0.99"
+                                android:background="@drawable/border_line" />
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_weight="0.4" />
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/btnNext"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_arrow_right"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="#857D7D" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/arrowNext"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@drawable/selector_action_calendar_next"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/arrowPrevious"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/arrowPrevious"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@drawable/selector_action_calendar_pervious"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/arrowNext"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <GridView
+                android:id="@+id/gridviewTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="4dp"
+                android:layoutDirection="rtl"
+                android:numColumns="7"
+                android:textDirection="rtl" />
+
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewPagerCalendar"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <FrameLayout
+                android:id="@+id/linearBtns"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_item_left"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="@dimen/margin_item_right"
+                android:layout_marginBottom="16dp"
+                android:gravity="bottom|center_horizontal"
+                android:orientation="horizontal">
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnClear"
+                    style="@style/ButtonStandard"
+
+                    android:layout_gravity="start"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:backgroundTint="@color/white"
+                    android:stateListAnimator="@null"
+                    android:text="@string/cancel"
+                    android:textAllCaps="false"
+                    android:textColor="#A1A1A1"
+                    android:textSize="16sp"
+                    app:cornerRadius="8sp"
+                    app:rippleColor="@color/colorPrimary"
+
+                    />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnApply"
+                    style="@style/ButtonStandard"
+                    android:layout_gravity="end"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:text="@string/apply"
+                    android:textAllCaps="false"
+                    app:cornerRadius="8dp"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+            </FrameLayout>
+        </LinearLayout>
+
+
+        <include layout="@layout/layout_loading_icon_pedpo" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>

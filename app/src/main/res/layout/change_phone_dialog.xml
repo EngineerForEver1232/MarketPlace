@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+        <variable
+            name="listener"
+            type="com.pedpo.pedporent.view.dialog.ChangePhoneDialog" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+
+        android:paddingBottom="16dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidBegin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp"
+            />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp"
+            />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutPhone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+
+            app:layout_constraintStart_toStartOf="@+id/guidBegin"
+            app:layout_constraintEnd_toEndOf="@id/guidEnd"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="24dp"
+                android:id="@+id/framLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                >
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/textTitleMedium"
+                    android:text="@string/edit_contact_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:textColor="@color/gray_7"
+
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_close_24"
+                    android:layout_gravity="end"
+                    app:tint="@color/tinticon"
+                    android:onClick="@{listener.btnClose}"
+                    />
+
+            </FrameLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/t"
+                style="@style/textViewOpen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black_dark"
+                android:layout_marginTop="32dp"
+                android:text="@string/phone_number"
+                app:layout_constraintTop_toBottomOf="@+id/framLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+            <LinearLayout
+                android:id="@+id/linearPhone"
+                android:layout_width="0dp"
+                android:layout_height="58dp"
+                android:layout_marginTop="9dp"
+                android:background="@drawable/border_login_white"
+                android:gravity="center"
+                android:layoutDirection="ltr"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/t"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
+
+
+                <Spinner
+                    android:id="@+id/spinnerCountries"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@color/white_dark"
+                    android:layout_marginLeft="4dp" />
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="0.4" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="0.99"
+                        android:background="@drawable/border_line" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="0.4" />
+
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputComment"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    app:hintEnabled="false"
+                    >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ePhoneNumber"
+                    style="@style/editTextOpen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/black_dark"
+                    android:textColorHint="@color/black_dark"
+                    android:backgroundTint="@color/white_dark"
+                    android:gravity="center_vertical"
+
+                    android:hint="⋆⋆⋆"
+                    android:inputType="phone"
+                    android:maxLength="14"
+                    android:maxLines="1"
+
+                    android:singleLine="true" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogin"
+                style="@style/Buttonlarge"
+                android:layout_width="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="26dp"
+                android:backgroundTint="@color/gray_a"
+                android:onClick="@{listener::btnLogin}"
+                android:text="@string/apply"
+                app:layout_constraintTop_toBottomOf="@+id/linearPhone"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cornerRadius="12dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutVerify"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+
+            app:layout_constraintStart_toStartOf="@+id/guidBegin"
+            app:layout_constraintEnd_toEndOf="@id/guidEnd"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="24dp"
+                android:id="@+id/framLayoutVerify"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                >
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/textTitleMedium"
+                    android:text="Edit contact number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_close_24"
+                    android:layout_gravity="end"
+                    android:onClick="@{listener.btnClose}"
+                    />
+
+            </FrameLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tTitle"
+                style="@style/TextInputLayoutGray"
+                android:textColor="@color/black_dark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@string/enter_auth_code"
+                app:layout_constraintTop_toBottomOf="@+id/framLayoutVerify"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/textViewOpen"
+                android:textColor="@color/gray_standard"                android:id="@+id/tDes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/enter_code_auth_test"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tTitle" />
+
+            <FrameLayout
+                android:id="@+id/framLayoutEdittext"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="16dp"
+
+                android:background="@drawable/border_search"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tDes">
+
+                <com.alimuzaffar.lib.pin.PinEntryEditText
+                    android:id="@+id/ePin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="32dp"
+
+                    android:layout_marginEnd="32dp"
+                    android:cursorVisible="false"
+
+                    android:digits="1234567890"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:layoutDirection="ltr"
+                    android:maxLength="6"
+                    android:textIsSelectable="false"
+                    android:textSize="20sp"
+                    android:visibility="visible"
+                    app:layout_constraintTop_toBottomOf="@+id/tConfirmPhoneDetails"
+                    app:pinAnimationType="popIn"
+                    app:pinBackgroundIsSquare="false"
+                    app:pinLineStroke="1dp"
+
+                    app:pinLineStrokeSelected="2dp" />
+
+            </FrameLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/textViewOpen"
+                android:id="@+id/tTimer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:onClick="@{listener.btnTimer}"
+                android:text="@string/retrieve_the_verification_code"
+                android:textColor="@color/blue_verify_code"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/framLayoutEdittext"
+                />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLoginVerfiy"
+                style="@style/Buttonlarge"
+                android:layout_width="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="26dp"
+                android:backgroundTint="@color/gray_a"
+                android:onClick="@{listener::btnVerify}"
+                android:text="@string/countinue"
+                app:layout_constraintTop_toBottomOf="@+id/tTimer"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cornerRadius="12dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.pedpo.pedporent.model.market.category.CategoryTO" />
+    </data>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center">
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:padding="12dp"
+        app:cardCornerRadius="56dp"
+        app:cardElevation="0dp"
+        app:cardPreventCornerOverlap="true"
+        app:strokeWidth="0.5dp"
+        app:strokeColor="@color/gray_standard"
+        >
+
+
+        <ImageView
+            android:id="@+id/icIcon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_margin="12dp"
+            app:imageUrl="@{viewModel.appIconeAddress}"
+            app:placeholder="@{@drawable/ic_baseline_refresh_24}"
+            app:tint="@color/gray_standard" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tIcon"
+        style="@style/textViewOpen"
+        android:textColor="@color/gray_standard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:singleLine="true"
+        android:maxLines="1"
+
+        android:ellipsize="end"
+        android:textSize="10sp"
+        />
+
+</LinearLayout>
+</layout>

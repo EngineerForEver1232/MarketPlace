@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+
+        <variable
+            name="listener"
+            type="com.pedpo.pedporent.view.store.detailStore.StoreDetailsActivity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/layoutStore"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background_home"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible">
+
+                <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/background_home"
+                    android:paddingBottom="8dp"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                    <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="65dp"
+                        android:layoutDirection="ltr"
+                        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                        app:layout_collapseMode="pin" />
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/background_home">
+
+                        <ImageView
+                            android:id="@+id/icMenu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_detail"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginTop="16dp"
+
+                            app:layout_constraintHorizontal_chainStyle="spread_inside"
+                            android:layout_marginBottom="16dp"
+                            app:layout_constraintEnd_toEndOf="@id/viewpagerAlbum"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toTopOf="@id/viewpagerAlbum"
+                            app:tint="@color/tinticon" />
+
+                        <ImageView
+                            android:id="@+id/icBack"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginStart="12dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"
+                            app:tint="@color/black_dark"
+                            android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
+
+                            app:layout_constraintStart_toStartOf="@id/viewpagerAlbum"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toTopOf="@id/viewpagerAlbum"
+                            />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/titleStore"
+                            style="@style/textViewOpen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:textColor="@color/black_dark"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/icMenu"
+                            app:layout_constraintStart_toEndOf="@+id/icBack"
+                            app:layout_constraintTop_toTopOf="@id/icMenu"
+
+                            />
+
+
+                        <androidx.viewpager2.widget.ViewPager2
+                            android:id="@+id/viewpagerAlbum"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            app:layout_constraintBottom_toTopOf="@+id/constraintBtn"
+                            app:layout_constraintDimensionRatio="16:8"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/icMenu" />
+
+
+                        <com.pedpo.pedporent.widget.dotsIndicator.DotsIndicator
+                            android:id="@+id/dotsIndicator"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginBottom="8dp"
+                            app:dotsColor="#eee"
+                            app:dotsCornerRadius="8dp"
+                            app:dotsSize="12dp"
+                            app:dotsSpacing="4dp"
+
+                            app:dotsWidthFactor="2.5"
+                            app:layout_constraintBottom_toBottomOf="@+id/viewpagerAlbum"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            app:progressMode="true"
+                            app:selectedDotColor="@color/colorPrimary" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/constraintBtn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layoutDirection="ltr"
+                            android:layout_marginBottom="16dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp"
+
+
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginTop="16dp"
+
+                            app:layout_constraintTop_toBottomOf="@+id/viewpagerAlbum"
+                            android:layoutAnimation="@anim/layout_animation"
+                            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                            >
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/btn_Category_Rent"
+                                android:layout_width="0dp"
+                                app:layout_constraintHorizontal_weight="1"
+                                android:layout_height="40dp"
+
+                                android:layout_marginStart="@dimen/margin_btn_category"
+                                android:layout_marginEnd="@dimen/margin_btn_category"
+                                android:background="@drawable/border_btn_gray"
+                                android:onClick="@{listener.onClickBtnCategoryRent}"
+
+                                app:layout_constraintHorizontal_chainStyle="packed"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/btn_Category_Sale"
+                                >
+
+                                <ImageView
+                                    android:id="@+id/img"
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:src="@drawable/ic_sell"
+                                    app:tint="@color/text_category_type"
+                                    android:layout_marginEnd="4dp"
+                                    app:layout_constraintHorizontal_chainStyle="packed"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintEnd_toStartOf="@+id/tr"
+                                    />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    style="@style/textViewOpen"
+                                    android:id="@+id/tr"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:layout_marginStart="4dp"
+                                    android:text="@string/rent"
+                                    android:textColor="@color/text_category_type"
+                                    app:layout_constraintStart_toEndOf="@+id/img"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    />
+
+
+                                <View
+                                    android:id="@+id/lineBottomRent"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="2dp"
+                                    android:visibility="invisible"
+                                    android:layout_marginStart="3dp"
+                                    android:layout_marginEnd="3dp"
+
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    android:background="@drawable/border_btn_primary"
+                                    />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/btn_Category_Sale"
+
+                                android:layout_width="0dp"
+                                app:layout_constraintHorizontal_weight="1"                            android:layout_height="40dp"
+                                android:layout_marginStart="@dimen/margin_btn_category"
+                                android:layout_marginEnd="@dimen/margin_btn_category"
+                                android:background="@drawable/border_btn_gray"
+                                android:onClick="@{listener.onClickBtnCategorySale}"
+
+
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/btn_Category_Rent"
+                                app:layout_constraintEnd_toStartOf="@+id/btn_Category_Service"
+                                >
+
+                                <ImageView
+                                    android:id="@+id/imgSale"
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:src="@drawable/ic_sell"
+                                    app:tint="@color/colorPrimary"
+                                    android:layout_marginEnd="4dp"
+                                    app:layout_constraintHorizontal_chainStyle="packed"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintEnd_toStartOf="@+id/tS"
+                                    />
+                                <com.google.android.material.textview.MaterialTextView
+                                    style="@style/textViewOpen"
+                                    android:id="@+id/tS"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:tag="true"
+
+                                    android:layout_marginStart="4dp"
+                                    android:text="@string/sale"
+                                    android:textColor="@color/colorPrimary"
+                                    app:layout_constraintStart_toEndOf="@+id/imgSale"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    />
+
+                                <View
+                                    android:id="@+id/lineBottomSale"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="2dp"
+                                    android:layout_marginStart="3dp"
+                                    android:layout_marginEnd="3dp"
+                                    android:visibility="visible"
+
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    android:background="@drawable/border_btn_primary"
+                                    />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/btn_Category_Service"
+
+                                android:layout_width="0dp"
+                                app:layout_constraintHorizontal_weight="1"                            android:layout_height="40dp"
+
+
+                                android:layout_marginStart="@dimen/margin_btn_category"
+                                android:layout_marginEnd="@dimen/margin_btn_category"
+                                android:background="@drawable/border_btn_gray"
+                                android:onClick="@{listener.onClickBtnCategoryService}"
+
+
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/btn_Category_Sale"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                >
+
+                                <ImageView
+                                    android:id="@+id/imgService"
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:src="@drawable/ic_service"
+                                    app:tint="@color/text_category_type"
+                                    android:layout_marginEnd="4dp"
+                                    app:layout_constraintHorizontal_chainStyle="packed"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintEnd_toStartOf="@+id/tService"
+                                    />
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/tService"
+                                    style="@style/textViewOpen"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:layout_marginStart="4dp"
+                                    android:text="@string/service"
+                                    android:textColor="@color/text_category_type"
+                                    app:layout_constraintStart_toEndOf="@+id/imgService"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    />
+
+                                <View
+                                    android:id="@+id/lineBottomService"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="2dp"
+                                    android:layout_marginStart="3dp"
+                                    android:layout_marginEnd="3dp"
+                                    android:visibility="gone"
+
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    android:background="@drawable/border_btn_primary"
+                                    />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/layoutSearch"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:background="@drawable/border_search_white"
+
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/constraintBtn"
+                            >
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:src="@drawable/ic_baseline_search_24"
+                                app:tint="@color/title_gray" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_weight="0.4" />
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="0dp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_weight="0.99"
+                                    android:background="@drawable/border_line" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_weight="0.4" />
+
+                            </LinearLayout>
+
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/inputComment"
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="8dp"
+
+                                android:layout_weight="1"
+                                app:boxBackgroundMode="outline"
+                                app:boxStrokeWidth="0dp"
+                                app:boxStrokeWidthFocused="0dp"
+                                app:hintEnabled="false">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/eSearch"
+                                    style="@style/editTextOpen"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/search"
+
+                                    android:imeOptions="actionDone"
+                                    android:inputType="text"
+                                    android:maxLength="20"
+                                    android:maxLines="2"
+                                    android:textColor="@color/black_dark"
+                                    android:textColorHint="@color/gray_a"
+
+                                    />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+
+                        </LinearLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipeRefreshLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/background_home"
+                android:clipToPadding="false"
+                android:paddingBottom="15dp"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/background_home"
+                    android:clipToPadding="false"
+                    android:paddingBottom="15dp"
+
+
+                    />
+
+
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+            <include
+                android:id="@+id/included"
+                layout="@layout/error_layout_paging"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutEmptyStore"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background_home"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/icStore"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_store"
+                app:layout_constraintBottom_toTopOf="@+id/labelStore"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/labelStore"
+                style="@style/textTitleMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:gravity="center"
+                android:text="@string/my_store"
+                android:textColor="@color/gray_2"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/text1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/icStore"
+
+                />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text1"
+                style="@style/textTitleMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/by_registering_your_business_in_pedpo"
+                android:textColor="@color/gray_a"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@+id/text2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelStore"
+
+                />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text2"
+                style="@style/textTitleMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/from_special_services_we_benefit"
+                android:textColor="@color/gray_a"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@+id/btnRegisterStore"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text1"
+
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRegisterStore"
+                style="@style/Buttonlarge"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:text="Register Store"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+                app:layout_constraintTop_toBottomOf="@+id/text2"
+
+
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
+

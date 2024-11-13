@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_constraintTop_toBottomOf="@+id/constraintSliderPrice"
+    app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+    app:layout_constraintStart_toEndOf="@+id/guidelinestart"
+
+
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/constraintBtnPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal"
+
+        android:layout_marginTop="16dp"
+
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btnPrice"
+            android:layout_width="100dp"
+            app:layout_constraintHorizontal_weight="1"
+            android:layout_height="40dp"
+
+            android:layout_marginStart="@dimen/margin_btn_category"
+            android:layout_marginEnd="@dimen/margin_btn_category"
+            android:background="@drawable/border_btn_gray"
+            android:onClick="@{listener.onClickBtnPrice}"
+
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnAgreement"
+            >
+
+            <ImageView
+                android:id="@+id/imgPrice"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                app:tint="@color/colorPrimary"
+                android:visibility="gone"
+                android:layout_marginEnd="4dp"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/trPrice"
+                />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/textViewOpen"
+                android:textSize="13dp"
+                android:id="@+id/trPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="4dp"
+                android:text="@string/price2"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintStart_toEndOf="@+id/imgPrice"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+
+            <View
+                android:id="@+id/linePrice"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="3dp"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@drawable/border_btn_primary"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btnAgreement"
+
+            android:layout_width="100dp"
+            app:layout_constraintHorizontal_weight="1"                            android:layout_height="40dp"
+            android:layout_marginStart="@dimen/margin_btn_category"
+            android:layout_marginEnd="@dimen/margin_btn_category"
+            android:background="@drawable/border_btn_gray"
+            android:onClick="@{listener.onClickBtnAgreement}"
+
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnPrice"
+            app:layout_constraintEnd_toStartOf="@+id/btnFree"
+            >
+
+            <ImageView
+                android:id="@+id/imgAgreement"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:visibility="gone"
+                app:tint="@color/text_category_type"
+                android:layout_marginEnd="4dp"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tAgreement"
+                />
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/textViewOpen"
+                android:textSize="13dp"
+                android:id="@+id/tAgreement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="4dp"
+                android:text="@string/an_agreement"
+                android:textColor="@color/text_category_type"
+                app:layout_constraintStart_toEndOf="@+id/imgAgreement"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+            <View
+                android:id="@+id/lineAgreement"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="3dp"
+                android:visibility="gone"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@drawable/border_btn_primary"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btnFree"
+
+            android:layout_width="150dp"
+            app:layout_constraintHorizontal_weight="1"                            android:layout_height="40dp"
+
+
+            android:layout_marginStart="@dimen/margin_btn_category"
+            android:layout_marginEnd="@dimen/margin_btn_category"
+            android:background="@drawable/border_btn_gray"
+            android:onClick="@{listener.onClickBtnFree}"
+
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnAgreement"
+            app:layout_constraintEnd_toStartOf="@+id/btnTest"
+            >
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/textViewOpen"
+                android:textSize="13dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="4dp"
+                android:text="@string/free"
+                android:textColor="@color/text_category_type"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btnTest"
+
+            android:layout_width="150dp"
+            app:layout_constraintHorizontal_weight="1"                            android:layout_height="40dp"
+
+
+            android:layout_marginStart="@dimen/margin_btn_category"
+            android:layout_marginEnd="@dimen/margin_btn_category"
+            android:background="@drawable/border_btn_gray"
+            android:onClick="@{listener.onClickBtnFree}"
+
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnFree"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tFree"
+                style="@style/textViewOpen"
+                android:textSize="13dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="4dp"
+                android:text="@string/free"
+                android:textColor="@color/text_category_type"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </LinearLayout>
+
+
+</androidx.core.widget.NestedScrollView>

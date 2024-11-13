@@ -1,0 +1,892 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="listener"
+            type="com.pedpo.pedporent.view.nav.profile.ProfileNew"
+            />
+        <variable
+            name="viewModel"
+            type="com.pedpo.pedporent.model.profile.ProfileTO"
+            />
+
+    </data>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:background="@color/background_home"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+
+                <FrameLayout
+                    android:id="@+id/framLayout"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:onClick="@{listener.onClickAvatar}"
+                    android:layout_marginTop="?attr/actionBarSize"
+
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    >
+
+                    <com.pedpo.pedporent.widget.CircleImageView
+                        android:id="@+id/imgProfile"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        app:imageUrlP="@{viewModel.image == null ? `` : viewModel.image}"
+                        app:placeholderP="@{@drawable/ic_user_profile}"
+
+                        />
+
+                    <FrameLayout
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_margin="1dp"
+                        android:background="@drawable/circle_white"
+
+                        android:layout_gravity="bottom|right"
+                        >
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            app:tint="@color/tinticon"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_camera"
+                            />
+
+                    </FrameLayout>
+
+
+                </FrameLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/textViewOpen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tName"
+                    android:hint="@string/enter_your_name"
+                    android:gravity="center"
+                    android:textColorHint="@color/black_dark"
+                    android:text="@{viewModel.firstName , default = ``}"
+
+                    android:onClick="@{listener.onclickName}"
+                    android:textColor="@color/black_dark"
+                    app:layout_constraintTop_toBottomOf="@id/framLayout"
+                    app:layout_constraintStart_toStartOf="@+id/framLayout"
+                    app:layout_constraintEnd_toEndOf="@id/framLayout"
+                    android:layout_marginTop="16dp"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/background_home"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:layout_collapseMode="pin"
+                >
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tSignOut"
+                    style="@style/textViewOpen"
+                    android:onClick="@{listener.onSignOut}"
+                    android:textColor="@color/black_dark"
+                    android:layout_width="match_parent"
+                    android:gravity="end"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sign_out"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    />
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/nestedScroll"
+
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            >
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="16dp"
+                android:paddingBottom="@dimen/padding_bottom_nav"
+                android:clipToPadding="true"
+                android:background="@color/background_home"  >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintCity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{listener::onClickCity}"
+                    android:background="@drawable/border_search_white"
+                    android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                    android:layout_marginTop="@dimen/margin_top_bottom"
+                    android:layout_marginEnd="@dimen/marginstart_end_addmarket"
+                    >
+
+                    <ImageView
+                        android:id="@+id/icPlace"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:tint="@color/tinticon"
+                        android:src="@drawable/ic_baseline_location_on_24"
+                        android:gravity="center"
+                        android:text="@string/phone"
+
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                    <View
+                        android:id="@+id/linePlace"
+                        android:layout_width="2dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/icPlace"
+                        android:layerType="software"
+                        android:background="@drawable/line_stroke_vertical2"
+                        />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tCity"
+                        style="@style/textViewOpen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.cityName , default = `City`}"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintStart_toEndOf="@+id/linePlace"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{listener::onClickPhone}"
+                    android:background="@drawable/border_search_white"
+                    android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                    android:layout_marginTop="@dimen/margin_top_bottom"
+                    android:layout_marginEnd="@dimen/marginstart_end_addmarket"
+                    >
+
+                    <ImageView
+                        android:id="@+id/icPhone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:tint="@color/tinticon"
+                        android:src="@drawable/ic_phone"
+                        android:gravity="center"
+                        android:text="@string/phone"
+
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                    <View
+                        android:id="@+id/linePhone"
+                        android:layout_width="2dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/icPhone"
+                        android:layerType="software"
+                        android:background="@drawable/line_stroke_vertical2"
+                        />
+
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textViewOpen"
+                        android:id="@+id/tPhone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.phoneNumber , default = `0991962***`}"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintStart_toEndOf="@+id/linePhone"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintGmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{listener::onClickEmail}"
+
+                    android:background="@drawable/border_search_white"
+                    android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                    android:layout_marginTop="@dimen/margin_top_bottom"
+                    android:layout_marginEnd="@dimen/marginstart_end_addmarket"
+                    >
+
+                    <ImageView
+                        android:id="@+id/icGmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:tint="@color/tinticon"
+                        android:gravity="center"
+                        android:src="@drawable/ic_gmail"
+                        android:text="@string/email"
+
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                    <View
+                        android:id="@+id/lineGmail"
+                        android:layout_width="2dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/icGmail"
+                        android:layerType="software"
+                        android:background="@drawable/line_stroke_vertical2"
+                        />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"
+                            android:id="@+id/tGmail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintHorizontal_bias="0"
+                            android:text="@{viewModel.email , default = @string/enter_your_email }"
+
+
+                            app:layout_constraintStart_toEndOf="@+id/lineGmail"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_marginStart="16dp"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            />
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintAuthNationlID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{listener::onClickIdentity}"
+
+                    android:background="@drawable/border_search_white"
+                    android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                    android:layout_marginEnd="@dimen/marginstart_end_addmarket"
+                    android:layout_marginTop="@dimen/margin_top_bottom"
+                    >
+
+                    <ImageView
+                        android:id="@+id/icNatiolID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:tint="@color/tinticon"
+                        android:gravity="center"
+                        android:src="@drawable/ic_identity"
+
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                    <View
+                        android:id="@+id/lineIdentity"
+                        android:layout_width="2dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/icNatiolID"
+                        android:layerType="software"
+                        android:background="@drawable/line_stroke_vertical2"
+                        />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"
+                            android:id="@+id/tNatiolID"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/tinticon"
+                            android:text="@string/identity_verification"
+                            app:layout_constraintHorizontal_bias="0"
+
+                            android:layout_marginEnd="16dp"
+                            app:layout_constraintStart_toEndOf="@+id/lineIdentity"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_marginStart="16dp"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            />
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    style="@style/textViewOpen"
+                    android:id="@+id/tErrorIdentity"
+                    android:text="@string/auth_was_successfull"
+                    android:textColor="@color/red_error"
+                    android:paddingStart="4dp"
+                    android:layout_marginTop="4dp"
+
+                    android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                    android:layout_marginEnd="@dimen/marginstart_end_addmarket"
+                    />
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/textTitleMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/setting"
+                    android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="@dimen/marginstart_end_addmarket"
+
+                    />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_search_white"
+                    android:onClick="@{listener::onClickLanguage}"
+                    android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                    android:layout_marginTop="@dimen/margin_top_bottom"
+                    android:layout_marginEnd="@dimen/marginstart_end_addmarket"
+                    >
+
+                    <ImageView
+                        android:id="@+id/imgMyLanguage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:src="@drawable/ic_language"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/gray_standard" />
+
+
+                    <View
+                        android:id="@+id/viewLanguage"
+                        android:layout_width="2dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imgMyLanguage"
+                        android:layerType="software"
+                        android:background="@drawable/line_stroke_vertical2"
+                        />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textViewOpen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/language"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/viewLanguage"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:background="@drawable/border_search_white"
+                    android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                    android:layout_marginTop="@dimen/margin_top_bottom"
+                    android:layout_marginEnd="@dimen/marginstart_end_addmarket"
+                    >
+
+                    <ImageView
+                        android:id="@+id/imgRecantly"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:tint="@color/gray_standard"
+                        android:src="@drawable/ic_baseline_timer_24"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+
+                    <View
+                        android:id="@+id/viewRacantly"
+                        android:layout_width="2dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imgRecantly"
+                        android:layerType="software"
+                        android:background="@drawable/line_stroke_vertical2"
+                        />
+
+                    <com.pedpo.pedporent.widget.TextViewAppPedpo
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/recantly_view"
+                        android:textColor="#121212"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/viewRacantly"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_search_white"
+                    android:onClick="@{listener::onClickTicket}"
+                    android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                    android:layout_marginTop="@dimen/margin_top_bottom"
+                    android:layout_marginEnd="@dimen/marginstart_end_addmarket"
+                    >
+
+                    <ImageView
+                        android:id="@+id/imgTiket"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_ticket"
+                        app:tint="@color/gray_standard"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+
+                    <View
+                        android:id="@+id/viewTicket"
+                        android:layout_width="2dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imgTiket"
+                        android:layerType="software"
+                        android:background="@drawable/line_stroke_vertical2"
+                        />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textViewOpen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ticket"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/viewTicket"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_search_white"
+                    android:onClick="@{listener::onClickContactUs}"
+                    android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                    android:layout_marginTop="@dimen/margin_top_bottom"
+                    android:layout_marginEnd="@dimen/marginstart_end_addmarket"
+                    >
+
+                    <ImageView
+                        android:id="@+id/imgContactUs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_contactus"
+                        app:tint="@color/gray_standard"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+
+                    <View
+                        android:id="@+id/viewConta"
+                        android:layout_width="2dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imgContactUs"
+                        android:layerType="software"
+                        android:background="@drawable/line_stroke_vertical2"
+                        />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textViewOpen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/contact_us"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/viewConta"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/textTitleMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/items"
+                    android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                    android:layout_marginEnd="@dimen/marginstart_end_addmarket"
+                    android:layout_marginTop="32dp"
+
+                    />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{listener::onClickMyItems}"
+                    android:background="@drawable/border_search_white"
+                    android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                    android:layout_marginTop="@dimen/margin_top_bottom"
+                    android:layout_marginEnd="@dimen/marginstart_end_addmarket"
+                    >
+
+                    <ImageView
+                        android:id="@+id/myAds"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_my_ads"
+                        app:tint="@color/gray_standard"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+
+                    <View
+                        android:id="@+id/viewAds"
+                        android:layout_width="2dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/myAds"
+                        android:layerType="software"
+                        android:background="@drawable/line_stroke_vertical2"
+                        />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textViewOpen"
+                        android:id="@+id/labelMyAds"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/my_ads"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/viewAds"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_search_white"
+                    android:onClick="@{listener::onClickConstraintBookmark}"
+                    android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                    android:layout_marginTop="@dimen/margin_top_bottom"
+                    android:layout_marginEnd="@dimen/marginstart_end_addmarket"
+                    >
+
+                    <ImageView
+                        android:id="@+id/imgMyBookmark"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_bookmark"
+                        app:tint="@color/gray_standard"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+
+                    <View
+                        android:id="@+id/viewBookmark"
+                        android:layout_width="2dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imgMyBookmark"
+                        android:layerType="software"
+                        android:background="@drawable/line_stroke_vertical2"
+                        />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textViewOpen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/my_bookmark"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/viewBookmark"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:background="@drawable/border_search_white"
+                    android:onClick="@{listener::onClickStore}"
+                    android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                    android:layout_marginTop="@dimen/margin_top_bottom"
+                    android:layout_marginEnd="@dimen/marginstart_end_addmarket"
+                    >
+
+                    <ImageView
+                        android:id="@+id/imgStore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_store"
+                        app:tint="@color/gray_standard"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+
+                    <View
+                        android:id="@+id/viewStore"
+                        android:layout_width="2dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imgStore"
+                        android:layerType="software"
+                        android:background="@drawable/line_stroke_vertical2"
+                        />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textViewOpen"
+                        android:id="@+id/labelStore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/create_store"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/viewStore"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <include
+        android:id="@+id/layoutIncludeLogin"
+        layout="@layout/fragment_do_login"
+        app:layout_anchorGravity="center"
+        />
+
+    <FrameLayout
+        android:id="@+id/framTryAgain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_dark"
+        android:visibility="gone"
+        >
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnTryAgain"
+
+            style="@style/ButtonStandard"
+            android:textSize="14sp"
+            android:layout_gravity="center"
+            android:onClick="@{listener.tryAgain}"
+            android:stateListAnimator="@null"
+            android:textColor="@color/white_dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="16dp"
+            android:text="@string/try_again"
+            app:layout_constraintTop_toBottomOf="@+id/tSign"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textAllCaps="false"
+            />
+
+    </FrameLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+</layout>

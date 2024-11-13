@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.pedpo.pedporent.model.SliderTO" />
+    </data>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="32dp"
+    android:paddingEnd="32dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/imgSlider"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@{viewModel.image , default = @drawable/img_slider1}"
+        />
+
+
+    <com.google.android.material.textview.MaterialTextView
+        style="@style/textViewOpen"
+        android:id="@+id/tTitle"
+        android:layout_width="0dp"
+        android:layout_marginTop="32dp"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="16sp"
+
+        app:layout_constraintTop_toBottomOf="@+id/imgSlider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@{viewModel.title , default = Shahrooz}"
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        style="@style/textViewOpen"
+        android:id="@+id/tSlider"
+        android:layout_width="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray_7"
+        android:gravity="center"
+
+        app:layout_constraintTop_toBottomOf="@+id/tTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@{viewModel.text , default = `this  is test`}"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

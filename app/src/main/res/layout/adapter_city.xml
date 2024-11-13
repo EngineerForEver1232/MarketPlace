@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.pedpo.pedporent.view.adapter.PlaceAdapter" />
+    </data>
+
+    <com.google.android.material.textview.MaterialTextView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/textViewOpen"
+        android:background="@drawable/border_city"
+        android:id="@+id/text"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:textColor="@color/black_dark"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textSize="16sp"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.google.android.material.textview.MaterialTextView>
+</layout>

@@ -1,0 +1,585 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.ThemeDark" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white_dark</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="fontFamily">@font/poppins_regular</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="TimePickerDialogStyle" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorControlActivated">@color/colorPrimary</item>
+        <item name="colorAccent">@color/gray_7</item>
+        <item name="android:timePickerMode">spinner</item>
+
+
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/red_error</item>
+        <item name="colorSecondaryVariant">@color/red_error</item>
+        <item name="colorOnSecondary">@color/red_error</item>
+        <item name="fontFamily">@font/poppins_regular</item>
+
+        <item name="android:headerBackground">@color/red_error</item>
+
+
+        <!-- Divider color -->
+        <item name="colorControlNormal">@color/red_error</item>
+
+    </style>
+
+
+    <!-- Base application theme. -->
+    <style name="Theme.PedpoRent" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/white</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorPrimary</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+<!--        <item name="android:textColorPrimary">#000000</item>-->
+<!--        <item name="android:navigationBarColor">@color/gray_standard</item>-->
+        <item name="fontFamily">@font/poppins_regular</item>
+
+  </style>
+    <style name="Theme.PedpoRentt" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/gray_standard</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorPrimary</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowFullscreen">false</item>
+<!--        <item name="android:navigationBarColor">#C6C6C6</item>-->
+<!--        <item name="android:textColor">#f00</item>-->
+        <item name="android:textColorPrimary">#3E3E3E</item>
+<!--        <item name="android:textColorSecondary">#00f</item>-->
+        <item name="fontFamily">@font/poppins_regular</item>
+
+     </style>
+    <style name="Theme.PedpoFullScreen" parent="Theme.PedpoRentt">
+        <item name="android:textColorPrimary">#3E3E3E</item>
+        <item name="android:windowFullscreen">true</item>
+     </style>
+
+    //TextInput
+    <style name="Widget.App.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.TextInputLayout</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.App.SmallComponent</item>
+        <item name="hintTextColor">?attr/colorOnSurface</item>
+    </style>
+
+    <style name="ThemeOverlay.App.TextInputLayout" parent="">
+        <item name="colorPrimary">#FA7169</item>
+        <item name="colorOnSurface">#E3E3E3</item>
+<!--        <item name="textAppearanceSubtitle1">@style/TextAppearance.App.Subtitle1</item>-->
+<!--        <item name="textAppearanceCaption">@style/TextAppearance.App.Caption</item>-->
+        <item name="editTextStyle">@style/Widget.MaterialComponents.TextInputLayout.FilledBox</item>
+    </style>
+
+    <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">4dp</item>
+    </style>
+    //////
+
+    <style name="NoActionBarGallery" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Your Toolbar Color-->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <!-- colorPrimaryDark is used for the status bar -->
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <!-- colorAccent is used as the default VolumeCache for colorControlActivated,
+         which is used to tint widgets -->
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:windowFullscreen">true</item>
+        <!--SearchView query hint text color-->
+        <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:fadeScrollbars">false</item>
+        <item name="android:fastScrollThumbDrawable">@drawable/ic_baseline_blur_circular_24</item>
+
+    </style>
+
+    <style name="ToolBarStyle" parent="Theme.AppCompat">
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
+        <item name="actionMenuTextColor">@android:color/white</item>
+    </style>
+
+    <style name="ToolBarStyleDark" parent="Theme.AppCompat">
+        <item name="android:textColorPrimary">@android:color/black</item>
+        <item name="android:textColorSecondary">@android:color/black</item>
+        <item name="actionMenuTextColor">@android:color/black</item>
+    </style>
+
+    <style name="colorButton" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/white</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="rippleColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="Buttonlarge" parent="Widget.MaterialComponents.Button">
+
+        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="backgroundTint">@color/colorPrimary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">normal</item>
+        <item name="rippleColor">@color/white</item>
+        <item name="cornerRadius">32dp</item>
+        <item name="textAllCaps">false</item>
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="android:textSize">15sp</item>
+
+    </style>
+    <style name="ButtonStandard" parent="Widget.MaterialComponents.Button">
+
+        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="backgroundTint">@color/colorPrimary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="rippleColor">@color/white</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="textAllCaps">false</item>
+        <item name="fontFamily">@font/poppins_regular</item>
+
+    </style>
+    <style name="ButtonOpen" parent="Widget.MaterialComponents.Button">
+        <item name="rippleColor">@color/white</item>
+        <item name="textAllCaps">false</item>
+        <item name="fontFamily">@font/poppins_regular</item>
+
+    </style>
+
+
+    <style name="LoginTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">#C4C4C4</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxBackgroundColor">@color/white</item>
+    </style>
+
+    ///style TextInputLayout Gray
+    <style name="TextInputLayoutGray" parent="">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.TextInputLayoutAddMarketGray</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="fontFamily">@font/poppins_regular</item>
+    </style>
+
+    <style name="ThemeOverlay.App.TextInputLayoutAddMarketGray" parent="">
+        <!--        <item name="colorPrimary">@color/gray_light</item>//focus-->
+        <item name="colorPrimary">@color/gray_focus_edittext</item>//focus
+        <!--        <item name="colorOnSurface">@color/red_error</item>//unFocus-->
+        <item name="colorOnSurface">#DDDDDD</item>//unFocus
+        <item name="android:textColorPrimary">#838383</item>
+        <!--        <item name="android:backgroundTint">#fff</item>-->
+        <item name="boxCornerRadiusBottomEnd">4dp</item>
+        <item name="boxCornerRadiusBottomStart">4dp</item>
+        <item name="boxCornerRadiusTopEnd">4dp</item>
+        <item name="boxCornerRadiusTopStart">4dp</item>
+        <item name="editTextStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense</item>
+    </style>
+
+    ///style TextInputLayout
+
+
+    <style name="TextInputLayoutComment" parent="">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.TextInputLayoutAddMarketComment</item>
+    </style>
+
+    <style name="ThemeOverlay.App.TextInputLayoutAddMarketComment" parent="">
+        <!--        <item name="colorPrimary">@color/gray_light</item>//focus-->
+        <item name="colorPrimary">@color/colorPrimary</item> //focus
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
+
+
+    <style name="TextInputLayoutTicket" parent="">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.TextInputLayoutTicket</item>
+        <item name="boxBackgroundColor">@color/white_dark</item>
+        <item name="boxStrokeColor">@color/selector_edittext</item>
+        <item name="boxBackgroundMode">outline</item>
+
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">1dp</item>
+
+        <item name="boxStrokeErrorColor">@color/red_error</item>
+        <item name="errorIconTint">@color/red_error</item>
+        <item name="errorTextColor">@color/red_error</item>
+
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+
+    </style>
+
+
+    <style name="ThemeOverlay.App.TextInputLayoutTicket" parent="">
+        <!--        <item name="colorPrimary">@color/gray_light</item>//focus-->
+        <item name="colorPrimary">@color/gray_standard</item>//focus
+        <!--        <item name="colorOnSurface">@color/red_error</item>//unFocus-->
+<!--        <item name="colorOnSurface">@color/gray_un_focus_edittext_ticket</item>//unFocus-->
+
+        <item name="android:textColorPrimary">@color/gray_standard_ali</item>
+        <item name="boxStrokeColor">@color/black_dark</item>
+
+
+        <!--        <item name="android:backgroundTint">#fff</item>-->
+        <item name="boxCornerRadiusBottomEnd">4dp</item>
+        <item name="boxCornerRadiusBottomStart">4dp</item>
+        <item name="boxCornerRadiusTopEnd">4dp</item>
+        <item name="boxCornerRadiusTopStart">4dp</item>
+        <item name="editTextStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense</item>
+    </style>
+
+    <style name="TextInputLayout" parent="">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.TextInputLayoutAddMarket</item>
+        <item name="boxBackgroundColor">@color/white_dark</item>
+    </style>
+
+    <style name="ThemeOverlay.App.TextInputLayoutAddMarket" parent="">
+<!--        <item name="colorPrimary">@color/gray_light</item>//focus-->
+        <item name="colorPrimary">@color/gray_focus_edittext</item>//focus
+<!--        <item name="colorOnSurface">@color/red_error</item>//unFocus-->
+        <item name="colorOnSurface">@color/gray_un_focus_edittext</item>//unFocus
+        <item name="android:textColorPrimary">#838383</item>
+        <!--        <item name="android:backgroundTint">#fff</item>-->
+        <item name="boxCornerRadiusBottomEnd">4dp</item>
+        <item name="boxCornerRadiusBottomStart">4dp</item>
+        <item name="boxCornerRadiusTopEnd">4dp</item>
+        <item name="boxCornerRadiusTopStart">4dp</item>
+        <item name="editTextStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense</item>
+    </style>
+
+    <style name="TextInputComment" parent="">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.TextInputLayoutComment</item>
+        <item name="boxBackgroundColor">#FAFAFA</item>
+
+    </style>
+    <style name="ThemeOverlay.App.TextInputLayoutComment" parent="">
+        <!--        <item name="colorPrimary">@color/gray_light</item>//focus-->
+        <item name="colorPrimary">#eee</item>//focus
+        <!--        <item name="colorOnSurface">@color/red_error</item>//unFocus-->
+        <item name="colorOnSurface">@color/gray_un_focus_edittext</item>//unFocus
+        <item name="android:textColorPrimary">#838383</item>
+        <!--        <item name="android:backgroundTint">#fff</item>-->
+        <item name="boxCornerRadiusBottomEnd">4dp</item>
+        <item name="boxCornerRadiusBottomStart">4dp</item>
+        <item name="boxCornerRadiusTopEnd">4dp</item>
+        <item name="boxCornerRadiusTopStart">4dp</item>
+        <item name="editTextStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense</item>
+    </style>
+    ////////////////////////////////////////
+    <style name="error_appearance" parent="@android:style/TextAppearance">
+        <item name="android:textColor">#f0f</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+
+    //   style textView
+    <style name="textViewTitle" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black</item>
+
+    </style>
+    <style name="textTitleOpen" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textViewTitleDetails" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+
+    </style>
+    <style name="textViewDescriptionInput" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/gray_a</item>
+    </style>
+    <style name="textViewAdapter" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/tinticon</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="textViewOpen" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/black_dark</item>
+    </style>
+    <style name="textTitleGray" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">#666666</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="textTitleStandard" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">#666666</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="textTitleBold" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">#5A5A5A</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="textTitleMedium" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/title_gray</item>
+        <item name="android:textSize">15sp</item>
+
+    </style>
+    <style name="textTitleBigger" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">#666666</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="buttonPedpo" parent="Widget.MaterialComponents.Button">
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black</item>
+
+    </style>
+
+    <style name="textTitleStandard_Black" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textPriceBlack" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">@dimen/price_visited</item>
+    </style>
+    <style name="textViewGraySeeMore" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/link_blue</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:text">@string/see_more</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    // editText font
+    <style name="editTextOpen" parent="Widget.AppCompat.EditText">
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+
+    <style name="spinnerTheme">
+        <item name="android:textColor">@color/gray_standard_dark</item>
+    </style>
+
+
+    <style name="Widget.App.Slider" parent="Widget.MaterialComponents.Slider">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Slider</item>
+        <item name="labelStyle">@style/Widget.App.Tooltip</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Slider" parent="">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/blue_fab</item>
+        <item name="colorOnSurface">@color/black</item>
+    </style>
+
+    <style name="Widget.App.Tooltip" parent="Widget.MaterialComponents.Tooltip">
+        <item name="android:textAppearance">@style/TextAppearance.App.Tooltip</item>
+        <item name="backgroundTint">@color/gray_standard</item>
+    </style>
+
+    <style name="TextAppearance.App.Tooltip" parent="TextAppearance.MaterialComponents.Tooltip">
+        <item name="android:textColor">@color/red_error</item>
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
+
+<!--    <style name="MyCheckBoxStyle" parent="Widget.AppCompat.CompoundButton.CheckBox">-->
+<!--        <item name="android:textColor">@android:color/holo_purple</item>-->
+<!--        <item name="buttonTint">@android:color/holo_purple</item>-->
+<!--    </style>-->
+
+    <style name="checkBoxOpen" parent="Widget.AppCompat.CompoundButton.CheckBox">
+
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
+    <style name="DialogStyle" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
+
+    <style name="TextLabel" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">5sp</item>
+    </style>
+
+
+    // custom box with constraint with hint and title
+    <style name="constraintBoxRoot">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/height_root_custom_box</item>
+        <item name="background">@color/white_dark</item>
+        <item name="android:background">@color/white_dark</item>
+    </style>
+    <style name="constraintBoxInner">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/hight_inner_custom_box</item>
+
+        <item name="background">@drawable/border_stroke</item>
+        <item name="android:background">@drawable/border_stroke</item>
+    </style>
+
+    <style name="hintCustomBox">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:gravity">center</item>
+
+        <item name="android:textSize">14dp</item>
+        <item name="android:background">@color/white_dark</item>
+
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+
+        <item name="android:layout_marginStart">10dp</item>
+
+        <item name="android:textColor">@color/gray_standard</item>
+        <item name="fontFamily">@font/poppins_regular</item>
+
+    </style>
+
+    /////////////
+
+
+    <style name="textTitleAdapter" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">#121212</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="textPriceAdapter" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">#282828</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="textDateAdapter" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">#aaaaaa</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+
+    <style name="textSelect" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/select</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:textColor">@color/gray_standard</item>
+    </style>
+
+    <declare-styleable name="TouchImageView">
+        <attr format="boolean" name="zoom_enabled"/>
+    </declare-styleable>
+
+    <style name="BottomSheet" parent="@style/Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bg_bottom_sheet_dialog_fragment</item>
+    </style>
+
+    <style name="BaseBottomSheetDialog" parent="@style/Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="bottomSheetStyle">@style/BottomSheet</item>
+        <item name="backgroundTint">@color/black_dark</item>
+
+    </style>
+
+    <style name="AlertDialog" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/black</item>
+
+
+
+
+        <item name="colorPrimaryVariant">@color/black</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+
+    <style name="BottomSheetDialogTheme" parent="BaseBottomSheetDialog" />
+
+    <style name="ContainerDayOfWeek">
+        <item name="android:layout_width">@dimen/dayOfMonthBoxSize</item>
+        <item name="android:layout_height">@dimen/dayOfMonthBoxSize</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    <style name="DayOfMonthStyle">
+        <item name="android:layout_width">@dimen/dayOfMonthSize</item>
+        <item name="android:layout_height">@dimen/dayOfMonthSize</item>
+        <item name="android:textSize">@dimen/text_size_date</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minHeight">@dimen/dayOfMonthMinHeight</item>
+        <item name="android:minWidth">@dimen/dayOfMonthMinWidth</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:paddingBottom">@dimen/dayOfMonthPaddingBottom</item>
+        <item name="android:textColor">@color/default_date_color</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+    <style name="StripRange">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/strip_height</item>
+        <item name="android:background">@color/range_bg_color</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+    <style name="WeekDayTitleStyle">
+        <item name="android:layout_width">@dimen/dayOfMonthBoxSize</item>
+        <item name="android:layout_height">@dimen/dayOfMonthBoxSize</item>
+        <item name="android:textSize">@dimen/text_size_week</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/date_color</item>
+        <item name="android:paddingBottom">@dimen/dayOfMonthPaddingBottom</item>
+    </style>
+
+
+    <style name="CustomDialog" parent="android:Theme.Dialog">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/colorPrimary</item>
+        <item name="colorControlActivated">@color/colorPrimary</item>
+    </style>
+
+    <style name="spanStylePrimaty">
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+    <style name="spanStyleRed">
+        <item name="android:textColor">@color/red_error</item>
+    </style>
+
+
+</resources>

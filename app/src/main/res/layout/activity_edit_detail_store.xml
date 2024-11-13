@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+        <variable
+            name="listener"
+            type="com.pedpo.pedporent.view.store.edit.EditStoreDetailActivity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@color/background_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background_home"
+
+            app:layout_constraintBottom_toTopOf="@+id/nestedScroll"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/nestedScroll"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tSave"
+                        style="@style/textViewOpen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/apply"
+                        android:onClick="@{listener.onClickContinue}"
+                        android:textSize="17sp"
+                        android:layout_gravity="end"
+                        android:paddingStart="32dp"
+                        android:paddingEnd="32dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        />
+                </FrameLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScroll"
+            android:background="@color/background_home"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appbar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            >
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <LinearLayout
+                    android:id="@+id/linearAdapterCategory"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_line_stroke_ad_market"
+                    android:orientation="vertical"
+                    android:onClick="@{listener.onClickCategory}"
+                    app:layout_constraintBottom_toTopOf="@+id/linearAdTitle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textTitleMedium"
+                        android:textColor="@color/title_gray"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/category"
+                        />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textViewOpen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/gray_standard"
+                        android:text="@string/mention_important_items_in_the_title_of_the_ad" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/linearAdTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_line_stroke_ad_market"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toTopOf="@+id/linearAdPhone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearAdapterCategory">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textTitleMedium"
+                        android:textColor="@color/title_gray"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ad_title"
+                        />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textViewOpen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/gray_standard"
+                        android:text="@string/mention_important_items_in_the_title_of_the_ad" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/inputTitle"
+                        style="@style/TextInputLayoutTicket"
+
+
+                        app:boxStrokeErrorColor="@color/red_error"
+                        app:errorIconTint="@color/red_error"
+                        app:errorTextColor="@color/red_error"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxBackgroundMode="outline"
+                        app:counterEnabled="false"
+                        app:counterMaxLength="50"
+
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/eTitle"
+                            style="@style/editTextOpen"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:imeOptions="actionDone"
+                            android:inputType="text"
+                            android:maxLength="30"
+                            android:maxLines="2"
+
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearAdPhone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_line_stroke_ad_market"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toTopOf="@+id/linearAdEmail"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearAdTitle">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textTitleMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/phone"
+                        android:textColor="@color/title_gray"
+                        />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textViewOpen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/gray_standard"
+
+                        android:text="@string/mention_important_items_in_the_title_of_the_ad" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/inputPhone"
+                        style="@style/TextInputLayoutTicket"
+                        app:boxBackgroundColor="@color/white_dark"
+                        app:boxStrokeColor="@color/selector_edittext"                            android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeErrorColor="@color/red_error"
+                        app:errorIconTint="@color/red_error"
+                        app:errorTextColor="@color/red_error"
+
+                        app:counterEnabled="false"
+                        app:counterMaxLength="50">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/ePhone"
+                            style="@style/editTextOpen"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:imeOptions="actionDone"
+                            android:inputType="phone"
+                            android:maxLength="15"
+                            android:maxLines="2"
+
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearAdEmail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_line_stroke_ad_market"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toTopOf="@+id/linearAdDescription"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearAdPhone">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textTitleMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/email"
+                        android:textColor="@color/title_gray"
+                        />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textViewOpen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/gray_standard"
+
+                        android:text="@string/mention_important_items_in_the_title_of_the_ad" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/inputEmail"
+                        style="@style/TextInputLayoutTicket"
+                        app:boxBackgroundColor="@color/white_dark"
+                        app:boxStrokeColor="@color/selector_edittext"                            android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeErrorColor="@color/red_error"
+                        app:errorIconTint="@color/red_error"
+                        app:errorTextColor="@color/red_error"
+
+                        app:counterEnabled="true"
+                        app:counterMaxLength="50"
+
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/eEmail"
+                            style="@style/editTextOpen"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:imeOptions="actionDone"
+                            android:inputType="text"
+                            android:maxLength="30"
+                            android:maxLines="2"
+
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearAdDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_line_stroke_ad_market"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toTopOf="@+id/linearAdRoles"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+
+                    app:layout_constraintTop_toBottomOf="@id/linearAdEmail">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textTitleMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ad_roles"
+                        android:textColor="@color/title_gray"
+                        />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textViewOpen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/gray_standard"
+                        android:text="@string/description_description" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/inputDescription"
+
+                        style="@style/TextInputLayoutTicket"
+                        app:boxBackgroundMode="outline"
+                        app:boxBackgroundColor="@color/white_dark"
+                        app:boxStrokeColor="@color/selector_edittext"                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        app:boxStrokeErrorColor="@color/red_error"
+                        app:errorIconTint="@color/red_error"
+                        app:errorTextColor="@color/red_error"
+                        app:errorIconDrawable="@null"
+
+                        app:counterEnabled="false"
+                        app:counterMaxLength="1000">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            style="@style/editTextOpen"
+                            android:id="@+id/eRole"
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:gravity="top|start"
+                            android:maxLength="1000"
+                            android:overScrollMode="always"
+                            android:scrollbarStyle="insideInset"
+                            android:scrollbars="vertical" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/linearAdRoles"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_line_stroke_ad_market"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toTopOf="@+id/constraintAddress"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+
+                    app:layout_constraintTop_toBottomOf="@id/linearAdDescription">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textTitleMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ad_description"
+                        android:textColor="@color/title_gray"
+                        />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textViewOpen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/gray_standard"
+                        android:text="@string/description_description" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/inputRole"
+
+                        style="@style/TextInputLayoutTicket"
+                        app:boxBackgroundMode="outline"
+                        app:boxBackgroundColor="@color/white_dark"
+                        app:boxStrokeColor="@color/selector_edittext"                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        app:boxStrokeErrorColor="@color/red_error"
+                        app:errorIconTint="@color/red_error"
+                        app:errorTextColor="@color/red_error"
+                        app:errorIconDrawable="@null"
+
+                        app:counterEnabled="false"
+                        app:counterMaxLength="1000">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            style="@style/editTextOpen"
+                            android:id="@+id/eDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:gravity="top|start"
+                            android:maxLength="1000"
+                            android:overScrollMode="always"
+                            android:scrollbarStyle="insideInset"
+                            android:scrollbars="vertical" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{listener.onClickCity}"
+                    android:background="@drawable/border_search_white"
+                    android:layout_marginTop="@dimen/margin_top_bottom"
+                    app:layout_constraintBottom_toTopOf="@+id/tSend"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearAdRoles"
+                    >
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:gravity="center"
+                        app:tint="@color/gray_standard"
+                        android:text="@string/address"
+
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                    <ImageView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+
+                        android:layout_marginEnd="16dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tSend"
+                    style="@style/textTitleMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/how_send"
+                    android:layout_marginTop="@dimen/margin_top_line_stroke_ad_market"
+
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintTop_toBottomOf="@id/constraintAddress"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/sendingway"
+                    app:tint="@color/title_gray" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/sendingway"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tSend">
+
+                    <CheckBox
+                        android:id="@+id/checkInner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintHorizontal_bias="0"
+                        android:layout_marginEnd="32dp"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/checkOuner"
+                        android:text="inner city"
+                        />
+                    <CheckBox
+                        android:id="@+id/checkOuner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toEndOf="@+id/checkInner"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+
+                        android:text="ouner city"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
+

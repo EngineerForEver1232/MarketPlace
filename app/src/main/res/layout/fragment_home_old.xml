@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="listener"
+            type="com.pedpo.pedporent.view.nav.home.HomeFragment" />
+    </data>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/container"
+            android:visibility="invisible"
+            tools:context=".view.nav.NavActivity">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:clipToPadding="false"
+                android:paddingBottom="@dimen/padding_bottom_nav"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:context=".view.nav.NavActivity">
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="vertical">-->
+
+<!--                    &lt;!&ndash;            <View&ndash;&gt;-->
+<!--                    &lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                android:layout_height="50dp"/>&ndash;&gt;-->
+
+<!--                    <androidx.viewpager2.widget.ViewPager2-->
+<!--                        android:id="@+id/viewPagerPoster"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="16dp" />-->
+
+
+<!--                    <LinearLayout-->
+<!--                        android:id="@+id/linearSearch"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="50dp"-->
+<!--                        android:layout_margin="16dp"-->
+<!--                        android:background="@drawable/border_search"-->
+<!--                        android:gravity="center">-->
+
+<!--                        <ImageView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="4dp"-->
+<!--                            android:layout_marginEnd="4dp"-->
+<!--                            android:src="@drawable/ic_baseline_search_24"-->
+<!--                            />-->
+
+<!--                        <com.pedpo.pedporent.widget.TextViewAppPedpoOpen-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_weight="1"-->
+<!--                            android:textSize="12sp"-->
+<!--                            android:textColor="@color/gray_standard"-->
+<!--                            android:hint="@string/search_address_or_near_you"-->
+<!--                            />-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:orientation="vertical">-->
+
+<!--                            <View-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="0dp"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:layout_marginStart="8dp"-->
+<!--                                android:layout_marginEnd="8dp"-->
+<!--                                android:layout_weight="0.4" />-->
+
+<!--                            <View-->
+<!--                                android:layout_width="1dp"-->
+<!--                                android:layout_height="0dp"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:layout_marginStart="8dp"-->
+<!--                                android:layout_marginEnd="8dp"-->
+<!--                                android:layout_weight="0.99"-->
+<!--                                android:background="@drawable/border_line" />-->
+
+<!--                            <View-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="0dp"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:layout_marginStart="8dp"-->
+<!--                                android:layout_marginEnd="8dp"-->
+<!--                                android:layout_weight="0.4" />-->
+
+<!--                        </LinearLayout>-->
+
+<!--                        <ImageView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:src="@drawable/ic_baseline_location_on_24"-->
+<!--                            app:tint="@color/tinticon" />-->
+
+<!--                        <com.google.android.material.textview.MaterialTextView-->
+<!--                            style="@style/TextInputLayoutGray"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="4dp"-->
+<!--                            android:layout_marginEnd="8dp"-->
+<!--                            android:text="@string/iran"-->
+<!--                            android:textColor="@color/tinticon" />-->
+
+<!--                    </LinearLayout>-->
+
+<!--                    <androidx.recyclerview.widget.RecyclerView-->
+<!--                        android:id="@+id/recyclerCategory"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layoutAnimation="@anim/layout_animation"-->
+<!--                        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>-->
+
+<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="16dp"-->
+<!--                        android:layout_marginTop="24dp"-->
+<!--                        android:layout_marginEnd="16dp">-->
+
+<!--                        <com.google.android.material.textview.MaterialTextView-->
+<!--                            style="@style/textViewGrayPedpo"-->
+<!--                            android:textStyle="bold"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="@string/most_visited"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="@dimen/title_standard"-->
+<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                        <com.google.android.material.textview.MaterialTextView-->
+<!--                            android:id="@+id/tSeeMore"-->
+<!--                            style="@style/textViewGraySeeMore"-->
+<!--                            android:onClick="@{listener::seeMoreVisited}"-->
+<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                            android:layout_marginEnd="2dp"-->
+<!--                            app:layout_constraintEnd_toStartOf="@+id/icArrow"-->
+<!--                            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                        <ImageView-->
+<!--                            android:id="@+id/icArrow"-->
+<!--                            android:layout_width="20dp"-->
+<!--                            android:layout_height="20dp"-->
+<!--                            android:src="@drawable/ic_next"-->
+<!--                            app:tint="@color/gray_standard"-->
+<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintTop_toTopOf="parent"-->
+<!--                            />-->
+
+<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--                    <androidx.recyclerview.widget.RecyclerView-->
+<!--                        android:id="@+id/recycler_view_visited"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="12dp"-->
+
+<!--                        />-->
+
+<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="16dp"-->
+<!--                        android:layout_marginTop="24dp"-->
+<!--                        android:layout_marginEnd="16dp">-->
+
+<!--                        <com.google.android.material.textview.MaterialTextView-->
+<!--                            style="@style/textViewGrayPedpo"-->
+<!--                            android:textStyle="bold"                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="@string/recommend"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="@dimen/title_standard"-->
+<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                        <com.google.android.material.textview.MaterialTextView-->
+<!--                            android:id="@+id/tSeemoreRecom"-->
+<!--                            style="@style/textViewGraySeeMore"-->
+<!--                            android:onClick="@{listener::seeMoreReComended}"-->
+<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                            app:layout_constraintEnd_toStartOf="@+id/icArrowRe"-->
+<!--                            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                        <ImageView-->
+<!--                            android:id="@+id/icArrowRe"-->
+<!--                            android:layout_width="20dp"-->
+<!--                            android:layout_height="20dp"-->
+<!--                            android:src="@drawable/ic_next"-->
+<!--                            app:tint="@color/gray_standard"-->
+<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintTop_toTopOf="parent"-->
+<!--                            />-->
+
+
+
+<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--                    <androidx.recyclerview.widget.RecyclerView-->
+<!--                        android:id="@+id/recyclerRecomended"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="6dp" />-->
+
+
+<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="16dp"-->
+<!--                        android:layout_marginTop="24dp"-->
+<!--                        android:layout_marginEnd="16dp">-->
+
+<!--                        <com.google.android.material.textview.MaterialTextView-->
+<!--                            style="@style/textViewGrayPedpo"-->
+<!--                            android:textStyle="bold"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="@string/the_lasted_ads"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="@dimen/title_standard"-->
+<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                        <com.google.android.material.textview.MaterialTextView-->
+<!--                            style="@style/textViewGraySeeMore"-->
+<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                            android:onClick="@{listener::seeMoreLasted}"-->
+<!--                            app:layout_constraintEnd_toStartOf="@+id/icArrowLasted"-->
+<!--                            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                        <ImageView-->
+<!--                            android:id="@+id/icArrowLasted"-->
+<!--                            android:layout_width="20dp"-->
+<!--                            android:layout_height="20dp"-->
+<!--                            android:src="@drawable/ic_next"-->
+<!--                            app:tint="@color/gray_standard"-->
+<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintTop_toTopOf="parent"-->
+<!--                            />-->
+
+<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
+<!--                    <androidx.recyclerview.widget.RecyclerView-->
+<!--                        android:id="@+id/recyclerLasted"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="6dp" />-->
+
+
+<!--                </LinearLayout>-->
+
+
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>

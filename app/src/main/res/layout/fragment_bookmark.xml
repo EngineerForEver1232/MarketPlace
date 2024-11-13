@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+        <variable
+            name="listener"
+            type="com.pedpo.pedporent.view.nav.BookmarkFragment" />
+    </data>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background_home"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:id="@+id/LabelConstraint"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toTopOf="parent"
+
+
+                >
+
+                <View
+                    android:id="@+id/viewGray"
+
+                    android:layout_width="0dp"
+                    android:layout_height="10dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/tBookmark"
+                    android:backgroundTint="@color/tinticon"
+
+                    android:background="@drawable/line_stroke_vertical"
+                    />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tBookmark"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:text="@string/my_bookmark"
+
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/viewGray"
+                    app:layout_constraintEnd_toStartOf="@id/viewGray2"
+                    />
+
+
+                <View
+                    android:id="@+id/viewGray2"
+                    android:layout_width="0dp"
+                    android:layout_height="10dp"
+
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tBookmark"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:backgroundTint="@color/tinticon"
+
+                    android:background="@drawable/line_stroke_vertical"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutBtns"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layoutDirection="ltr"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/LabelConstraint"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/btn_Category_Rent"
+                    android:layout_width="0dp"
+                    app:layout_constraintHorizontal_weight="1"
+                    android:layout_height="40dp"
+
+                    android:layout_marginStart="@dimen/margin_btn_category"
+                    android:layout_marginEnd="@dimen/margin_btn_category"
+                    android:background="@drawable/border_btn_gray"
+                    android:onClick="@{listener.onClickBtnCategoryRent}"
+
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btn_Category_Sale"
+                    >
+
+                    <ImageView
+                        android:id="@+id/img"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_sell"
+                        app:tint="@color/colorPrimary"
+                        android:layout_marginEnd="4dp"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/tr"
+                        />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textViewOpen"
+                        android:id="@+id/tr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginStart="4dp"
+                        android:text="@string/market"
+                        android:textColor="@color/colorPrimary"
+                        app:layout_constraintStart_toEndOf="@+id/img"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+
+                    <View
+                        android:id="@+id/lineBottomRent"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginStart="3dp"
+                        android:layout_marginEnd="3dp"
+
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:background="@drawable/border_btn_primary"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/btn_Category_Sale"
+
+                    android:layout_width="0dp"
+                    android:visibility="gone"
+                    app:layout_constraintHorizontal_weight="1"                            android:layout_height="40dp"
+                    android:layout_marginStart="@dimen/margin_btn_category"
+                    android:layout_marginEnd="@dimen/margin_btn_category"
+                    android:background="@drawable/border_btn_gray"
+                    android:onClick="@{listener.onClickBtnCategorySale}"
+
+
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/btn_Category_Rent"
+                    app:layout_constraintEnd_toStartOf="@+id/btn_Category_Service"
+                    >
+
+                    <ImageView
+                        android:id="@+id/imgSale"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_sell"
+                        app:tint="@color/text_category_type"
+                        android:layout_marginEnd="4dp"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/tS"
+                        />
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textViewOpen"
+                        android:id="@+id/tS"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginStart="4dp"
+                        android:text="@string/sale"
+                        android:textColor="@color/text_category_type"
+                        app:layout_constraintStart_toEndOf="@+id/imgSale"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                    <View
+                        android:id="@+id/lineBottomSale"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginStart="3dp"
+                        android:layout_marginEnd="3dp"
+                        android:visibility="gone"
+
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:background="@drawable/border_btn_primary"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/btn_Category_Service"
+
+                    android:layout_width="0dp"
+                    app:layout_constraintHorizontal_weight="1"                            android:layout_height="40dp"
+
+
+                    android:layout_marginStart="@dimen/margin_btn_category"
+                    android:layout_marginEnd="@dimen/margin_btn_category"
+                    android:background="@drawable/border_btn_gray"
+                    android:onClick="@{listener.onClickBtnCategoryService}"
+
+
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/btn_Category_Sale"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    >
+
+                    <ImageView
+                        android:id="@+id/imgService"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_service"
+                        app:tint="@color/text_category_type"
+                        android:layout_marginEnd="4dp"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/tService"
+                        />
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tService"
+                        style="@style/textViewOpen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginStart="4dp"
+                        android:text="@string/service"
+                        android:textColor="@color/text_category_type"
+                        app:layout_constraintStart_toEndOf="@+id/imgService"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                    <View
+                        android:id="@+id/lineBottomService"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginStart="3dp"
+                        android:layout_marginEnd="3dp"
+                        android:visibility="gone"
+
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:background="@drawable/border_btn_primary"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipeRefreshLayout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="16dp"
+                android:clipToPadding="false"
+                android:visibility="visible"
+                app:layout_constraintTop_toBottomOf="@+id/LabelConstraint"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerMyItems"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:clipToPadding="false"
+                    android:visibility="visible"
+                    app:layout_constraintTop_toBottomOf="@+id/layoutBtns"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:paddingBottom="@dimen/padding_bottom_nav"
+
+                    />
+
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutError"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:tint="@color/gray_box_empty"
+                    android:src="@drawable/ic_no_bookmark"/>
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/textViewOpen"
+                    android:id="@+id/label_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/no_items"
+                    app:tint="@color/gray_a"
+                    android:textSize="14sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/buttonPedpo"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:id="@+id/reload_posts_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="10dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:text="@string/try_again"
+                    android:textAllCaps="false"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <include
+            android:id="@+id/layoutIncludeLogin"
+            layout="@layout/fragment_do_login"
+            app:layout_anchorGravity="center"
+            />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

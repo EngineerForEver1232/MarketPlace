@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="listener"
+            type="com.pedpo.pedporent.view.addMarket.LocationChooseActivity" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <include
+        layout="@layout/back_actionbar"
+        android:id="@+id/action_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/action_bar">
+
+        <LinearLayout
+            android:paddingBottom="70dp"
+            android:clipToPadding="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background_home"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/textTitleMedium"
+                android:id="@+id/tTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="@dimen/marginstart_end_addmarket"
+                android:text="@string/select_city"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/action_bar" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/textViewOpen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                android:layout_marginEnd="@dimen/marginstart_end_addmarket"
+                android:layout_marginTop="4dp"
+                android:text="@string/select_your_ad_city_select_the_nearest_city_if_it_is_not_in_the_list"
+                android:textColor="@color/gray_standard" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{listener.onClickCity}"
+                android:background="@drawable/border_search_white"
+                android:layout_marginTop="4dp"
+
+                android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                android:layout_marginEnd="@dimen/marginstart_end_addmarket"
+                app:layout_constraintBottom_toTopOf="@+id/constraintMadrak"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line1"
+                >
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    app:tint="@color/gray_standard"
+                    android:hint="@string/city"
+
+                    android:layout_marginStart="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+
+                <ImageView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@color/lineAdd" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/textTitleMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                android:layout_marginEnd="@dimen/marginstart_end_addmarket"
+                android:text="@string/select_a_range_on_the_map" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/textViewOpen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="@dimen/marginstart_end_addmarket"
+                android:text="@string/text_area"
+                android:textColor="#B7B7B7" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="@dimen/marginstart_end_addmarket">
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/textViewOpen"
+                    android:id="@+id/t"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/adding_a_photo_will_increase_your"
+                    android:textColor="@color/gray_standard"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/switchBtn"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switchBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/t"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLocation"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:onClick="@{listener::onClickLocation}"
+                android:visibility="visible"
+                android:layout_marginStart="@dimen/marginstart_end_addmarket"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="@dimen/marginstart_end_addmarket"
+                android:background="@drawable/border_area_light">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/carViewMap"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    app:cardCornerRadius="16dp"
+                    android:visibility="gone"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    android:orientation="horizontal">
+
+                    <fragment
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/map"
+                        android:name="com.google.android.gms.maps.SupportMapFragment" />
+
+
+
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <ImageView
+                        android:id="@+id/icLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_add_location_alt_24"
+                        app:tint="@color/gray_light"
+                        />
+                    <com.pedpo.pedporent.widget.TextViewAppLight
+                        android:id="@+id/tLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/adding_a_area"
+                        android:layout_marginTop="16dp"
+                        android:textColor="@color/gray_light"
+                        />
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnConfirm"
+        style="@style/Buttonlarge"
+        android:layout_width="match_parent"
+        android:text="@string/confirm"
+
+        android:onClick="@{listener::onClickbtnConfirm}"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_goneMarginBottom="16dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="44dp"
+
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.pedpo.pedporent.view.paging.seeMoreVisitedMarket.model.PaginTO"
+            />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        
+
+        app:cardElevation="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/back_adapter_paging"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="2dp"
+
+            >
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="110dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                android:elevation="0dp">
+
+
+                <ImageView
+                    android:id="@+id/imgItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+
+                    app:imageUrl="@{viewModel.photoAddress}"
+                    app:placeholder="@{@drawable/placeholder}"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:scaleType="centerCrop"
+                    />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                app:layout_constraintStart_toEndOf="@id/cardView"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/icLike"
+                >
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tTitle"
+                    style="@style/textTitleAdapter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintVertical_chainStyle="spread_inside"
+
+                    android:text="@{viewModel.title}"
+                    android:singleLine="true"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    app:layout_constraintBottom_toTopOf="@+id/constraintPrice"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toTopOf="@+id/constraintTimer"
+                    app:layout_constraintTop_toBottomOf="@id/tTitle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textPriceAdapter"
+                        android:id="@+id/tPrice"
+
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintEnd_toEndOf="parent"
+
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintTimer"
+                    android:layout_width="0dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintPrice"
+                    >
+
+                    <ImageView
+                        android:id="@+id/icTimer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:tint="@color/tinticon"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintEnd_toStartOf="@+id/tDate"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:src="@drawable/ic_baseline_timer_24"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textDateAdapter"
+                        android:id="@+id/tDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.registerDate}"
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/icTimer"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <ImageView
+                android:id="@+id/icBookmark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:tint="@color/gray_standard"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+
+                app:layout_constraintStart_toEndOf="@+id/layout2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/icLike"
+                app:layout_constraintVertical_chainStyle="spread_inside"
+                android:src="@{viewModel.isBookMarkByUser()? @drawable/ic_bookmarked : @drawable/ic_bookmark}"
+                />
+
+            <ImageView
+                android:id="@+id/icLike"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+
+                app:layout_constraintTop_toBottomOf="@+id/icBookmark"
+                app:layout_constraintStart_toEndOf="@+id/layout2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/layoutDeactive"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cardView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:cardBackgroundColor="@color/background_card_no_active"
+                app:cardCornerRadius="16dp"
+                app:visibilitySH="@{viewModel.isActive()}">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutIsActive"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="16dp"
+                    app:strokeWidth="0dp"
+
+                    android:background="@color/background_card_no_active"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardView"
+                    app:layout_constraintEnd_toEndOf="parent"
+
+                    >
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/labelActive"
+                        style="@style/textViewOpen"
+                        android:visibility="gone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:text="@string/deactive"
+                        android:textColor="#f00"
+                        android:textSize="18sp"
+                        />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layoutError"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+
+                        app:layout_constraintTop_toBottomOf="@+id/labelActive"
+                        >
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@color/colorPrimaryTransparet"
+
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/line1"
+                            app:layout_constraintEnd_toStartOf="@id/line2"
+                            >
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/startMonth"
+                                style="@style/textViewOpen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Agu"
+                                android:textColor="@color/white"
+                                android:layout_marginStart="18dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                />
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/endMonth"
+                                style="@style/textViewOpen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Jol"
+                                android:textColor="@color/white"
+                                android:layout_marginEnd="18dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:src="@drawable/ic_deactive"
+                                app:tint="@color/white"
+                                />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <View
+                            android:id="@+id/line1"
+                            android:layout_width="@dimen/cell_text_no_active_2"
+                            android:layout_height="@dimen/cell_text_no_active"
+                            android:background="#00FFFFFF"
+
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tStartDate"
+                            style="@style/textViewOpen"
+                            android:layout_width="@dimen/cell_text_no_active"
+                            android:layout_height="@dimen/cell_text_no_active"
+                            android:text="10"
+                            android:textSize="15dp"
+                            android:gravity="center"
+                            android:textColor="@color/white"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:background="@drawable/circle_type_calendar_primary"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            />
+
+
+                        <View
+                            android:id="@+id/line2"
+
+                            android:layout_width="@dimen/cell_text_no_active_2"
+                            android:layout_height="@dimen/cell_text_no_active"
+                            android:background="#00FFFFFF"
+
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tEndDate"
+                            style="@style/textViewOpen"
+                            android:layout_width="@dimen/cell_text_no_active"
+                            android:layout_height="@dimen/cell_text_no_active"
+                            android:text="10"
+                            android:textSize="15dp"
+                            android:gravity="center"
+                            android:textColor="@color/white"
+                            android:background="@drawable/circle_type_calendar_primary"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            />
+
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/viewNoActive"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="#5B606060"
+
+            />
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>
+

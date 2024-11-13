@@ -1,0 +1,1093 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="listener"
+            type="com.pedpo.pedporent.view.filter.FilterActivity" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@color/white">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/Theme.MaterialComponents.Light"
+                    >
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textViewOpen"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/filter"
+                        />
+                </androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.core.widget.NestedScrollView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/appbar"
+                xmlns:app="http://schemas.android.com/apk/res-auto">
+
+                <LinearLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:layout_height="match_parent"
+                    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+                        app:layout_constraintStart_toEndOf="@+id/guidelinestart"
+
+                        app:layout_constraintTop_toTopOf="parent"
+                        >
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/btn_Category_Rent"
+                            android:layout_width="0dp"
+                            app:layout_constraintHorizontal_weight="1"
+                            android:layout_height="40dp"
+
+                            android:layout_marginStart="@dimen/margin_btn_category"
+                            android:layout_marginEnd="@dimen/margin_btn_category"
+                            android:background="@drawable/border_btn_gray"
+                            android:onClick="@{listener.onClickBtnCategoryRent}"
+
+                            app:layout_constraintHorizontal_chainStyle="packed"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/btn_Category_Sale"
+                            >
+
+                            <ImageView
+                                android:id="@+id/img"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_sell"
+                                app:tint="@color/colorPrimary"
+                                android:layout_marginEnd="4dp"
+                                app:layout_constraintHorizontal_chainStyle="packed"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/tr"
+                                />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tr"
+                                style="@style/textViewOpen"
+                                android:textSize="13dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:layout_marginStart="4dp"
+                                android:text="@string/rent"
+                                android:textColor="@color/colorPrimary"
+                                app:layout_constraintStart_toEndOf="@+id/img"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+
+                            <View
+                                android:id="@+id/lineBottomRent"
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:layout_marginStart="3dp"
+                                android:layout_marginEnd="3dp"
+
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:background="@drawable/border_btn_primary"
+                                />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/btn_Category_Sale"
+
+                            android:layout_width="0dp"
+                            app:layout_constraintHorizontal_weight="1"                            android:layout_height="40dp"
+                            android:layout_marginStart="@dimen/margin_btn_category"
+                            android:layout_marginEnd="@dimen/margin_btn_category"
+                            android:background="@drawable/border_btn_gray"
+                            android:onClick="@{listener.onClickBtnCategorySale}"
+
+
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/btn_Category_Rent"
+                            app:layout_constraintEnd_toStartOf="@+id/btn_Category_Service"
+                            >
+
+                            <ImageView
+                                android:id="@+id/imgSale"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_sell"
+                                app:tint="@color/text_category_type"
+                                android:layout_marginEnd="4dp"
+                                app:layout_constraintHorizontal_chainStyle="packed"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/tS"
+                                />
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tS"
+                                style="@style/textViewOpen"
+                                android:textSize="13dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:layout_marginStart="4dp"
+                                android:text="@string/sale"
+                                android:textColor="@color/text_category_type"
+                                app:layout_constraintStart_toEndOf="@+id/imgSale"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+                            <View
+                                android:id="@+id/lineBottomSale"
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:layout_marginStart="3dp"
+                                android:layout_marginEnd="3dp"
+                                android:visibility="gone"
+
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:background="@drawable/border_btn_primary"
+                                />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/btn_Category_Service"
+
+                            android:layout_width="0dp"
+                            app:layout_constraintHorizontal_weight="1"                            android:layout_height="40dp"
+
+
+                            android:layout_marginStart="@dimen/margin_btn_category"
+                            android:layout_marginEnd="@dimen/margin_btn_category"
+                            android:background="@drawable/border_btn_gray"
+                            android:onClick="@{listener.onClickBtnCategoryService}"
+
+
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/btn_Category_Sale"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            >
+
+                            <ImageView
+                                android:id="@+id/imgService"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_service"
+                                app:tint="@color/text_category_type"
+                                android:layout_marginEnd="4dp"
+                                app:layout_constraintHorizontal_chainStyle="packed"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/tService"
+                                />
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tService"
+                                style="@style/textViewOpen"
+                                android:textSize="13dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:layout_marginStart="4dp"
+                                android:text="@string/service"
+                                android:textColor="@color/text_category_type"
+                                app:layout_constraintStart_toEndOf="@+id/imgService"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+                            <View
+                                android:id="@+id/lineBottomService"
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:layout_marginStart="3dp"
+                                android:layout_marginEnd="3dp"
+                                android:visibility="gone"
+
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:background="@drawable/border_btn_primary"
+                                />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/border_search"
+                        android:layout_marginTop="@dimen/margin_top_bottom"
+                        android:onClick="@{listener::onClickCategory}"
+                        app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+                        app:layout_constraintStart_toEndOf="@+id/guidelinestart"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintBtn">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"
+                            android:id="@+id/titleCategory"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginBottom="12dp"
+                            android:text="@string/category"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/title_gray" />
+
+                        <View
+                            android:layout_width="2dp"
+                            android:layout_height="50dp"
+                            android:layout_marginEnd="4dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/nameCategory"
+                            android:layerType="software"
+                            android:background="@drawable/line_stroke_vertical2"
+                            />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"                        android:id="@+id/nameCategory"
+                            android:layout_width="70dp"
+                            android:gravity="center"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:layout_marginEnd="4dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/select"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintArea"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{listener::onClickCity}"
+
+                        app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+                        app:layout_constraintStart_toEndOf="@+id/guidelinestart"        android:layout_marginTop="@dimen/margin_top_bottom"
+                        app:layout_constraintTop_toBottomOf="@id/constraintCategory"
+
+                        android:background="@drawable/border_search"
+                        >
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:text="@string/city"
+                            android:textColor="#121212"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <View
+                            android:layout_width="2dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:background="@drawable/line_stroke_vertical2"
+                            android:layerType="software"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/tCity"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/textViewOpen"                        android:id="@+id/tCity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            android:text="@string/select"
+                            android:textColor="#858585"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintBtnPrice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+                        app:layout_constraintStart_toEndOf="@+id/guidelinestart"
+
+                        app:layout_constraintTop_toBottomOf="@+id/constraintArea"
+                        >
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/btnPrice"
+                            android:layout_width="0dp"
+                            app:layout_constraintHorizontal_weight="1"
+                            android:layout_height="40dp"
+
+                            android:layout_marginStart="@dimen/margin_btn_category"
+                            android:layout_marginEnd="@dimen/margin_btn_category"
+                            android:background="@drawable/border_btn_gray"
+
+
+                            app:layout_constraintHorizontal_chainStyle="packed"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/btnAgreement"
+                            >
+
+                            <ImageView
+                                android:id="@+id/imgPrice"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                app:tint="@color/colorPrimary"
+                                android:visibility="gone"
+                                android:layout_marginEnd="4dp"
+                                app:layout_constraintHorizontal_chainStyle="packed"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/trPrice"
+                                />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/textViewOpen"
+                                android:textSize="13dp"
+                                android:id="@+id/trPrice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:layout_marginStart="4dp"
+                                android:text="@string/price2"
+                                android:textColor="@color/colorPrimary"
+                                app:layout_constraintStart_toEndOf="@+id/imgPrice"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+
+                            <View
+                                android:id="@+id/linePrice"
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:layout_marginStart="3dp"
+                                android:layout_marginEnd="3dp"
+
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:background="@drawable/border_btn_primary"
+                                />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/btnAgreement"
+
+                            android:layout_width="0dp"
+                            app:layout_constraintHorizontal_weight="1"                            android:layout_height="40dp"
+                            android:layout_marginStart="@dimen/margin_btn_category"
+                            android:layout_marginEnd="@dimen/margin_btn_category"
+                            android:background="@drawable/border_btn_gray"
+
+
+
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/btnPrice"
+                            app:layout_constraintEnd_toStartOf="@+id/btnFree"
+                            >
+
+                            <ImageView
+                                android:id="@+id/imgAgreement"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:visibility="gone"
+                                app:tint="@color/text_category_type"
+                                android:layout_marginEnd="4dp"
+                                app:layout_constraintHorizontal_chainStyle="packed"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/tAgreement"
+                                />
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/textViewOpen"
+                                android:textSize="13dp"
+                                android:id="@+id/tAgreement"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:layout_marginStart="4dp"
+                                android:text="@string/an_agreement"
+                                android:textColor="@color/text_category_type"
+                                app:layout_constraintStart_toEndOf="@+id/imgAgreement"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+                            <View
+                                android:id="@+id/lineAgreement"
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:layout_marginStart="3dp"
+                                android:layout_marginEnd="3dp"
+                                android:visibility="gone"
+
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:background="@drawable/border_btn_primary"
+                                />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/btnFree"
+
+                            android:layout_width="0dp"
+                            app:layout_constraintHorizontal_weight="1"                            android:layout_height="40dp"
+
+
+                            android:layout_marginStart="@dimen/margin_btn_category"
+                            android:layout_marginEnd="@dimen/margin_btn_category"
+                            android:background="@drawable/border_btn_gray"
+
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/btnAgreement"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            >
+
+                            <ImageView
+                                android:id="@+id/imgFree"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:visibility="gone"
+                                app:tint="@color/text_category_type"
+                                android:layout_marginEnd="4dp"
+                                app:layout_constraintHorizontal_chainStyle="packed"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/tFree"
+                                />
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tFree"
+                                style="@style/textViewOpen"
+                                android:textSize="13dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:layout_marginStart="4dp"
+                                android:text="@string/free"
+                                android:textColor="@color/text_category_type"
+                                app:layout_constraintStart_toEndOf="@+id/imgFree"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+                            <View
+                                android:id="@+id/lineFree"
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:layout_marginStart="3dp"
+                                android:layout_marginEnd="3dp"
+                                android:visibility="gone"
+
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:background="@drawable/border_btn_primary"
+                                />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintSpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@drawable/border_search"
+
+                        >
+
+                        <Spinner
+                            android:id="@+id/spinnerRenteral"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintSliderPrice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:layout_marginTop="@dimen/margin_top_bottom"
+                        app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+                        app:layout_constraintStart_toEndOf="@+id/guidelinestart"        app:layout_constraintTop_toBottomOf="@id/constraintBtnPrice"
+
+
+                        >
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tFrom"
+                            style="@style/textViewOpen"
+                            android:textColor="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_chainStyle="packed"
+                            app:layout_constraintEnd_toStartOf="@+id/tLine"
+
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:text="@string/under"
+
+                            />
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tLine"
+                            style="@style/textViewOpen"
+                            android:textColor="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            app:layout_constraintHorizontal_chainStyle="packed"
+                            app:layout_constraintEnd_toStartOf="@+id/tTo"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/tFrom"
+                            android:text="-"
+
+                            />
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tTo"
+                            style="@style/textViewOpen"
+                            android:textColor="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/tLine"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:text="40000"
+
+                            />
+
+                        <com.google.android.material.slider.RangeSlider
+                            android:id="@+id/rangeSlider"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            style="@style/Widget.App.Slider"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tLine"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:labelBehavior="gone"
+                            app:haloColor="@color/blue_fab"
+
+                            app:trackColorActive="@color/colorPrimary"
+                            app:trackColorInactive="#eee"
+                            android:valueFrom="0"
+                            android:valueTo="@integer/toPrice"
+                            app:values="@array/initial_slider_values"
+                            />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/dropDownAdvanced"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="visible"
+                        android:layout_marginTop="16dp"
+                        android:onClick="@{listener.onClickDropDown}"
+                        app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+                        app:layout_constraintStart_toEndOf="@+id/guidelinestart"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintSliderPrice">
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tAdanced"
+                            style="@style/textViewOpen"
+                            android:textColor="@color/colorPrimary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_chainStyle="packed"
+                            app:layout_constraintEnd_toStartOf="@+id/icDropDown"
+
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:text="Advanced Filter Options"
+
+                            />
+                        <ImageView
+                            android:id="@+id/icDropDown"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            app:tint="@color/colorPrimary"
+                            app:layout_constraintHorizontal_chainStyle="packed"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/tAdanced"
+                            android:src="@drawable/ms__arrow"
+
+                            />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintAdvancedHome"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+                        app:layout_constraintStart_toEndOf="@+id/guidelinestart"
+                        app:layout_constraintTop_toBottomOf="@+id/dropDownAdvanced">
+
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/constraintMetrazh"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp"
+                            android:layout_marginTop="@dimen/margin_top_bottom"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            >
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/labelMetazh"
+                                style="@style/textViewOpen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:text="@string/meter_of_house"
+                                />
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tMetrazhFrom"
+                                style="@style/textViewOpen"
+                                android:textColor="@color/black"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="8dp"
+                                app:layout_constraintHorizontal_chainStyle="packed"
+                                app:layout_constraintEnd_toStartOf="@+id/tMLine"
+                                app:layout_constraintTop_toBottomOf="@+id/labelMetazh"
+                                app:layout_constraintStart_toStartOf="parent"
+                                android:text="@string/under"
+
+                                />
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tMLine"
+                                style="@style/textViewOpen"
+                                android:textColor="@color/black"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="8dp"
+                                app:layout_constraintHorizontal_chainStyle="packed"
+                                app:layout_constraintEnd_toStartOf="@+id/tMetrazhTo"
+                                app:layout_constraintTop_toBottomOf="@+id/labelMetazh"
+                                app:layout_constraintStart_toEndOf="@+id/tMetrazhFrom"
+                                android:text="-"
+
+                                />
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tMetrazhTo"
+                                style="@style/textViewOpen"
+                                android:textColor="@color/black"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="8dp"
+                                app:layout_constraintTop_toBottomOf="@+id/labelMetazh"
+                                app:layout_constraintStart_toEndOf="@+id/tMLine"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:text="3500"
+
+                                />
+
+                            <com.google.android.material.slider.RangeSlider
+                                android:id="@+id/rangeMetrazhSlider"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                style="@style/Widget.App.Slider"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/tMLine"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:labelBehavior="gone"
+                                app:haloColor="@color/blue_fab"
+
+                                app:trackColorActive="@color/colorPrimary"
+                                app:trackColorInactive="#eee"
+                                android:valueFrom="0"
+                                android:valueTo="@integer/toPrice"
+                                app:values="@array/initial_slider_values"
+                                />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/constraintYearHome"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp"
+                            android:layout_marginTop="@dimen/margin_top_bottom"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/constraintMetrazh"
+                            >
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/labelYearHome"
+                                style="@style/textViewOpen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:text="@string/year_construction"
+                                />
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tYearConsFrom"
+                                style="@style/textViewOpen"
+                                android:textColor="@color/black"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="8dp"
+                                app:layout_constraintHorizontal_chainStyle="packed"
+                                app:layout_constraintEnd_toStartOf="@+id/tYearConsLine"
+                                app:layout_constraintTop_toBottomOf="@+id/labelYearHome"
+                                app:layout_constraintStart_toStartOf="parent"
+                                android:text="@string/under"
+
+                                />
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tYearConsLine"
+                                style="@style/textViewOpen"
+                                android:textColor="@color/black"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="8dp"
+                                app:layout_constraintHorizontal_chainStyle="packed"
+                                app:layout_constraintEnd_toStartOf="@+id/tYearConsTo"
+                                app:layout_constraintTop_toBottomOf="@+id/labelYearHome"
+                                app:layout_constraintStart_toEndOf="@+id/tYearConsFrom"
+                                android:text="-"
+
+                                />
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tYearConsTo"
+                                style="@style/textViewOpen"
+                                android:textColor="@color/black"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="8dp"
+                                app:layout_constraintTop_toBottomOf="@+id/labelYearHome"
+                                app:layout_constraintStart_toEndOf="@+id/tYearConsLine"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:text="3500"
+
+                                />
+
+                            <com.google.android.material.slider.RangeSlider
+                                android:id="@+id/rangeYearConsSlider"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                style="@style/Widget.App.Slider"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/tYearConsLine"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:labelBehavior="gone"
+                                app:haloColor="@color/blue_fab"
+
+                                app:trackColorActive="@color/colorPrimary"
+                                app:trackColorInactive="#eee"
+                                android:valueFrom="0"
+                                android:valueTo="@integer/toPrice"
+                                app:values="@array/initial_slider_values"
+                                />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/constraintKilometerCar"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp"
+                            android:layout_marginTop="@dimen/margin_top_bottom"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/constraintYearHome"
+                            >
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/labelKMCar"
+                                style="@style/textViewOpen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:text="@string/kilometer_car"
+                                />
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tKMCarFrom"
+                                style="@style/textViewOpen"
+                                android:textColor="@color/black"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="8dp"
+                                app:layout_constraintHorizontal_chainStyle="packed"
+                                app:layout_constraintEnd_toStartOf="@+id/tKMCarLine"
+                                app:layout_constraintTop_toBottomOf="@+id/labelKMCar"
+                                app:layout_constraintStart_toStartOf="parent"
+                                android:text="@string/under"
+
+                                />
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tKMCarLine"
+                                style="@style/textViewOpen"
+                                android:textColor="@color/black"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="8dp"
+                                app:layout_constraintHorizontal_chainStyle="packed"
+                                app:layout_constraintEnd_toStartOf="@+id/tKmCarTo"
+                                app:layout_constraintTop_toBottomOf="@+id/labelKMCar"
+                                app:layout_constraintStart_toEndOf="@+id/tKMCarFrom"
+                                android:text="-"
+
+                                />
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tKmCarTo"
+                                style="@style/textViewOpen"
+                                android:textColor="@color/black"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="8dp"
+                                app:layout_constraintTop_toBottomOf="@+id/labelKMCar"
+                                app:layout_constraintStart_toEndOf="@+id/tKMCarLine"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:text="3500"
+
+                                />
+
+                            <com.google.android.material.slider.RangeSlider
+                                android:id="@+id/rangeKmCarSlider"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                style="@style/Widget.App.Slider"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/tKMCarLine"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:labelBehavior="gone"
+                                app:haloColor="@color/blue_fab"
+
+                                app:trackColorActive="@color/colorPrimary"
+                                app:trackColorInactive="#eee"
+                                android:valueFrom="0"
+                                android:valueTo="@integer/toPrice"
+                                app:values="@array/initial_slider_values"
+                                />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/constraintBadRooms"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+
+                            android:layout_marginTop="@dimen/margin_top_bottom"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/constraintKilometerCar"
+                            >
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/textTitleStandard"
+                                android:id="@+id/laberNumberBadroom"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                android:text="Number of rooms"
+                                />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recyclerBadroom"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toBottomOf="@+id/laberNumberBadroom"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/constraintBathRooms"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+
+                            android:layout_marginTop="@dimen/margin_top_bottom"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/constraintBadRooms"
+                            >
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/textTitleStandard"
+                                android:id="@+id/laberNumberBathRooms"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                android:text="Number of bathrooms"
+                                />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recyclerBathRooms"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toBottomOf="@+id/laberNumberBathRooms"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSubmit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintAdvancedHome"
+
+                        android:text="Submit"
+
+                        android:onClick="@{listener.onClickSubmit}"
+                        android:layout_marginBottom="16dp"
+                        />
+                </LinearLayout>
+
+
+            </androidx.core.widget.NestedScrollView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+</layout>

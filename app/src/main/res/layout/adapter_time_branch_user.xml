@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+    <data>
+         <variable
+            name="listenerAdapter"
+            type="com.pedpo.pedporent.view.adapter.ShiftTimeAdapter" />
+
+        <variable
+            name="viewModel"
+            type="com.pedpo.pedporent.model.TimeBranchTO" />
+        <variable
+            name="position"
+            type="int"/>
+        <variable
+            name="shift1"
+            type="String"/>
+        <variable
+            name="shift2"
+            type="String"/>
+    </data>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+
+            app:cardBackgroundColor="@color/white_dark"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp"
+                >
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/textTitleMedium"
+                    android:id="@+id/tDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/icTime"
+                    app:layout_constraintBottom_toBottomOf="@+id/icTime"
+                    android:text="@{viewModel.day}"
+                    />
+
+                <ImageView
+                    android:id="@+id/icTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:tint="@color/tinticon"
+                    android:src="@drawable/ic_enable_day_branch"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:visibilitySH="@{!viewModel.enable}"
+
+                    app:layout_constraintTop_toBottomOf="@+id/tDay">
+
+                    <!--                Radif time 1      -->
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tStartTime1"
+                        style="@style/textViewOpen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@{viewModel.startTime1}"
+                        android:hint="@string/start_time"
+
+                        bind:enable="@{viewModel.enable}"
+                        bind:textStart1="@{viewModel.startTime1}"
+                        bind:textEnd1="@{viewModel.endTime1}"
+                        bind:shift="@{shift1}"
+                        bind:textStart2="@{viewModel.startTime2}"
+                        bind:textEnd2="@{viewModel.endTime2}"
+
+                        android:textColor="@color/black_standard"
+                        app:layout_constraintEnd_toStartOf="@+id/toTime1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+
+                        />
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textViewOpen"
+                        android:id="@+id/toTime1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+
+                        bind:enable="@{viewModel.enable}"
+                        bind:textStart1="@{viewModel.startTime1}"
+                        bind:textEnd1="@{viewModel.endTime1}"
+                        bind:shift="@{shift1}"
+                        bind:textStart2="@{viewModel.startTime2}"
+                        bind:textEnd2="@{viewModel.endTime2}"
+
+                        android:layout_marginStart="16dp"
+                        android:textColor="@color/black_standard"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/tEndTime1"
+                        app:layout_constraintStart_toEndOf="@+id/tStartTime1"
+                        android:text="@string/to"
+
+                        />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textViewOpen"
+                        android:id="@+id/tEndTime1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginStart="16dp"
+                        android:textColor="@color/black_standard"
+
+                        bind:enable="@{viewModel.enable}"
+                        bind:textStart1="@{viewModel.startTime1}"
+                        bind:textEnd1="@{viewModel.endTime1}"
+                        bind:shift="@{shift1}"
+                        bind:textStart2="@{viewModel.startTime2}"
+                        bind:textEnd2="@{viewModel.endTime2}"
+
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/toTime1"
+
+                        android:text="@{viewModel.endTime1}"
+                        android:hint="@string/end_time"
+                        />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/icClose"
+                        style="@style/textViewOpen"
+                        android:textColor="@color/black_standard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        bind:enable="@{viewModel.enable}"
+                        bind:textStart1="@{viewModel.startTime1}"
+                        bind:textEnd1="@{viewModel.endTime1}"
+                        bind:shift="@{shift1}"
+                        bind:textStart2="@{viewModel.startTime2}"
+                        bind:textEnd2="@{viewModel.endTime2}"
+
+                        android:src="@drawable/ic_baseline_close_24"
+                        android:text="@string/shift1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/tEndTime1"
+                        app:layout_constraintBottom_toBottomOf="@+id/tEndTime1"
+
+                        />
+
+                    <!--                Radif time 2      -->
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tStartTime2"
+                        style="@style/textViewOpen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        app:visibilitySH="@{!viewModel.enable}"
+
+
+                        bind:enable="@{viewModel.enable}"
+                        bind:textStart1="@{viewModel.startTime1}"
+                        bind:textEnd1="@{viewModel.endTime1}"
+                        bind:shift="@{shift2}"
+                        bind:textStart2="@{viewModel.startTime2}"
+                        bind:textEnd2="@{viewModel.endTime2}"
+
+
+                        android:text="@{viewModel.startTime2}"
+                        android:hint="@string/start_time"
+                        android:textColor="@color/black_standard"
+                        app:layout_constraintEnd_toStartOf="@+id/toTime2"
+                        app:layout_constraintStart_toStartOf="parent"
+
+                        app:layout_constraintTop_toBottomOf="@+id/tStartTime1" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/toTime2"
+                        style="@style/textViewOpen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/to"
+
+
+                        android:textColor="@color/black_standard"
+                        app:layout_constraintEnd_toStartOf="@+id/tEndTime2"
+                        app:layout_constraintStart_toEndOf="@+id/tStartTime2"
+                        app:layout_constraintTop_toBottomOf="@+id/tStartTime1"
+                        app:visibilitySH="@{!viewModel.enable}"
+
+                        bind:enable="@{viewModel.enable}"
+                        bind:textEnd1="@{viewModel.endTime1}"
+                        bind:textEnd2="@{viewModel.endTime2}"
+                        bind:shift="@{shift2}"
+                        bind:textStart1="@{viewModel.startTime1}"
+                        bind:textStart2="@{viewModel.startTime2}"
+
+                        />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/textViewOpen"
+                        android:id="@+id/tEndTime2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginStart="16dp"
+                        app:visibilitySH="@{!viewModel.enable}"
+
+
+                        bind:enable="@{viewModel.enable}"
+                        bind:textStart1="@{viewModel.startTime1}"
+                        bind:textEnd1="@{viewModel.endTime1}"
+                        bind:shift="@{shift2}"
+                        bind:textStart2="@{viewModel.startTime2}"
+                        bind:textEnd2="@{viewModel.endTime2}"
+
+                        android:textColor="@color/black_standard"
+                        app:layout_constraintTop_toBottomOf="@+id/tStartTime1"
+                        app:layout_constraintStart_toEndOf="@+id/toTime2"
+
+                        android:text="@{viewModel.endTime2}"
+                        android:hint="@string/end_time"
+                        />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/icCloseTime2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_close_24"
+                        android:textColor="@color/black_standard"
+                        android:text="@string/shift2"
+
+
+                        bind:enable="@{viewModel.enable}"
+                        bind:textStart1="@{viewModel.startTime1}"
+                        bind:textEnd1="@{viewModel.endTime1}"
+                        bind:shift="@{shift2}"
+                        bind:textStart2="@{viewModel.startTime2}"
+                        bind:textEnd2="@{viewModel.endTime2}"
+
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/tEndTime2"
+                        app:layout_constraintBottom_toBottomOf="@+id/tEndTime2"
+                        app:visibilitySH="@{!viewModel.enable}"
+
+                        />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+</layout>
+

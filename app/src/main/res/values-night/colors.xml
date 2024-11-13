@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <color name="add_image">#8A8A8A</color>
+    <color name="background_adapter_photo">#000000</color>
+    <color name="lineAdd">#8A8A8A</color>
+    <color name="title_gray">#DCDCDC</color>
+
+    <color name="testDark">#80FF00</color>
+    <color name="background_home">#080808</color>
+    <color name="background_bottom_sheet">#1B1B1B</color>
+    <color name="gray_standard">#9C9C9C</color>
+    <color name="gray_standard_dark">#ACACAC</color>
+
+    <color name="backCalendar">#424242</color>
+    <color name="cell">#424242</color>
+    <color name="title_calendar">#B8B8B8</color>
+    <color name="back_arrow_calendar">#BF5F5F5F</color>
+    <color name="background__box">#1E1E1E</color>
+
+    <color name="black">#000000</color>
+    <color name="black_dark">#F1F1F1</color>
+    <color name="white_dark">#181818</color>
+    <color name="white_dark_dialog">#2C2C2C</color>
+    <color name="white_dark_dialog_choose_image">#424242</color>
+    <color name="white_dark_chat">#434343</color>
+
+    <color name="text_title_medium">#CCCCCC</color>
+
+
+    <color name="white_dark_reverese">#ffffff</color>
+    <color name="border_search">#2B2B2B</color>
+    <color name="border_search_pedpo">#505050</color>
+    <color name="border_search_gray">#181818</color>
+    <color name="back_adapter_paging">#353535</color>
+    <color name="back_multi_btn">#353535</color>
+
+    <color name="actionbar">#222222</color>
+
+    <color name="tinticon">#D3D3D3</color>
+
+    <color name="gray_e">#050505</color>
+    <color name="gray_c">#050505</color>
+    <color name="gray_f0">#333333</color>
+    <color name="gray_border_detail">#050505</color>
+
+    <color name="gray_standard_ali">#C8C8C8</color>
+    <color name="gray_a">#5F5F5F</color>
+    <color name="gray_2">#E1E1E1</color>
+    <color name="gray_7">#999999</color>
+    <color name="gray_un_focus_edittext_ticket">#838383</color>
+    <color name="gray_focus_edittext_ticket">#858585</color>
+    <color name="gray_focus_edittext">#858585</color>
+    <color name="gray_box_empty">#D8D8D8</color>
+    <color name="text_color_custom_box">#949494</color>
+    <color name="gray_cell_calendar_kmm">#919191</color>
+
+    <color name="text_category_type">#C3C3C3</color>
+
+    <color name="back_box_language">#FFD8D5</color>
+
+    <color name="adapter_category">#303030</color>
+    <color name="start_color_shadow_description">#991B1B1B</color>
+    <color name="center_color_shadow_description">#990E0E0E</color>
+
+
+</resources>

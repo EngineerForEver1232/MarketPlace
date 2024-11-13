@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/constraintHomeOrCar"
+    android:layout_width="match_parent"
+
+    android:layout_height="wrap_content"
+    >
+
+    <ImageView
+        android:id="@+id/icBed"
+
+        android:layout_width="@dimen/ic_home_detail"
+        android:layout_height="@dimen/ic_home_detail"
+        android:src="@drawable/ic_bed"
+        app:tint="@color/tinticon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tBedRoom"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tBedRoom"
+        style="@style/textViewAdapter"
+
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:gravity="center"
+        android:layout_marginStart="2dp"
+        app:layout_constraintTop_toTopOf="@+id/icBed"
+        app:layout_constraintBottom_toBottomOf="@+id/icBed"
+        app:layout_constraintStart_toEndOf="@+id/icBed"
+        app:layout_constraintEnd_toStartOf="@+id/icBath"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/icBath"
+        android:layout_width="@dimen/ic_home_detail"
+        android:layout_height="@dimen/ic_home_detail"
+
+        android:src="@drawable/ic_bath"
+        android:layout_marginStart="12dp"
+        app:tint="@color/tinticon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tBedRoom"
+        app:layout_constraintEnd_toStartOf="@+id/tBathRoom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tBathRoom"
+        style="@style/textViewAdapter"
+
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:gravity="center"
+        android:layout_marginStart="4dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/icBath"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/icBuild"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/icBuild"
+        android:layout_width="@dimen/ic_home_detail"
+        android:layout_height="@dimen/ic_home_detail"
+
+        android:layout_marginStart="12dp"
+
+        app:tint="@color/tinticon"
+        android:src="@drawable/ic_metrazh"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tBathRoom"
+        app:layout_constraintEnd_toStartOf="@+id/tBuildYear"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tBuildYear"
+        style="@style/textViewAdapter"
+        android:ellipsize="end"
+        android:maxLines="1"
+
+
+        android:layout_marginStart="4dp"
+        android:gravity="start"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintStart_toEndOf="@+id/icBuild"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <corners
+        android:bottomRightRadius="@dimen/border_cell_selector"
+        android:topRightRadius="@dimen/border_cell_selector"
+        />
+<!--    <corners-->
+<!--        android:bottomLeftRadius="@dimen/cellStart_bottomLeftRadius"-->
+<!--        android:bottomRightRadius="@dimen/cellStart_bottomRightRadius"-->
+<!--        android:topLeftRadius="@dimen/cellStart_topLeftRadius"-->
+<!--        android:topRightRadius="@dimen/cellStart_topRightRadius"-->
+<!--        />-->
+    <!--            <solid android:color="#44E393"/>-->
+    <solid android:color="@color/colorPrimaryTransparet"/>
+
+</shape>

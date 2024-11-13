@@ -1,0 +1,968 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">PedpoRent</string>
+    <string name="api_key_private" translatable="false">AIzaSyDhK_PQWEK1G86ktGnUZMwPAmyin6K4rq8</string>
+    <integer name="google_play_services_version">12451000</integer>
+
+    <string name="Base_Url_Pedpo" translatable="false">https://rent.pedpo.ir/api/</string>
+<!--    <string name="Base_Url_Pedpo" translatable="false">http://v1.pedpo.co.uk/api/</string>-->
+
+    <string name="heatingNaturalGas">Natural Gas</string>
+    <string name="heatingForcedAir">Forced Air</string>
+
+    <integer name="toPrice">100000</integer>
+
+    <integer name="color_appbar_detial">230</integer>
+    <integer name="color_appbar_background_back">100</integer>
+    <integer name="color_appbar_ic_back">255</integer>
+    <integer name="positive">1</integer>
+    <integer name="black_dark_integer">0</integer>
+
+
+    <string-array name="week_sun_sat">
+        <item>@string/sun</item>
+        <item>@string/mon</item>
+        <item>@string/tue</item>
+        <item>@string/wed</item>
+        <item>@string/thu</item>
+        <item>@string/fri</item>
+        <item>@string/sat</item>
+    </string-array>
+    <string-array name="weekEN">
+        <item>@string/mon</item>
+        <item>@string/tue</item>
+        <item>@string/wed</item>
+        <item>@string/thu</item>
+        <item>@string/fri</item>
+        <item>@string/sat</item>
+        <item>@string/sun</item>
+    </string-array>
+    <string name="fri">Fri</string>
+    <string name="mon">Mon</string>
+    <string name="sat">Sat</string>
+    <string name="sun">Sun</string>
+    <string name="thu">Thu</string>
+    <string name="tue">Tue</string>
+    <string name="wed">Wed</string>
+
+    <string-array name="week">
+
+        <item>@string/sat</item>
+        <item>@string/sun</item>
+        <item>@string/mon</item>
+        <item>@string/tue</item>
+        <item>@string/wed</item>
+        <item>@string/thu</item>
+        <item>@string/fri</item>
+
+    </string-array>
+
+    <string name="done" translatable="false">Done</string>
+    <string name="select_time" translatable="false">Select a Time</string>
+    <string name="title_time_picker" translatable="false">Select Time</string>
+
+    <string name="sep">Sep</string>
+    <string name="oct">Oct</string>
+    <string name="nov">Nov</string>
+    <string name="dec">Dec</string>
+    <string name="jan">Jan</string>
+    <string name="feb">Feb</string>
+    <string name="mar">Mar</string>
+    <string name="apr">Apr</string>
+    <string name="may">May</string>
+    <string name="jun">Jun</string>
+    <string name="jul">Jul</string>
+    <string name="aug">Aug</string>
+
+
+
+    <string name="satDay">Saturday</string>
+    <string name="sunDay">Sunday</string>
+    <string name="monDay">Monday</string>
+    <string name="tuesDay">Tuesday</string>
+    <string name="wednesDay">Wednesday</string>
+    <string name="thursDay">Thursday</string>
+    <string name="friDay">Friday</string>
+
+    <string-array name="month_string">
+        <item>@string/jan</item>
+        <item>@string/feb</item>
+        <item>@string/mar</item>
+        <item>@string/apr</item>
+        <item>@string/may</item>
+        <item>@string/jun</item>
+        <item>@string/jul</item>
+        <item>@string/aug</item>
+        <item>@string/sep</item>
+        <item>@string/oct</item>
+        <item>@string/nov</item>
+        <item>@string/dec</item>
+    </string-array>
+
+    <array name="rental">
+        <item>@string/daily_rental_price</item>
+        <item>@string/hour_price</item>
+        <item>@string/monthly_price</item>
+        <item>@string/year_price</item>
+    </array>
+    <array name="type_price">
+        <item>@string/year_price</item>
+        <item>@string/monthly_price</item>
+        <item>@string/daily_rental_price</item>
+        <item>@string/hour_price</item>
+    </array>
+    <array name="type_api">
+        <item>@string/rent</item>
+        <item>@string/sell</item>
+        <item>@string/service</item>
+    </array>
+
+    <array name="initial_slider_values">
+        <item>0</item>
+        <item>30000</item>
+    </array>
+
+    <array name="numberBadRooms">
+        <item>Any</item>
+        <item>"1"</item>
+        <item>"2"</item>
+        <item>"3"</item>
+        <item>"+4"</item>
+    </array>
+
+
+    <array name="heating">
+        <item>@string/heatingNaturalGas</item>
+        <item>@string/heatingForcedAir</item>
+        <item>@string/None</item>
+    </array>
+    
+    <string name="coolingCentralAIR">Central Air Conditioning</string>
+    <string name="coolingRoomAIR">Room Air Conditioning</string>
+    <string name="coolingEvaporative">Evaporative Coolers</string>
+    <string name="coolingDuctlessSpilt">Ductless Mini - Split Air Conditioners</string>
+    
+    <array name="cooling">
+        <item>@string/coolingCentralAIR</item>
+        <item>@string/coolingRoomAIR</item>
+        <item>@string/coolingEvaporative</item>
+        <item>@string/coolingDuctlessSpilt</item>
+        <item>@string/None</item>
+    </array>
+
+    <string name="parkingConcrete">Concrete</string>
+    <string name="parkingCarport">Carport</string>
+    <string name="parkingOpenDrive">Open Driveway</string>
+    <string name="parkingHeatedGarage">Heated Garage</string>
+    <string name="parkingUnderGround">Underground</string>
+    <string name="parkingBoartHouse">Boathouse</string>
+    <string name="parkingAttachedGarage">Attached Garage</string>
+    <string name="parkingDetachedGarage">Detached Garage</string>
+    <string name="None">None</string>
+
+    <string-array name="parkings">
+        <item>@string/parkingConcrete</item>
+        <item>@string/parkingCarport</item>
+        <item>@string/parkingOpenDrive</item>
+        <item>@string/parkingHeatedGarage</item>
+        <item>@string/parkingUnderGround</item>
+        <item>@string/parkingBoartHouse</item>
+        <item>@string/parkingAttachedGarage</item>
+        <item>@string/parkingDetachedGarage</item>
+        <item>@string/None</item>
+    </string-array>
+
+
+    <string-array name="arrayMenu">
+        <item>@string/low</item>
+        <item>@string/normal</item>
+        <item>@string/important</item>
+    </string-array>
+
+    <string name="low">Low</string>
+    <string name="normal">Normal</string>
+    <string name="important">Critical</string>
+
+    <string-array name="ticket">
+        <item>@string/low</item>
+        <item>@string/normal</item>
+        <item>@string/important</item>
+    </string-array>
+
+    <string-array name="deposit">
+
+        <item>@string/national_id_card</item>
+        <item>@string/certificate</item>
+        <item>@string/promissory_note</item>
+        <item>@string/check</item>
+        <item>@string/other</item>
+
+    </string-array>
+
+    <string name="national_id_card">National Id Card</string>
+    <string name="certificate">Certificate</string>
+    <string name="promissory_note">Promissory Note</string>
+    <string name="check">Check</string>
+    <string name="other">Other</string>
+
+    <string-array name="assignment">
+
+        <item>@string/price2</item>
+        <item>@string/an_agreement</item>
+        <item>@string/free</item>
+    </string-array>
+    <string-array name="order">
+
+        <item>@string/newwst</item>
+        <item>@string/most_expensive</item>
+        <item>@string/cheapest</item>
+        <item>@string/most_visited</item>
+    </string-array>
+
+    <string name="newwst">Neewst</string>
+    <string name="most_expensive">Most expensive</string>
+    <string name="cheapest">Cheapest</string>
+    <string name="most_visited">Most visited</string>
+
+
+
+
+
+    <string-array name="month">
+        <item>فروردین</item>
+        <item>اردیبهشت</item>
+        <item>خرداد</item>
+        <item>تیر</item>
+        <item>مرداد</item>
+        <item>شهریور</item>
+        <item>مهر</item>
+        <item>آبان</item>
+        <item>آذر</item>
+        <item>دی</item>
+        <item>بهمن</item>
+        <item>اسفند</item>
+    </string-array>
+
+    <string name="enter">ورود</string>
+    <string name="request_code">Request a code</string>
+    <string name="request_permission">Apply for a permission</string>
+    <string name="should_permission_Location">You must confirm the permission to access the location</string>
+    <string name="should_permission_camera">You must confirm the permission to access the camera</string>
+    <string name="should_permission_gallery">You must confirm the permission to access the gallery</string>
+    <string name="confirm_pemissions">Manually verify permissions</string>
+    <string name="please_confirm_permission_setting">Please enable permissions in the app settings (Permissions option)</string>
+    <string name="permission_not_confirm">Permission not approved</string>
+    <string name="ad_registration">Ad registration</string>
+    <string name="mention_important_items_in_the_title_of_the_ad">Please type a title for this matter.</string>
+    <string name="description_description">Write the full details and highlights of your ad. It is not allowed to write the phone number in the description.</string>
+    <string name="the_text_of_the_agreement">contract agreements between two parties</string>
+    <string name="enter_a_supplementary_agreement_if_necessary">Enter a supplementary agreement if necessary.</string>
+    <string name="countinue">Countinue</string>
+    <string name="ad_image">Ad Image</string>
+    <string name="adding_a_photo_will_increase_your_ad_view">Adding a photo will increase your ad view</string>
+    <!--   <string name="should_permission">You must confirm the permission to access the camera and external storage</string>-->
+
+    <string name="lorem" translatable="false">
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+</string>
+    <string name="loremComment" translatable="false">
+Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+</string>
+    <string name="test" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vestibulum, felis vitae commodo interdum, ipsum odio auctor erat, sed suscipit nibh tortor sit amet nulla. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer in tempor leo, sit amet consectetur nunc. Maecenas eu lacus accumsan, fermentum felis ac, tristique urna. Aliquam erat volutpat. Sed dapibus dolor eu arcu consequat fringilla. Nullam ultrices orci lorem, et tempus mi pellentesque non. Nulla vulputate neque non facilisis aliquam.
+
+Quisque ut mauris nisl. Fusce vel accumsan neque. Praesent iaculis turpis sit amet laoreet ullamcorper. Donec feugiat purus ut lectus ultricies convallis. Nulla id est non felis consequat facilisis nec mattis velit. Quisque euismod dictum varius. Pellentesque feugiat, velit in luctus convallis, justo orci ultricies ex, eget placerat felis urna eget justo. Nulla pulvinar vitae lacus nec porttitor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+
+Quisque tempus, urna in luctus tincidunt, metus diam efficitur eros, at eleifend nunc dolor eget lacus. Nullam dictum dapibus metus ut sollicitudin. Vestibulum sit amet nibh et purus tempor tincidunt a vel quam. Fusce eu placerat velit. Morbi pulvinar ante id nulla iaculis, ut hendrerit urna porttitor. Maecenas commodo, felis non euismod pellentesque, tortor tortor placerat leo, sit amet molestie metus risus ut lectus. Pellentesque in nisi vitae elit pulvinar gravida quis ultrices nisi. Nam sed lacinia sapien, eu cursus arcu. Nulla eu semper justo, eget luctus arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nullam et vulputate leo.
+
+Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed auctor nisi est, vel faucibus nunc finibus non. Ut tincidunt mauris vitae enim laoreet, sit amet porta massa imperdiet. Pellentesque tempus, eros eget lacinia sagittis, enim purus porta sapien, eu pretium tortor sem ut lacus. Cras sit amet vulputate nibh. Vivamus aliquam ex vitae varius consequat. Nullam pellentesque tortor vel enim congue sodales. Mauris tellus lorem, finibus a fermentum nec, sagittis quis leo. Nam ut orci semper, auctor eros in, consequat turpis. Suspendisse sed sem efficitur est feugiat sollicitudin vel nec massa. Duis tempor tincidunt nunc, in pretium erat ultricies non. Nulla venenatis rhoncus erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget ligula id nibh vulputate facilisis nec sit amet velit.</string>
+    <string name="general_specification">General specification</string>
+
+
+    <string name="confirm_Email">Please confirm your email address to complete your registration</string>
+
+<!--    <string name="server_client_id" translatable="false">537573942036-bs3v5antdl81thieck1j5n857dcaa69i.apps.googleusercontent.com</string>-->
+<!--    <string name="server_client_id" translatable="false">816643490471-al89ds74nlcrfj1rmacmesv62s8soost.apps.googleusercontent.com</string>-->
+    <string name="server_client_id" translatable="false">816643490471-drf9co01aodrncncs3rvom5tq3fi8o9k.apps.googleusercontent.com</string>
+    <!--<string name="need_your_email">We need your email to send a link to your email for change password</string>-->
+    <string name="need_your_email">Enter the last email you remember using with your Pedpo account.A link to reset your password will be sent to your email.</string>
+    <string name="age">Only people over 16 can register</string>
+    <string name="agedown">Only people under 99 can register</string>
+    <string name="birthif">"Only people between the age of 16 and 99  can register"</string>
+
+    <string name="confirm_phone_number_details">To confirm your phone number, an SMS containing the code will be sent to you. Use that code to verify your phone number</string>
+    <string name="confirm_email_details">To confirm your email , an email containing the code will be sent to you. Use that code to verify your email</string>
+
+    <string name="textCalendar">Please indicate the start and end date for the job</string>
+    <string name="you_not_allowed_pemission">You have not allowed access permission</string>
+    <string name="choose_photo">You can only select 5 photos</string>
+    <string name="error_connection">Error connecting Please check your internet connection and try again.</string>
+    <string name="you_need_to_have_mobile_data_or_wifi_to_access_this">You need to have Mobile Data or Wifi to access this.</string>
+    <string name="please_register">Please sign up/sign in to use Pedpo</string>
+    <string name="login_for_add_market">Dear user, you must login first to register your ad</string>
+    <string name="create_account_bookmark">Create an account so you can add to your bookmarks</string>
+
+    <string name="services">Services</string>
+    <string name="similar_services">Similar Services</string>
+    <string name="enter_the_name_for_your_services">Title</string>
+    <string name="add_image">Add Image</string>
+
+    <string name="tools">Market</string>
+    <string name="enter_the_name_for_your_market">Title</string>
+    <string name="similar_market">Similar Market</string>
+    <string name="please_add_image">Please add image</string>
+    <string name="please_enter_nameforyour_market">Please enter name for your market</string>
+    <string name="enter_name_your_services">Please enter name your services</string>
+    <string name="enter_name_market">Please enter name for your Market</string>
+    <string name="if_someone_request_to_buy_sell_an_item">If someone request to buy/sell an item</string>
+    <string name="if_admin_approves_request">If admin approves request</string>
+    <string name="if_someone_confirms_a_request">If someone confirms a request</string>
+    <string name="if_someone_rejects_a_request">If someone rejects a request</string>
+    <string name="if_your_request_expires">If your request expires</string>
+    <string name="if_someone_messages_you">If someone messages you</string>
+
+    // for details calendar
+    <string name="booked">Booked</string>
+    <string name="this_indicates_no_a_vailability">This indicates no availability</string>
+    <string name="available">Available</string>
+    <string name="this_indicates_available_dates_to_book">This indicates available dates to book</string>
+    <string name="selected">Selected</string>
+    <string name="this_indicates_dates_you_have_selected_to_book">This indicates dates you have selected to book</string>
+    <string name="change_radius_for_area">Change Radius for Area</string>
+    <string name="enter_new_email">Enter new Email</string>
+    <string name="upload_profile_image">Upload profile image</string>
+    <string name="star">⋆</string>
+    <string name="there_aren_t_any_services">There aren\'t any services</string>
+    <string name="sms">sms</string>
+    <string name="IN_APP">In-App</string>
+    <string name="EMAIL">Email</string>
+    <string name="couldnot_refresh">Couldn\'t refresh</string>
+    <string name="try_again">Try again</string>
+    <string name="edit_city">Edit City</string>
+    <string name="address">Address</string>
+    <string name="house_number">House number</string>
+    <string name="apt">#Apt</string>
+    <string name="postal_code">Postal Code</string>
+    <string name="country">Country</string>
+    <string name="province">Province</string>
+    <string name="title">title</string>
+    <string name="from">From</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="comment">Comment</string>
+    <string name="credit_card_firstname">Credit Card FirstName</string>
+    <string name="credit_card_lastname">Credit Card LastName</string>
+    <string name="bill_address">Bill Address</string>
+    <string name="card_number">Card number</string>
+    <string name="ccv">CCV</string>
+    <string name="expire_date">Expire Date</string>
+    <string name="credit_cart">Credit cart</string>
+    <string name="available_dates">Available dates</string>
+    <string name="security_deposit">Security deposit</string>
+    <string name="viewed">Viewed :</string>
+    <string name="share">share</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="rating">Rating</string>
+    <string name="area_of_operation">Area of Operation</string>
+    <string name="area_of_operation_service">Area of Operation</string>
+    <string name="chat">Chat</string>
+    <string name="hire">Hire</string>
+    <string name="edit_email">Edit Email</string>
+    <string name="edit_name">Edit name</string>
+    <string name="edit_password">Edit Password</string>
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="choose_the_image">Choose The Image</string>
+    <string name="value_of_commodity_assurance">Value Of Commodity (Assurance)</string>
+    <string name="you_were_here_yesterday">You were here yesterday</string>
+    <string name="setup">SETUP</string>
+    <string name="enter_the_name_for_your_tools">Enter the name for your tools</string>
+    <string name="type_your_text_here">type your text here</string>
+    <string name="enter_the_price">Enter the price</string>
+    <string name="enter_the_value_of_the_commodity">Enter the value of the commodity</string>
+    <string name="enter_date">Enter Date</string>
+    <string name="sort_by">Sort by</string>
+    <string name="wanted">Wanted</string>
+    <string name="categories">Categories</string>
+    <string name="price">Price:</string>
+    <string name="price2">Price</string>
+    <string name="currencyprice">قیمت به تومان</string>
+    <string name="to">to</string>
+    <string name="toronto_on">Toronto, ON</string>
+    <string name="distance">Distance</string>
+    <string name="_0_0m">0k</string>
+    <string name="posted">Posted</string>
+    <string name="past_24hrs">Past 24 Hrs</string>
+    <string name="past_7_days">Past 7 Days</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="password_recovery">Password recovery</string>
+    <string name="notification_center">Notification Center</string>
+    <string name="read">Read</string>
+    <string name="create_an_account">Create an Account</string>
+    <string name="push_notifications">Push Notifications</string>
+    <string name="pause_all">Pause All</string>
+    <string name="buy_sell">Buy / Sell</string>
+    <string name="promos">Promos</string>
+    <string name="requests">Requests</string>
+    <string name="approvals">Approvals</string>
+    <string name="register_your_account">Register your account</string>
+    <string name="create_account">Create Account</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="your_location">Your Location</string>
+    <string name="filter">Filter</string>
+    <string name="recently_posted">Recently Posted</string>
+    <string name="price_range">Price Range</string>
+    <string name="lowest_price">Lowest Price</string>
+    <string name="shortest_distance">Shortest Distance</string>
+    <string name="distance_range">Distance Range</string>
+    <string name="account_setting">Account setting</string>
+    <string name="ship_to">Ship to</string>
+    <string name="currency">Currency</string>
+    <string name="notifications">Notifications</string>
+    <string name="pedpo_version">Pedpo Version</string>
+    <string name="clear_cache">Clear Cache</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="pedpo_faq">Pedpo FAQ</string>
+    <string name="help">Help</string>
+    <string name="not_found">Not Found</string>
+    <string name="explore_pedpo">Explore Pedpo</string>
+    <string name="remember_me">Remember me?</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="sign_in2">Sign In</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="sign_up">Sign up</string>
+    <string name="sign_in_with_google_account">Sign in with google account</string>
+    <string name="password">Password</string>
+    <string name="service">Service</string>
+    <string name="please_choose_location">please choose location</string>
+    <string name="description">Description</string>
+    <string name="category">Category</string>
+    <string name="name_category">Category Name</string>
+    <string name="name">Name</string>
+    <string name="delete">Delete</string>
+    <string name="renew">Renew</string>
+    <string name="cancel_buy_request">Cancel buy request</string>
+    <string name="message">Message</string>
+    <string name="seen">Seen</string>
+    <string name="approve">Approve</string>
+    <string name="reject">Reject</string>
+    <string name="city">City</string>
+    <string name="date">Date :</string>
+    <string name="custom_toast">custom Toast</string>
+    <string name="sign_in">Sign in</string>
+    <string name="pedpo">Pedpo</string>
+    <string name="set_my_location">Set my location</string>
+    <string name="edit">Edit</string>
+    <string name="apply">Apply</string>
+    <string name="change_radios_for_area">Change radios for area</string>
+    <string name="choose_image">Choose image</string>
+    <string name="select_photo_from_gallary">Select photo from gallary</string>
+    <string name="capture_photo_from_camera">Capture photo from camera</string>
+    <string name="contacts">Contacts</string>
+    <string name="email_to">EMAIL TO</string>
+    <string name="resend">Resend</string>
+    <string name="confirm">Confirm</string>
+    <string name="setting">Setting</string>
+    <string name="send_email">Send Email</string>
+    <string name="please_wait">Please wait...</string>
+    <string name="retry">Retry</string>
+    <string name="are_you_sure_you_want_to_sign_out">Are you sure you want to sign out?</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="location">Location</string>
+    <string name="please_turn_on_location">Please turn on location</string>
+    <string name="no_activity">No Activity</string>
+    <string name="create_account2">Create account</string>
+    <string name="no_items">No Items</string>
+    <string name="my_activity">My Activity</string>
+    <string name="my_items">My Items</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="clear">Clear</string>
+    <string name="save">Save</string>
+    <string name="saved">saved</string>
+    <string name="all">All</string>
+    <string name="buy">Buy</string>
+    <string name="profile">Profile</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="phone">Phone</string>
+    <string name="please_enter_email">Please enter email</string>
+    <string name="date_of_birth2">Date of birth</string>
+    <string name="email">Email</string>
+    <string name="add_photo">Add photo</string>
+    <string name="quality">Quality</string>
+    <string name="choose_your_location">Choose your location</string>
+    <string name="submit">Submit</string>
+
+    <string name="see_all">See all</string>
+    <string name="no_item_to_show">No item to show</string>
+    <string name="rent">Rent</string>
+    <string name="sell">Sell</string>
+    <string name="List_an_item_to_sell">List an item to Sell</string>
+    <string name="List_an_item_to_Rent">List an item to Rent</string>
+    <string name="pin">Pin</string>
+    <string name="your_preferred_distance">Your preferred distance</string>
+    <string name="marketing">Marketing</string>
+    <string name="sms2">Sms</string>
+    <string name="rate_me">Rate me</string>
+    <string name="welcome_to_pedpo">Welcome to Pedpo</string>
+    <string name="enter_the_name_for_your_trades">Enter the name for your trades</string>
+    <string name="home">Home</string>
+    <string name="don_t_have_an_account2">Don\'t have an account?</string>
+    <string name="sign_in_with_google">Sign in with google</string>
+    <string name="what_are_you_listing">What are you listing?</string>
+    <string name="inbox">Inbox</string>
+    <string name="about_us">About Us</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="settings">Settings</string>
+    <string name="recent_history">Recent History</string>
+    <string name="are_you_sure_delete">Are you sure want to delete this products?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="are_you_delete_services">Are you sure you want to delete this Services?</string>
+    <string name="is_sold">Sold</string>
+    <string name="this_poster_is_from_you">This poster is from you</string>
+    <string name="please_create_account">Please create account</string>
+    <string name="choose_your_score">Choose your score</string>
+    <string name="request_was_sent">Request was sent</string>
+    <string name="request_canceled">Request canceled</string>
+    <string name="new_">New</string>
+    <string name="used">Used</string>
+    <string name="working">Wroking</string>
+    <string name="this_is_your_post_you_cant_your_own">This is your post, you can’t purchase your own item.</string>
+    <string name="you_need_allow_permission">You need to allow access permissions</string>
+    <string name="choose_category">Please choose category</string>
+    <string name="enter_price">Please enter price</string>
+    <string name="choose_date">Please choose date</string>
+    <string name="search_in_pedpo">Search in Pedpo</string>
+    <string name="shop">Shop</string>
+    <string name="search_in_services">Search in Services</string>
+    <string name="search_in_market">Search in Market</string>
+    <string name="search_in_bookmark">Search in Bookmark</string>
+    <string name="market">Market</string>
+    <string name="start_date">Start Date</string>
+    <string name="end_date">End Date</string>
+    <string name="Introduction">Introduction</string>
+    <string name="confirmation">Confirmation</string>
+    <string name="rejections">Rejections</string>
+    <string name="expirations">Expirations</string>
+    <string name="promotions">Promotions</string>
+    <string name="newsletter">Newsletter</string>
+    <string name="send">Send</string>
+    <string name="type_here">Type here</string>
+    <string name="message_not_allow_message">To send a message to this user you should first submit your request for this market listing</string>
+    <string name="message_not_allow_message_services">To send a message to this user you should first submit your request for this service listing</string>
+    <string name="search">Search</string>
+    <string name="details">Details</string>
+    <string name="notification_setting">Notification Setting</string>
+    <string name="buy_setting">Buy Setting</string>
+    <string name="token_invalid">token inValid</string>
+
+    <string name="try_again_later">Please try again later</string>
+
+    <string name="there_aren_t_similar_items">there aren\'t similar items</string>
+    <string name="terms_condition_false">You must agree to Pedpo\'s terms of sevice and conditions first by check marking above box</string>
+    <string name="does_not_exists">Does not exist</string>
+    <string name="select_original_image">Select as original photo</string>
+    <string name="gallery">Gallery</string>
+    <string name="recent_market_items">Recent Market Items</string>
+    <string name="recent_listed_services">Recent Listed Services</string>
+    <string name="basic_photo">Basic Photo</string>
+    <string name="no_message">No Message</string>
+    <string name="privacy">Privacy</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="free">Free</string>
+    <string name="agreed">Contact Seller</string>
+    <string name="resend_email">Resend email</string>
+    <string name="close">Close</string>
+    <string name="clear_message_inbox">This is how to delete your inbox message</string>
+    <string name="clear_message_notification">This is how to delete your notification</string>
+    <string name="edit_market">Edit Market</string>
+    <string name="edit_service">Edit Service</string>
+    <string name="new_services">New services</string>
+    <string name="couldnot_get_the_location">Couldn\'t get the location,try again</string>
+    <string name="list_a_service">List a service</string>
+    <string name="list_a_rent">List a rent</string>
+    <string name="list_an_item">List an item</string>
+    <string name="your_distance">Your preferred distance</string>
+    <string name="more">More...</string>
+    <string name="requested_dates">Requested dates</string>
+    <string name="i_agree_to_pedpo_s">I agree to Pedpo\'s</string>
+    <string name="terms_amp_conditions"><![CDATA[Terms & Conditions]]></string>
+    <string name="agreed_to_terms_and_services">Agreed to terms and services</string>
+    <string name="language">Language</string>
+    <string name="select_address">Select address</string>
+    <string name="legend">Legend</string>
+    <string name="kilometr">Kilometers</string>
+    <string name="click_again">please click back again to exit</string>
+    <string name="email_or_phone">ٍEmail or phone</string>
+    <string name="correctPhone">phone number is not correct</string>
+    <string name="not_account">This account does not exist</string>
+    <string name="verify">Verify</string>
+    <string name="wrong_number">.Wrong number?</string>
+    <string name="waitingSMS">Waiting to send message to</string>
+    <string name="enter_6_digit_code">Enter 6-digit code</string>
+    <string name="resend_sms">Resend Message</string>
+    <string name="digit_timer">02:00</string>
+    <string name="wrongEmail">Wrong Email</string>
+    <string name="incorrentCode">Incorrect code</string>
+    <string name="receiveSms">You may receive SMS updates from Pedpo and can opt out at any time .</string>
+    <string name="receiveEmail">You may receive Email updates from Pedpo and can opt out at any time .</string>
+    <string name="log_in">Log in</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="security_deposit_detials">(Security deposit)</string>
+    <string name="please_enter_phone_number">Please enter phone number</string>
+    <string name="enter_address">Enter address</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="enter_birthday">Enter birthday</string>
+    <string name="delete_massage">Are you sure want to delete this message?</string>
+    <string name="deleted_notify">removed from Notification!</string>
+    <string name="undo">UNDO</string>
+    <string name="replay">Replay</string>
+    <string name="confrim_phone">Please confirm phone number</string>
+    <string name="number_required">Valid number is required</string>
+    <string name="changed_address">Address changed</string>
+    <string name="enter_code">Enter code</string>
+    <string name="persian">Persian</string>
+    <string name="choose_lang_app">Please select the language of the application</string>
+    <string name="removed_inbox">removed from inbox!</string>
+    <string name="language_selection">language selection</string>
+    <string name="enter_firstname">Please enter firstname</string>
+    <string name="enter_lasttname">Please enter lastname</string>
+    <string name="sure_delete_account">Are you sure you delete your account?</string>
+    <string name="sure_delete_shift_time_branch">Are you sure you delete your time?</string>
+    <string name="post_me">This poster is from you</string>
+    <string name="choose_country">Please choose country</string>
+    <string name="choose_province">Please choose province</string>
+    <string name="request_rent_for_market">You have requested to rent this market from </string>
+    <string name="submit_sabt" />
+    <string name="have_requested_market">You have requested to buy this market</string>
+    <string name="request_hire_service">You have requested to hire this service </string>
+    <string name="change_phone">change phone</string>
+    <string name="confirm_phone">confirm phone</string>
+    <string name="your_phone">your phone</string>
+    <string name="your_email">your email</string>
+    <string name="change_email">change email</string>
+    <string name="confrim_email_title">confrim email</string>
+    <string name="km">km</string>
+    <string name="m">m</string>
+    <string name="catefory_market">Category market</string>
+    <string name="category_service">Category service</string>
+    <string name="there_is_no_notification">There is no notification</string>
+    <string name="select">Select</string>
+    <string name="choose_location">Choose your location</string>
+    <string name="minor_specifications">Details</string>
+    <string name="assignment_type">Assignment type</string>
+    <string name="daily_rental_price">Daily rental price</string>
+    <string name="i_agree">Ok</string>
+    <string name="an_agreement">Contact owner</string>
+    <string name="select_your_ad_city_select_the_nearest_city_if_it_is_not_in_the_list">Select your ad city, select the nearest city if it is not in the list.</string>
+    <string name="select_city">Select city</string>
+    <string name="select_a_range_on_the_map">Select a range on the map</string>
+    <string name="text_area">After defining the area on the map, you can choose not to display the exact location of the place in the ad.</string>
+    <string name="adding_a_photo_will_increase_your">Adding a photo will increase your visit</string>
+    <string name="adding_a_area">Adding a area</string>
+    <string name="image">Image</string>
+    <string name="ad_registration_guide">Ad registration guide</string>
+    <string name="ad_title">Ad Title</string>
+    <string name="ad_description">Ad description</string>
+    <string name="the_real_value_of_the_goods">The real value of the goods</string>
+    <string name="log_in_register">Log In / Register</string>
+    <string name="please_enter_your_mobile_number">Please enter your mobile number.</string>
+    <string name="enter_code_auth">Enter the authentication code</string>
+    <string name="enter_code_auth_test">Please enter the verification code sent to .</string>
+    <string name="welcome">Welcome</string>
+    <string name="let_s_get_start">let’s get start</string>
+    <string name="english">English</string>
+    <string name="iran">Iran</string>
+    <string name="persianLang">Persian</string>
+    <string name="see_more">see more</string>
+    <string name="recommend">Recommend</string>
+    <string name="search_address_or_near_you">Search address</string>
+    <string name="the_lasted_ads">The Lasted ads</string>
+    <string name="the_recommended_ads">The Recommended </string>
+    <string name="the_most_visited_ads">The Most Visited</string>
+    <string name="dreams_house">Dreams house</string>
+    <string name="pricing">Pricing</string>
+    <string name="like">Like</string>
+    <string name="comments">Comments</string>
+    <string name="map_view">Map View</string>
+    <string name="rent_now">Rent now</string>
+    <string name="real_value">Actual Value :</string>
+    <string name="daily_fee_rent">Daily rental fee :</string>
+    <string name="view_profile">view Profile</string>
+    <string name="base_photo">Base Photo</string>
+    <string name="select_as_original_photo">Select as original photo</string>
+    <string name="setting_photo">Photo settings</string>
+    <string name="account_details">Account details</string>
+    <string name="ads_registered_by_you">Ads registered</string>
+    <string name="avatar">Avatar</string>
+    <string name="phone_number">Phone number</string>
+    <string name="change_username">Change username</string>
+    <string name="new_username">new username</string>
+    <string name="cession_type">Cession type</string>
+    <string name="choose_city">Choose city</string>
+    <string name="enter_this_item">Enter this item</string>
+    <string name="enter_this_item_with_star">* Enter this item *</string>
+    <string name="inventory">Inventory</string>
+    <string name="view">View</string>
+
+
+    //for dotIndicatorr
+    <attr name="dampingRatio" format="float" />
+    <attr name="dotsClickable" format="boolean" />
+    <attr name="dotsColor" format="color" />
+    <attr name="dotsCornerRadius" format="dimension" />
+    <attr name="dotsSize" format="dimension" />
+    <attr name="dotsSpacing" format="dimension" />
+    <attr name="dotsStrokeColor" format="color" />
+    <attr name="dotsStrokeWidth" format="dimension" />
+    <attr name="dotsWidthFactor" format="float" />
+    <attr name="progressMode" format="boolean" />
+    <attr name="selectedDotColor" format="color" />
+    <attr name="stiffness" format="float" />
+
+    <declare-styleable name="DotsIndicator">
+        <attr name="dotsColor" />
+        <attr name="selectedDotColor" />
+        <attr name="dotsSize" />
+        <attr name="dotsWidthFactor" />
+        <attr name="dotsSpacing" />
+        <attr name="dotsCornerRadius" />
+        <attr name="progressMode" />
+        <attr name="dotsClickable" />
+        <attr name="dotsElevation" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="SpringDotsIndicator">
+        <attr name="dotsColor" />
+        <attr name="dotsSize" />
+        <attr name="dotsSpacing" />
+        <attr name="dotsCornerRadius" />
+        <attr name="dotsStrokeWidth" />
+        <attr name="dotsStrokeColor" />
+        <attr name="stiffness" />
+        <attr name="dampingRatio" />
+        <attr name="dotsClickable" />
+    </declare-styleable>
+    <declare-styleable name="WormDotsIndicator">
+        <attr name="dotsColor" />
+        <attr name="dotsSize" />
+        <attr name="dotsSpacing" />
+        <attr name="dotsCornerRadius" />
+        <attr name="dotsStrokeWidth" />
+        <attr name="dotsStrokeColor" />
+        <attr name="dotsClickable" />
+    </declare-styleable>
+
+
+    <declare-styleable name="DateRangeMonthView">
+        <attr format="color" name="title_color"/>
+        <attr format="color" name="week_color"/>
+        <attr format="color" name="range_color"/>
+        <attr format="color" name="selected_date_circle_color"/>
+        <attr format="color" name="selected_date_color"/>
+        <attr format="color" name="default_date_color"/>
+        <attr format="color" name="range_date_color"/>
+        <attr format="color" name="disable_date_color"/>
+        <attr format="boolean" name="enable_time_selection"/>
+        <attr format="dimension" name="text_size_title"/>
+        <attr format="dimension" name="text_size_week"/>
+        <attr format="dimension" name="text_size_date"/>
+        <attr format="integer" name="header_bg"/>
+        <attr format="string" name="calendar_tag"/>
+        <attr format="integer" name="week_offset"/>
+        <attr format="boolean" name="editable"/>
+        <attr format="enum" name="date_selection_mode">
+            <enum name="free_range" value="0"/>
+            <enum name="single" value="1"/>
+            <enum name="fixed_range" value="2"/>
+        </attr>
+    </declare-styleable>
+
+
+    //paging
+    <string name="btn_like" translatable="false">Like</string>
+    <string name="btn_comment" translatable="false">Comment</string>
+    <string name="btn_share" translatable="false">Share</string>
+    <string name="item_title" formatted="false" translatable="false">%s posted %s</string>
+    <string name="item_date" formatted="false" translatable="false">%s at %s</string>
+    <string name="item_likes" formatted="false" translatable="false">%s Likes</string>
+    <string name="author_name" formatted="false" translatable="false">Anonymous</string>
+
+
+    <string name="internal_error">An internal error occurred. please try again later</string>
+    <string name="label_no_internet">The connection appears a little…shoddy a the moment.</string>
+
+    <string name="error_text_label">Wops something happened</string>
+    <string name="ticket">Ticket</string>
+    <string name="enter_the_real_value_of_the_goods">Enter The Real Value Of The Goods</string>
+    <string name="enter_the_price_daily">Enter Daily Rental Price</string>
+    <string name="security_deposit_type">Security Deposit Type</string>
+
+    <string name="your_bookmark">Your Bookmarks</string>
+    <string name="recently_search">Your Recently Search</string>
+    <string name="my_profile">My Profile</string>
+    <string name="my_ads">My Ads</string>
+    <string name="my_bookmark">My Bookmark</string>
+    <string name="recantly_view">Recently View</string>
+    <string name="choose_assignment_type">Choose Assignment Type</string>
+    <string name="deactive">Deactive</string>
+    <string name="deprecated">Deprecated</string>
+    <string name="enter_auth_code">Enter Auth Code</string>
+    <string name="retrieve_the_verification_code">retrieve the verification code</string>
+    <string name="wait_until_the_code">Wait until the code is retrieved</string>
+    <string name="heating">Heating</string>
+    <string name="parking">Parking</string>
+    <string name="cooling">Cooling</string>
+    <string name="hour_price">Hourly price</string>
+    <string name="hourly">Hourly</string>
+    <string name="monthly">Monthly</string>
+    <string name="daily">Daily</string>
+    <string name="monthly_price">Monthly price</string>
+    <string name="annual">Annual</string>
+    <string name="year_price">Annual price</string>
+    <string name="metrazh_home">House area</string>
+    <string name="bedrooms">Bedrooms</string>
+    <string name="bed">Bed</string>
+    <string name="bathroom">Bathrooms</string>
+    <string name="year_construction">Built Year</string>
+    <string name="build">build</string>
+    <string name="kilometer_car">Kilometer of car</string>
+    <string name="fuel_type">Fuel type</string>
+    <string name="year_constra_car">Year construction car</string>
+    <string name="dollar">$</string>
+    <string name="sale">Sell</string>
+    <string name="monthly_free_rent">Monthly rental fee :</string>
+    <string name="yearly_free_rent">Annual Rent :</string>
+    <string name="hoursly_free_rent">Hourly rental fee :</string>
+    <string name="view_comment">View Comment</string>
+    <string name="read_more">Read more</string>
+    <string name="add_your_comment">Add your Comment</string>
+    <string name="contact">Contact</string>
+    <string name="meter_of_house">SQFT</string>
+
+    <string name="select_your_language">Select Your Language</string>
+    <string name="start">Start</string>
+    <string name="select_your_country">Select your city</string>
+    <string name="canada">Canada</string>
+    <string name="enter_city">please Enter city</string>
+    <string name="under">Under</string>
+    <string name="over">Over</string>
+    <string name="any_price">Any price</string>
+    <string name="badroom">Bedroom</string>
+    <string name="post">Post</string>
+    <string name="s">$</string>
+    <string name="please_register_need">To access this item you need to register</string>
+    <string name="car">Car</string>
+    <string name="specify_a_location">Specify a location</string>
+    <string name="enter_the_input">Enter the input</string>
+    <string name="more_details">More details</string>
+    <string name="account">Account</string>
+    <string name="yrar">Year</string>
+    <string name="bath">Bath</string>
+    <string name="bad">bed</string>
+    <string name="what_is_the_use_of_listening">what is the use of listening?</string>
+    <string name="line2_listener">By creating a listen, you can find out about</string>
+    <string name="line3_listener">the latest ads you want and view them.</string>
+    <string name="line4_listener">Touch the bottom button to start</string>
+    <string name="making_listening">Making listening</string>
+    <string name="fill_in_one_of_the_rental_price_fields">Fill in one of the rental price fields</string>
+    <string name="ticket_registration">Ticket Registeration</string>
+    <string name="necessry">Necessry</string>
+    <string name="sections">Sections</string>
+    <string name="description_ticket">Please provide us with full description of your matter, and some one from the respective department will look into it</string>
+    <string name="title_ticket">Please type in a title for your ticket</string>
+    <string name="listenning">Listenning</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="welcome_to_the_ticket_page">Welcome to the ticket page</string>
+    <string name="ticket_2">You have not registered a ticket yet , Please</string>
+    <string name="ticket3">share your questions, criticisms and suggestions</string>
+    <string name="ticket4">to improve and facilitate the work for you,</string>
+    <string name="ticket5">Click the button below to get started</string>
+    <string name="no_active">No Active</string>
+    <string name="any_metrazh">Any Metrazh</string>
+    <string name="any_year">Any Year</string>
+    <string name="any">Any</string>
+    <string name="items">Items</string>
+    <string name="slider1">You can share your car and goods for rent and set your own rules and prices confidently.</string>
+    <string name="sliderTitle1">Rent anything with a guarantee</string>
+    <string name="slider2">The lease is also negotiable. The parties must reach an agreement and PEDPO also has a guarantee for the lessor.</string>
+    <string name="sliderTitle2">Search, find and buy</string>
+    <string name="slider3">Pedpo is a proper and appropriate place to introduce your services</string>
+    <string name="sliderTitle3">Looking for a special and lucrative job?</string>
+    <string name="slider4">If you are looking for any ads in particular Goshbezang is available to help</string>
+    <string name="sliderTitle4">Listenning</string>
+    <string name="slider5">Pedpo is here to keep you posted on the latest ads in other websites and applications</string>
+    <string name="sliderTitle5">Global in Pedpo</string>
+    <string name="goosh">Dear user of the product with phone specifications It has not been registered to your alarm</string>
+    <string name="continue_with_google">Continue with google</string>
+    <string name="your_ads">Your Ads Details</string>
+    <string name="edit_contact_number">Edit contact number</string>
+    <string name="miladi">Miladi</string>
+    <string name="shamsi">Shamsi</string>
+    <string name="type_calendar">Please select the type of calendar</string>
+    <string name="skip">Skip</string>
+    <string name="active">Active</string>
+    <string name="inactive">Inactive</string>
+    <string name="sign_out_description">Are you sure you want to sign out?</string>
+    <string name="store">Store</string>
+    <string name="how_send">How to send</string>
+    <string name="update">Update</string>
+    <string name="evidence">Evidence</string>
+    <string name="my_store">My Store</string>
+    <string name="by_registering_your_business_in_pedpo">By registering your business in Pedpo</string>
+    <string name="from_special_services_we_benefit">from special services We benefit</string>
+    <string name="create_store">Create Store</string>
+    <string name="edit_store">Edit store</string>
+    <string name="length_description">Enter more than 20 characters</string>
+    <string name="show_image">Show image</string>
+    <string name="permission">Permission</string>
+    <string name="year">Year</string>
+    <string name="sqft">SQFT</string>
+    <string name="map">Map</string>
+    <string name="street_view">Street View</string>
+    <string name="booking">Booking</string>
+    <string name="welcome_to_visit_pedpo">Welcome to visit Pedpo</string>
+    <string name="accept">accept</string>
+    <string name="store_picture">Store picture</string>
+    <string name="branches">Branches</string>
+    <string name="add_branches">Add Branches</string>
+    <string name="added_a_branch">You have not added a branch yet, click on the button below to register your branches</string>
+    <string name="address_store">Enter a brief address of your business</string>
+    <string name="name_branch_des">Enter the name of the branch</string>
+    <string name="time">Time</string>
+    <string name="saturday">Saturday</string>
+    <string name="start_time">Start Time</string>
+    <string name="end_time">End Time</string>
+    <string name="add_a_set_of_hours">ADD A SET OF HOURS</string>
+    <string name="shift1">Shift 1</string>
+    <string name="shift2">Shift 2</string>
+    <string name="section_depatment">Department</string>
+    <string name="ticket_title">Ticket Title</string>
+    <string name="ticket_discription">Ticket Description</string>
+    <string name="case_title">Case title</string>
+    <string name="case_description">Case Description</string>
+    <string name="contact_us_description">Please describe your matter in details and someone will contact you.</string>
+    <string name="post_a_lisiting">Post a lisiting</string>
+    <string name="view_store">View Store</string>
+    <string name="store_detail">Store detail</string>
+    <string name="ad_roles">ad Roles</string>
+    <string name="inner_city">inner city</string>
+    <string name="ouner_city">ouner city</string>
+    <string name="ad_type_price">ad Type Price</string>
+    <string name="please_choose_a_type_price_for_this_matter">Please choose a type price for this matter.</string>
+    <string name="enter_the_area">Enter the area</string>
+    <string name="total_rooms">Total rooms</string>
+    <string name="total_bath">Total bath</string>
+    <string name="type_parking">Type Parking</string>
+    <string name="enter_type_heating">Enter Type heating</string>
+    <string name="enter_type_cooling">Enter type cooling</string>
+    <string name="enter_km">Enter Km</string>
+    <string name="enter_type_fuel">Enter Type Fuel</string>
+    <string name="identity_verification">Identity Verification</string>
+    <string name="auth_was_successfull">Authentication was successful</string>
+    <string name="about_me">About me</string>
+    <string name="urgency">Urgency</string>
+    <string name="close_comment">Close Comment</string>
+    <string name="open_comment">Open Comment</string>
+</resources>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+    <data>
+        <variable
+            name="position"
+            type="int"/>
+        <variable
+            name="viewModel"
+            type="com.pedpo.pedporent.model.store.branche.BranchesData.BranchesTO" />
+        <variable
+            name="listener"
+            type="com.pedpo.pedporent.view.adapter.AdapterBranches" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        android:elevation="0dp"
+        app:cardElevation="0dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/back_adapter_paging"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:background="@color/colorPrimary">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_gravity="center|start"
+                android:src="@drawable/ic_baseline_delete_24"
+                app:tint="@color/white"
+                app:layout_constraintStart_toEndOf="@+id/lineRed"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/textTitleOpen"
+                android:textSize="15sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/delete"
+                android:textColor="@color/white"
+                android:layout_gravity="center|start"
+                />
+
+        </LinearLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutAddBraches"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_dark"
+            android:onClick="@{()->listener.onClickBranches(viewModel,position)}"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerBranches"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/textViewOpen"
+                android:id="@+id/nameBranches"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/gray_7"
+                android:text="@{viewModel.name}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/icArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>
+

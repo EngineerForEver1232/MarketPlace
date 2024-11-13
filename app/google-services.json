@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "816643490471",
+    "project_id": "pedponotif",
+    "storage_bucket": "pedponotif.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816643490471:android:d26ea4f49d53de5c40d182",
+        "android_client_info": {
+          "package_name": "com.pedpo.pedporent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "816643490471-4kcef4hpuebpllfvhmaq1evaoplqp50q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pedpo.pedporent",
+            "certificate_hash": "a308f757e54ee6bd3242a62e34685bf35a9d9499"
+          }
+        },
+        {
+          "client_id": "816643490471-drf9co01aodrncncs3rvom5tq3fi8o9k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7eObCfEawcIHhGxYHXxCSQMYVIf6fQ-8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "816643490471-drf9co01aodrncncs3rvom5tq3fi8o9k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
